@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         <div className="reveal-text inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 md:px-6 py-2.5 md:py-3 rounded-full mb-8 md:mb-10 backdrop-blur-xl group hover:border-blue-500/50 transition-colors duration-500">
           <Wand2 className="text-blue-500 w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300 text-[10px] md:text-sm font-bold uppercase tracking-[0.2em]">
-            Starke Web-Lösungen für lokale Firmen
+            Starke Web-Lösungen für lokale Unternehmen
           </span>
         </div>
         
