@@ -17,21 +17,21 @@ const Services: React.FC = () => {
       desc: 'Professionelle Webauftritte, die perfekt auf mobilen Geräten funktionieren und Ihre Kunden regional direkt ansprechen.',
       icon: MousePointer2,
       color: 'from-blue-600 to-blue-400',
-      link: "/Websites.tsx",
+      link: "/websites",
     },
     {
       title: 'Smart Web-Tools',
       desc: 'Praktische Lösungen wie Online-Terminbuchungen oder digitale Speisekarten, die Ihnen Zeit und Arbeit ersparen.',
       icon: Smartphone,
       color: 'from-blue-700 to-indigo-600',
-      link: "/Webapplication.tsx",
+      link: "/webapplication",
     },
     {
       title: 'Lokale Sichtbarkeit',
       desc: 'Wir sorgen dafür, dass Sie bei Google ganz oben stehen, wenn Menschen in Ihrer Nähe nach Ihren Leistungen suchen.',
       icon: Search,
       color: 'from-cyan-600 to-blue-500',
-      link: "/Seo.tsx",
+      link: "/seo",
     },
   ];
 
