@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-400 text-xs font-medium text-center md:text-left">
-            © {currentYear} LocalWeb Agency. Alle Rechte vorbehalten.
+            © {currentYear} LocalWeb. Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-6 md:gap-8 text-[10px] font-black uppercase tracking-widest">
             <a href="#" className="text-slate-400 hover:text-slate-950 transition-colors">Datenschutz</a>

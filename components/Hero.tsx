@@ -44,19 +44,19 @@ const Hero: React.FC = () => {
         
         <div className="reveal-text flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8">
           <a 
-            href="#portfolio" 
+            href="#contact" 
             className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 md:px-12 py-5 md:py-6 font-black text-white transition-all duration-500 bg-blue-600 border border-blue-500 rounded-2xl md:rounded-3xl hover:bg-blue-700 hover:scale-105 shadow-[0_15px_40px_rgba(37,99,235,0.3)] overflow-hidden"
           >
             <span className="relative z-10 flex items-center">
-              Unsere Pakete
+              Kostenlose Erstberatung
               <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" />
             </span>
           </a>
           <a 
-            href="#contact" 
+            href="#services" 
             className="w-full sm:w-auto relative px-10 md:px-12 py-5 md:py-6 font-black text-white group overflow-hidden interactive text-center"
           >
-            <span className="relative z-10">Kostenlose Erstberatung</span>
+            <span className="relative z-10">Unser Angebot einsehen</span>
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-500 group-hover:w-full transition-all duration-500"></div>
           </a>
         </div>
