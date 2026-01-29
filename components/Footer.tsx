@@ -7,14 +7,14 @@ const Footer: React.FC = () => {
 
   const agencyLinks = [
     { name: 'Über uns', id: 'about' },
-    { name: 'Story', id: 'about' },
+    { name: 'Leistungen', id: 'services' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Kontakt', id: 'contact' }
   ];
 
   const serviceLinks = [
     { name: 'Premium Webseiten', id: 'services' },
-    { name: 'Smart Apps', id: 'services' },
+    { name: 'Smarte Apps', id: 'services' },
     { name: 'Lokale SEO', id: 'services' },
     { name: 'Digital Branding', id: 'services' }
   ];
@@ -84,8 +84,8 @@ const Footer: React.FC = () => {
             © {currentYear} LocalWeb. Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-6 md:gap-8 text-[10px] font-black uppercase tracking-widest">
-            <a href="#" className="text-slate-400 hover:text-slate-950 transition-colors">Datenschutz</a>
-            <a href="#" className="text-slate-400 hover:text-slate-950 transition-colors">Impressum</a>
+            <a href="datenschutz" className="text-slate-400 hover:text-slate-950 transition-colors">Datenschutz</a>
+            <a href="impressum" className="text-slate-400 hover:text-slate-950 transition-colors">Impressum</a>
           </div>
         </div>
       </div>
