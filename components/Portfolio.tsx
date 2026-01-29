@@ -22,13 +22,6 @@ const projects = [
     link: '#',
   },
   {
-    title: 'Lokale Dienstleister Web-App',
-    category: 'Entwicklung',
-    image:
-      'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1200',
-    link: '#',
-  },
-  {
     title: 'Gastronomie Buchungssystem',
     category: 'Web-Lösung',
     image:

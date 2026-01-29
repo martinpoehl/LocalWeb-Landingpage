@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <span className="text-xl md:text-2xl font-black font-display tracking-tight text-white leading-none">
               Local<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Web</span>
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/80 mt-1">Creative Dev</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/80 mt-1">Websolutions</span>
           </div>
         </a>
 
