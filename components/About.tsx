@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Globe2 } from 'lucide-react';
+import Link from 'next/link';
 
 const CountUp: React.FC<{ end: number; suffix?: string }> = ({ end, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -103,12 +104,12 @@ const About: React.FC = () => {
               >
                 Referenzen
               </a>
-              <a
-                href="#about"
+              <Link
+                href="/employee"
                 className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-100 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-slate-50 transition-all interactive text-center"
               >
                 Mitarbeiter
-              </a>
+              </Link>
             </div>
           </div>
         </div>

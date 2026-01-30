@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       }`}
     >
       <div className="container mx-auto px-5 md:px-6 flex justify-between items-center">
-        <a href="#home" className="flex items-center gap-4 group interactive z-[70]">
+        <a href="/" className="flex items-center gap-4 group interactive z-[70]">
           <div className="relative">
             <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-2.5 md:p-3 rounded-xl md:rounded-2xl transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 shadow-[0_0_25px_rgba(37,99,235,0.4)]">
               <Code2 className="text-white w-5 h-5 md:w-6 md:h-6" />

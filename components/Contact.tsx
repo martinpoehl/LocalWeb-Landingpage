@@ -55,17 +55,7 @@ const Contact: React.FC = () => {
                 </div>
               ))}
             </div>
-            
-            <div className="pt-8 border-t border-slate-800 hidden lg:block">
-              <h4 className="text-slate-400 text-xs font-black uppercase tracking-widest mb-6">Folgen Sie uns</h4>
-              <div className="flex gap-4">
-                {['GH'].map(social => (
-                  <a key={social} href="#" className="bg-slate-800 hover:bg-blue-600 text-white w-12 h-12 rounded-xl flex items-center justify-center font-black transition-all interactive">
-                    {social}
-                  </a>
-                ))}
-              </div>
-            </div>
+
           </div>
 
           {/* Form Column */}
