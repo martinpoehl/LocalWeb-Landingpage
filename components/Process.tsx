@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, MessageSquare, Palette, Code, Rocket } from 'lucide-react';
+import { ArrowRight, MessageSquare, Palette, Code, Rocket, Send } from 'lucide-react';
 
 const Process: React.FC = () => {
   const steps = [
@@ -59,7 +59,7 @@ const Process: React.FC = () => {
         </div>
         
       {/* CONTENT-WRAPPER */}
-      <div className="relative pt-16 max-w-7xl mx-auto px-4 lg:px-0">
+      <div className="relative pt-28 max-w-7xl mx-auto px-4 lg:px-0">
         <div className="text-center mb-20 md:mb-32 reveal-text">
           <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block">
             Workflow
@@ -150,14 +150,14 @@ const Process: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-32 md:mt-48 text-center reveal-text">
+        <div className="mt-16 text-center reveal-text">
           <a
             href="#contact"
             className="inline-flex items-center gap-4 bg-blue-600 text-white px-12 py-5 rounded-2xl font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)] group"
           >
-            Kostenloses Erstgespräch
-            <ArrowRight
-              size={22}
+            Kostenlose Erstberatung anfragen
+            <Send
+              size={18}
               className="group-hover:translate-x-2 transition-transform"
             />
           </a>
@@ -180,3 +180,7 @@ const Process: React.FC = () => {
 };
 
 export default Process;
+
+
+
+

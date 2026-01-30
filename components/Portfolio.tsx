@@ -66,15 +66,18 @@ const Portfolio: React.FC = () => {
   };
 
   const nextSlide = () => {
-    const isLastSlide = currentIndex === projects.length - 1;
+    const isLastSlide = projects.length - 1 === currentIndex;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-white overflow-hidden">
+    <section
+      id="portfolio"
+      className="py-20 md:py-32 bg-white overflow-hidden text-center"
+    >
       <div className="container mx-auto px-5 md:px-6">
-        {/* Kopfbereich: kein leerer rechter Flex-Bereich */}
+        {/* Kopfbereich */}
         <div className="mb-12 md:mb-20">
           <span className="text-blue-600 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-2 md:mb-4 block reveal-text">
             Portfolio
@@ -83,12 +86,12 @@ const Portfolio: React.FC = () => {
             Lokale Erfolge.
           </h2>
 
-          <div className="mt-4 md:mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-8">
-            <p className="text-slate-600 max-w-md text-base md:text-lg reveal-text">
+          {/* Textblock unter der Überschrift, komplett zentriert */}
+          <div className="mt-4 md:mt-6 flex flex-col items-center justify-center gap-4 md:gap-8">
+            <p className="text-slate-600 max-w-md text-base md:text-lg reveal-text text-center">
               Echte Ergebnisse für echte Unternehmen aus der Region. Entdecken
               Sie unsere neuesten Web-Lösungen.
             </p>
-            {/* Falls du später einen Button ergänzen möchtest, kommt er hier rechts in dieselbe Flex-Zeile */}
           </div>
         </div>
 
@@ -107,12 +110,12 @@ const Portfolio: React.FC = () => {
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent" />
 
-                {/* Caption: alles in einem Block, keine leere rechte Spalte */}
+                {/* Caption komplett zentriert */}
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 z-20">
-                  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-6">
-                    <div className="transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="flex flex-col items-center justify-center gap-4 md:gap-6 text-center">
+                    <div className="transform translate-y-0 transition-transform duration-500">
                       <span className="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-1 md:mb-2 block">
                         {project.category}
                       </span>
@@ -123,7 +126,7 @@ const Portfolio: React.FC = () => {
 
                     <a
                       href={project.link}
-                      className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3.5 md:px-10 md:py-5 rounded-xl md:rounded-2xl font-black text-sm md:text-base hover:bg-blue-600 hover:text-white transition-all shadow-xl interactive"
+                      className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3.5 md:px-10 md:py-5 rounded-xl md:rounded-2xl font-black text-sm md:text-base hover:bg-blue-600 hover:text-white transition-all shadow-xl interactive"
                     >
                       Projekt ansehen
                       <ExternalLink size={18} className="ml-2" />
@@ -162,7 +165,7 @@ const Portfolio: React.FC = () => {
                     : 'w-2.5 bg-slate-200 hover:bg-slate-400'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
-              ></button>
+              />
             ))}
           </div>
         </div>

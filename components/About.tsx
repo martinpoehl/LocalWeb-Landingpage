@@ -70,8 +70,8 @@ const About: React.FC = () => {
               Partner für den Mittelstand
             </span>
             <h2 className="text-4xl md:text-7xl font-black text-slate-950 mb-6 md:mb-10 leading-tight reveal-text">
-              Unsere Expertise für Ihren<br className="hidden md:block" />
-              <span className="text-blue-600 italic">lokalen Erfolg.</span>
+              Unsere Expertise für 
+              <span className="text-blue-600 italic">Ihren Erfolg.</span>
             </h2>
             <p className="text-slate-600 text-lg md:text-2xl leading-relaxed mb-8 md:mb-12 font-light reveal-text">
               Wir wissen, was lokale Unternehmen brauchen: Vertrauen, Klarheit und Ergebnisse. LocalWeb unterstützt
@@ -79,7 +79,7 @@ const About: React.FC = () => {
               vor Ort verrichten. Keine leeren Versprechen, sondern echte Weblösungen für die Nachbarschaft.
             </p>
 
-            <div className="grid grid-cols-2 gap-6 md:gap-10 mb-10 md:mb-16 reveal-text">
+            <div className="grid grid-cols-4 gap-6 md:gap-10 mb-10 md:mb-16 reveal-text">
               <div className="group">
                 <div className="text-3xl md:text-5xl font-black text-slate-950 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">
                   <CountUp end={15} suffix="+" />

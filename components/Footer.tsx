@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                 <Sparkles className="absolute -bottom-1 -left-1 text-cyan-200 w-3 h-3" />
               </div>
               <span className="text-2xl font-bold font-display tracking-tight text-slate-900">
-                Local<span className="text-blue-600">Web</span>
+                Marly<span className="text-blue-600">Couture</span>
               </span>
             </div>
             <p className="text-slate-500 leading-relaxed text-sm md:text-base">
