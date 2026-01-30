@@ -28,9 +28,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { name: 'Start', id: 'home' },
     { name: 'Über uns', id: 'about' },
     { name: 'Leistungen', id: 'services' },
+    { name: 'Preise', id: 'price' },
+    { name: 'Ablauf', id: 'steps' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Kontakt', id: 'contact' },
   ];
