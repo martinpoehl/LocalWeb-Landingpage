@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -10,6 +10,26 @@ import Process from './components/Process';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Employee from './pages/Employee';
+
+// Home page component
+const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
+  return (
+    <>
+      <Header activeSection={activeSection} />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Price />
+        <Process />
+        <Portfolio />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -85,20 +105,14 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen">
-        <Header activeSection={activeSection} />
-        <main>
-            <Hero />
-            <About />
-            <Services />
-            <Price />
-            <Process />
-            <Portfolio />
-            <Contact />
-        </main>
-        <Footer />
+        <Routes>
+          <Route path="/" element={<HomePage activeSection={activeSection} />} />
+          <Route path="/employee" element={<Employee />} />
+        </Routes>
       </div>
     </Router>
   );
 };
 
 export default App;
+

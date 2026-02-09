@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const navItems = [
     { name: 'Über uns', id: 'about' },
     { name: 'Leistungen', id: 'services' },
-    { name: 'Preise', id: 'price' },
+    { name: 'Preise', id: 'pricing' },
     { name: 'Ablauf', id: 'steps' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Kontakt', id: 'contact' },

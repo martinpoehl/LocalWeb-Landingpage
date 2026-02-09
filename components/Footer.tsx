@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-slate-100 pt-16 md:pt-20 pb-8 md:pb-10">
       <div className="container mx-auto px-5 md:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 mb-12 md:mb-16">
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-2 rounded-lg shadow-lg">
@@ -63,20 +63,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-slate-950 font-black uppercase tracking-widest text-[10px] mb-6">Newsletter</h4>
-            <p className="text-slate-500 mb-4 text-xs font-medium">Erhalten Sie monatlich Tipps für Ihren lokalen Online-Erfolg.</p>
-            <form className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="E-Mail" 
-                className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button className="bg-blue-600 text-white p-2.5 rounded-xl hover:bg-blue-700 transition-colors interactive focus:outline-none" aria-label="Subscribe">
-                <Send size={18} />
-              </button>
-            </form>
-          </div>
         </div>
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
