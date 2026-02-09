@@ -37,12 +37,11 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-slate-950/90 backdrop-blur-xl border-b border-white/5 py-3 md:py-4 shadow-lg' 
-          : 'bg-transparent py-6 md:py-10'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${isScrolled
+        ? 'bg-slate-950/90 backdrop-blur-xl border-b border-white/5 py-3 md:py-4 shadow-lg'
+        : 'bg-transparent py-6 md:py-10'
+        }`}
     >
       <div className="container mx-auto px-5 md:px-6 flex justify-between items-center">
         <a href="/" className="flex items-center gap-4 group interactive z-[70]">
@@ -58,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           </div>
           <div className="flex flex-col">
             <span className="text-xl md:text-2xl font-black font-display tracking-tight text-white leading-none">
-              Marly<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Couture</span>
+              Local<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Web</span>
             </span>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/80 mt-1">Websolutions</span>
           </div>
@@ -70,15 +69,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 hover:text-blue-400 ${
-                activeSection === item.id ? 'text-blue-500 scale-110' : 'text-slate-400'
-              }`}
+              className={`text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 hover:text-blue-400 ${activeSection === item.id ? 'text-blue-500 scale-110' : 'text-slate-400'
+                }`}
             >
               {item.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="glow-border relative bg-blue-600 text-white px-8 py-3.5 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl interactive overflow-hidden"
           >
             Anfrage senden
@@ -86,8 +84,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         </nav>
 
         {/* Mobile Toggle */}
-        <button 
-          className="lg:hidden z-[70] text-white p-2 md:p-3 bg-white/5 rounded-xl border border-white/10 interactive focus:outline-none"
+        <button
+          className="lg:hidden z-[110] text-white p-2 md:p-3 bg-white/5 rounded-xl border border-white/10 interactive focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -96,30 +94,27 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`lg:hidden fixed inset-0 bg-slate-950/95 backdrop-blur-2xl transition-all duration-500 ease-in-out z-[65] flex flex-col items-center justify-center ${
-          isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+      <div
+        className={`lg:hidden fixed inset-0 h-[100dvh] bg-gradient-to-b from-slate-900 to-slate-950 transition-all duration-500 ease-in-out z-[100] flex flex-col items-center justify-center ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
       >
         <nav className="flex flex-col items-center gap-8 md:gap-12">
           {navItems.map((item, i) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`text-3xl md:text-5xl font-black transition-all duration-300 transform ${
-                isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              } ${activeSection === item.id ? 'text-blue-500' : 'text-white'}`}
+              className={`text-3xl md:text-5xl font-black transition-all duration-300 transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                } ${activeSection === item.id ? 'text-blue-500' : 'text-white'}`}
               style={{ transitionDelay: `${i * 100}ms` }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
-            className={`mt-4 px-10 py-5 bg-blue-600 text-white rounded-2xl font-black text-lg transition-all transform ${
-              isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
+          <a
+            href="#contact"
+            className={`mt-4 px-10 py-5 bg-blue-600 text-white rounded-2xl font-black text-lg transition-all transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              }`}
             style={{ transitionDelay: `${navItems.length * 100}ms` }}
             onClick={() => setIsMobileMenuOpen(false)}
           >

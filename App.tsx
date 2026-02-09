@@ -11,6 +11,11 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Employee from './pages/Employee';
+import Imprint from './pages/Imprint';
+import Privacy from './pages/Privacy';
+import Websites from './pages/Websites';
+import WebTools from './pages/WebTools';
+import SEO from './pages/SEO';
 
 // Home page component
 const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
@@ -108,6 +113,11 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage activeSection={activeSection} />} />
           <Route path="/employee" element={<Employee />} />
+          <Route path="/impressum" element={<Imprint />} />
+          <Route path="/datenschutz" element={<Privacy />} />
+          <Route path="/websites" element={<Websites />} />
+          <Route path="/web-tools" element={<WebTools />} />
+          <Route path="/seo" element={<SEO />} />
         </Routes>
       </div>
     </Router>

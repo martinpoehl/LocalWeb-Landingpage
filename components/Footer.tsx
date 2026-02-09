@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                 <Sparkles className="absolute -bottom-1 -left-1 text-cyan-200 w-3 h-3" />
               </div>
               <span className="text-2xl font-bold font-display tracking-tight text-slate-900">
-                Marly<span className="text-blue-600">Couture</span>
+                Local<span className="text-blue-600">Web</span>
               </span>
             </div>
             <p className="text-slate-500 leading-relaxed text-sm md:text-base">
@@ -70,8 +70,8 @@ const Footer: React.FC = () => {
             © {currentYear} LocalWeb. Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-6 md:gap-8 text-[10px] font-black uppercase tracking-widest">
-            <a href="datenschutz" className="text-slate-400 hover:text-slate-950 transition-colors">Datenschutz</a>
-            <a href="impressum" className="text-slate-400 hover:text-slate-950 transition-colors">Impressum</a>
+            <a href="/impressum" className="hover:text-blue-500 transition-colors">Impressum</a>
+            <a href="/datenschutz" className="hover:text-blue-500 transition-colors">Datenschutz</a>
           </div>
         </div>
       </div>

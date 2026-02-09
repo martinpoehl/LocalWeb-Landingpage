@@ -1,250 +1,213 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>LocalWeb | Digitale Exzellenz für lokale Unternehmen</title>
 
-    <!-- Optional: Tailwind-CDN vorerst behalten -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>LocalWeb | Digitale Exzellenz für lokale Unternehmen</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lexend:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Optional: Tailwind-CDN vorerst behalten -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Basis-Favicon -->
-    <link rel="icon" href="/media/favicons/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lexend:wght@400;600;700;900&display=swap"
+    rel="stylesheet" />
 
-    <!-- PNG-Varianten -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/media/favicons/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/media/favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="48x48"
-      href="/media/favicons/favicon-48x48.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="64x64"
-      href="/media/favicons/favicon-64x64.png"
-    />
+  <!-- Basis-Favicon -->
+  <link rel="icon" href="/media/favicons/favicon.ico" sizes="any" />
 
-    <!-- Optional: Apple & Android -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/media/favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/media/favicons/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="/media/favicons/android-chrome-512x512.png"
-    />
+  <!-- PNG-Varianten -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/media/favicons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/media/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/media/favicons/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/media/favicons/favicon-64x64.png" />
 
-    <style>
-      :root {
-        --blue-primary: #2563eb;
-        --blue-hover: #1d4ed8;
-      }
+  <!-- Optional: Apple & Android -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/media/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/media/favicons/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/media/favicons/android-chrome-512x512.png" />
 
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-      }
+  <style>
+    :root {
+      --blue-primary: #2563eb;
+      --blue-hover: #1d4ed8;
+    }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #020617;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    section {
+      scroll-margin-top: 120px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
       body {
-        font-family: "Inter", sans-serif;
-        background: #020617;
-        -webkit-tap-highlight-color: transparent;
+        cursor: none !important;
       }
 
-      section {
-        scroll-margin-top: 80px;
-      }
-
-      @media (hover: hover) and (pointer: fine) {
-        body {
-          cursor: none !important;
-        }
-        #custom-cursor,
-        #custom-cursor-ring {
-          display: block !important;
-        }
-        a,
-        button,
-        [role="button"],
-        .interactive {
-          cursor: none !important;
-        }
-      }
-
-      @media (pointer: coarse) {
-        body {
-          cursor: auto;
-        }
-        #custom-cursor,
-        #custom-cursor-ring {
-          display: none !important;
-        }
-      }
-
-      h1,
-      h2,
-      h3,
-      .font-display {
-        font-family: "Lexend", sans-serif;
-      }
-
-      #custom-cursor {
-        width: 8px;
-        height: 8px;
-        background: white;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 10000;
-        box-shadow: 0 0 10px rgba(37, 99, 235, 0.8);
-        transition:
-          transform 0.1s ease-out,
-          background 0.3s ease;
-        display: none;
-      }
-
+      #custom-cursor,
       #custom-cursor-ring {
-        width: 40px;
-        height: 40px;
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition:
-          transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-          border 0.3s ease;
-        display: none;
+        display: block !important;
       }
 
-      .mesh-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #020617;
-        background-image:
-          radial-gradient(at 0% 0%, hsla(220, 16%, 7%, 1) 0, transparent 50%),
-          radial-gradient(at 50% 0%, hsla(210, 39%, 30%, 1) 0, transparent 50%),
-          radial-gradient(
-            at 100% 0%,
-            hsla(200, 49%, 30%, 1) 0,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 0% 100%,
-            hsla(210, 49%, 30%, 1) 0,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 100% 100%,
-            hsla(220, 39%, 30%, 1) 0,
-            transparent 50%
-          );
-        filter: blur(80px);
-        opacity: 0.5;
-        z-index: 0;
+      a,
+      button,
+      [role="button"],
+      .interactive {
+        cursor: none !important;
+      }
+    }
+
+    @media (pointer: coarse) {
+      body {
+        cursor: auto;
       }
 
-      .reveal-text {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      #custom-cursor,
+      #custom-cursor-ring {
+        display: none !important;
       }
+    }
 
-      .reveal-text.visible {
+    h1,
+    h2,
+    h3,
+    .font-display {
+      font-family: "Lexend", sans-serif;
+    }
+
+    #custom-cursor {
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.8);
+      transition:
+        transform 0.1s ease-out,
+        background 0.3s ease;
+      display: none;
+    }
+
+    #custom-cursor-ring {
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition:
+        transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        border 0.3s ease;
+      display: none;
+    }
+
+    .mesh-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #020617;
+      background-image:
+        radial-gradient(at 0% 0%, hsla(220, 16%, 7%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(210, 39%, 30%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%,
+          hsla(200, 49%, 30%, 1) 0,
+          transparent 50%),
+        radial-gradient(at 0% 100%,
+          hsla(210, 49%, 30%, 1) 0,
+          transparent 50%),
+        radial-gradient(at 100% 100%,
+          hsla(220, 39%, 30%, 1) 0,
+          transparent 50%);
+      filter: blur(80px);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .reveal-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glow-border {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow-border::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa, #2563eb, #3b82f6);
+      background-size: 300% 100%;
+      animation: border-flow 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+      border-radius: inherit;
+    }
+
+    @media (hover: hover) {
+      .glow-border:hover::before {
         opacity: 1;
-        transform: translateY(0);
+      }
+    }
+
+    @keyframes border-flow {
+      0% {
+        background-position: 0% 50%;
       }
 
-      .glow-border {
-        position: relative;
-        overflow: hidden;
+      100% {
+        background-position: 100% 50%;
       }
+    }
 
-      .glow-border::before {
-        content: "";
-        position: absolute;
-        inset: -1px;
-        background: linear-gradient(90deg, #3b82f6, #60a5fa, #2563eb, #3b82f6);
-        background-size: 300% 100%;
-        animation: border-flow 4s linear infinite;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: -1;
-        border-radius: inherit;
-      }
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(to right, #3b82f6, #2563eb);
+      z-index: 9999;
+      width: 0%;
+    }
 
-      @media (hover: hover) {
-        .glow-border:hover::before {
-          opacity: 1;
-        }
-      }
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+  </style>
+</head>
 
-      @keyframes border-flow {
-        0% {
-          background-position: 0% 50%;
-        }
-        100% {
-          background-position: 100% 50%;
-        }
-      }
+<body class="overflow-x-hidden selection:bg-blue-500/30 selection:text-white">
+  <div id="scroll-progress"></div>
+  <div id="custom-cursor"></div>
+  <div id="custom-cursor-ring"></div>
+  <div id="root"></div>
 
-      #scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(to right, #3b82f6, #2563eb);
-        z-index: 9999;
-        width: 0%;
-      }
+  <!-- Vite/React Entry -->
+  <script type="module" src="/main.tsx"></script>
+</body>
 
-      :focus:not(:focus-visible) {
-        outline: none;
-      }
-    </style>
-  </head>
-  <body class="overflow-x-hidden selection:bg-blue-500/30 selection:text-white">
-    <div id="scroll-progress"></div>
-    <div id="custom-cursor"></div>
-    <div id="custom-cursor-ring"></div>
-    <div id="root"></div>
-
-    <!-- Vite/React Entry -->
-    <script type="module" src="/main.tsx"></script>
-  </body>
 </html>
