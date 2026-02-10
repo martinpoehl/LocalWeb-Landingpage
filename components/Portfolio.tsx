@@ -74,15 +74,15 @@ const Portfolio: React.FC = () => {
   return (
     <section
       id="portfolio"
-      className="py-20 md:py-32 bg-white overflow-hidden text-center"
+      className="py-20 md:py-24 bg-white overflow-hidden text-center"
     >
       <div className="container mx-auto px-5 md:px-6">
         {/* Kopfbereich */}
-        <div className="mb-12 md:mb-20">
+        <div className="mb-12 md:mb-16">
           <span className="text-blue-600 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-2 md:mb-4 block reveal-text">
             Portfolio
           </span>
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight reveal-text">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight reveal-text">
             Lokale Erfolge.
           </h2>
 
@@ -97,13 +97,12 @@ const Portfolio: React.FC = () => {
 
         {/* Portfolio Slider */}
         <div className="relative group max-w-6xl mx-auto reveal-text">
-          <div className="w-full h-[350px] sm:h-[450px] md:h-[600px] rounded-[2rem] md:rounded-[3rem] bg-slate-200 overflow-hidden relative shadow-2xl shadow-slate-200 reveal-container">
+          <div className="w-full h-[350px] sm:h-[450px] md:h-[500px] rounded-[2rem] md:rounded-[3rem] bg-slate-200 overflow-hidden relative shadow-2xl shadow-slate-200 reveal-container">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                }`}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  }`}
               >
                 <img
                   src={project.image}
@@ -119,14 +118,14 @@ const Portfolio: React.FC = () => {
                       <span className="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-1 md:mb-2 block">
                         {project.category}
                       </span>
-                      <h3 className="text-2xl md:text-5xl font-black text-white leading-tight">
+                      <h3 className="text-2xl md:text-4xl font-black text-white leading-tight">
                         {project.title}
                       </h3>
                     </div>
 
                     <a
                       href={project.link}
-                      className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3.5 md:px-10 md:py-5 rounded-xl md:rounded-2xl font-black text-sm md:text-base hover:bg-blue-600 hover:text-white transition-all shadow-xl interactive"
+                      className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-sm md:text-base hover:bg-blue-600 hover:text-white transition-all shadow-xl interactive"
                     >
                       Projekt ansehen
                       <ExternalLink size={18} className="ml-2" />
@@ -159,11 +158,10 @@ const Portfolio: React.FC = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`h-2.5 rounded-full transition-all duration-500 interactive ${
-                  index === currentIndex
+                className={`h-2.5 rounded-full transition-all duration-500 interactive ${index === currentIndex
                     ? 'w-8 md:w-16 bg-blue-600 shadow-lg shadow-blue-200'
                     : 'w-2.5 bg-slate-200 hover:bg-slate-400'
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

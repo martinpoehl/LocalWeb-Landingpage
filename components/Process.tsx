@@ -29,7 +29,7 @@ const Process: React.FC = () => {
     <>
       <section
         id="steps"
-        className="pb-24 md:py-30 bg-slate-950 relative overflow-hidden"
+        className="pb-20 md:py-24 bg-slate-950 relative overflow-hidden"
       >
         {/* Background Decor */}
         <div className="absolute top-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
@@ -59,12 +59,12 @@ const Process: React.FC = () => {
         </div>
 
         {/* CONTENT-WRAPPER */}
-        <div className="relative pt-28 max-w-7xl mx-auto px-4 lg:px-0">
-          <div className="text-center mb-20 md:mb-32 reveal-text">
+        <div className="relative pt-20 max-w-7xl mx-auto px-4 lg:px-0">
+          <div className="text-center mb-16 md:mb-20 reveal-text">
             <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block">
               Workflow
             </span>
-            <h2 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter">
               In 4 Schritten zum <span className="text-blue-500">Erfolg.</span>
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base">
@@ -132,8 +132,8 @@ const Process: React.FC = () => {
                   </div>
 
                   {/* Step Card Content - Compact on mobile, full on desktop */}
-                  <div className="flex-1 lg:text-left lg:h-full bg-slate-900/30 lg:bg-slate-900/20 backdrop-blur-md border border-white/5 p-4 lg:p-10 rounded-2xl lg:rounded-[2.5rem] transition-all duration-500 group-hover:bg-slate-900/40 group-hover:border-white/10 w-full">
-                    <h3 className="text-base lg:text-2xl font-bold lg:font-black text-white mb-1 lg:mb-4 tracking-tight group-hover:text-blue-400 transition-colors">
+                  <div className="flex-1 lg:text-left lg:h-full bg-slate-900/30 lg:bg-slate-900/20 backdrop-blur-md border border-white/5 p-4 lg:p-8 rounded-2xl lg:rounded-[2.5rem] transition-all duration-500 group-hover:bg-slate-900/40 group-hover:border-white/10 w-full">
+                    <h3 className="text-base lg:text-xl font-bold lg:font-black text-white mb-1 lg:mb-4 tracking-tight group-hover:text-blue-400 transition-colors">
                       {step.title}
                     </h3>
                     <p className="text-slate-400 text-xs lg:text-base leading-relaxed font-light group-hover:text-slate-400 transition-colors">
