@@ -69,15 +69,16 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 hover:text-blue-400 ${activeSection === item.id ? 'text-blue-500 scale-110' : 'text-slate-400'
+              className={`group relative text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 hover:text-blue-400 ${activeSection === item.id ? 'text-blue-500 scale-110' : 'text-slate-400'
                 }`}
             >
               {item.name}
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 ${activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </a>
           ))}
           <a
             href="#contact"
-            className="glow-border relative bg-blue-600 text-white px-8 py-3.5 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl interactive overflow-hidden"
+            className="glow-border relative bg-blue-600 text-white px-8 py-3.5 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive"
           >
             Anfrage senden
           </a>
@@ -103,12 +104,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`text-3xl md:text-5xl font-black transition-all duration-300 transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              className={`group relative text-3xl md:text-5xl font-black transition-all duration-300 transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                 } ${activeSection === item.id ? 'text-blue-500' : 'text-white'}`}
               style={{ transitionDelay: `${i * 100}ms` }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
+              <span className={`absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 ${activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </a>
           ))}
           <a

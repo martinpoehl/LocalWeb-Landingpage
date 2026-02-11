@@ -116,8 +116,8 @@ const About: React.FC = () => {
               <span className="text-blue-600 font-black uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 md:mb-8 block reveal-text">
                 Partner für den Mittelstand
               </span>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-950 mb-6 md:mb-8 leading-tight reveal-text">
-                Unsere Expertise für
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight reveal-text">
+                Unsere Expertise für <br />
                 <span className="text-blue-600 italic">Ihren Erfolg.</span>
               </h2>
               <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 font-light reveal-text">
@@ -147,13 +147,13 @@ const About: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 reveal-text">
                 <a
                   href="#portfolio"
-                  className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 transition-all shadow-xl interactive text-center"
+                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive text-center"
                 >
                   Referenzen
                 </a>
                 <Link
                   href="/employee"
-                  className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-100 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-slate-50 transition-all interactive text-center"
+                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-100 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-blue-600 hover:text-white hover:scale-105 transition-all duration-300 interactive text-center"
                 >
                   Mitarbeiter
                 </Link>

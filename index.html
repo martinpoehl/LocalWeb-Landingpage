@@ -152,13 +152,13 @@
 
     .glow-border {
       position: relative;
-      overflow: hidden;
+      z-index: 1;
     }
 
     .glow-border::before {
       content: "";
       position: absolute;
-      inset: -1px;
+      inset: -3px;
       background: linear-gradient(90deg, #3b82f6, #60a5fa, #2563eb, #3b82f6);
       background-size: 300% 100%;
       animation: border-flow 4s linear infinite;
@@ -171,6 +171,11 @@
     @media (hover: hover) {
       .glow-border:hover::before {
         opacity: 1;
+      }
+
+      .glow-border:hover {
+        box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        border-color: transparent !important;
       }
     }
 

@@ -34,29 +34,7 @@ const Process: React.FC = () => {
         {/* Background Decor */}
         <div className="absolute top-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
-        {/* --- ENHANCED HORIZONTAL DIVIDER - LEFT ALIGNED --- */}
-        <div className="relative w-screen left-0 reveal-text group">
-          {/* Main Line - Starting from Left with strong gradient */}
-          <div className="h-[2px] w-full bg-gradient-to-r from-blue-500 via-blue-400/50 to-transparent shadow-[0_0_20px_rgba(59,130,246,0.3)]"></div>
 
-          {/* Glow Line - Soft edge starting from left */}
-          <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-cyan-400 via-cyan-400/20 to-transparent blur-[3px] opacity-60"></div>
-
-          {/* Highlight Orbit - Now Aligned with the Start of Container Content (Left side) */}
-          <div className="absolute top-1/2 left-0 -translate-y-1/2 ml-0 lg:ml-2">
-            {/* Outer Glow Circle */}
-            <div className="w-64 h-24 bg-blue-600/30 blur-[60px] rounded-full pointer-events-none -translate-x-1/2"></div>
-
-            {/* Inner Glow Circle */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-32 h-8 bg-blue-400/40 blur-xl rounded-full -translate-x-1/2"></div>
-
-            {/* The "Star" Core */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_25px_#fff,0_0_50px_rgba(59,130,246,1)] animate-pulse -translate-x-1/2"></div>
-
-            {/* Floating particles around core */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-12 h-12 border border-blue-400/40 rounded-full animate-spin-slow -translate-x-1/2"></div>
-          </div>
-        </div>
 
         {/* CONTENT-WRAPPER */}
         <div className="relative pt-20 max-w-7xl mx-auto px-4 lg:px-0">
@@ -156,10 +134,6 @@ const Process: React.FC = () => {
               className="inline-flex items-center gap-4 bg-blue-600 text-white px-12 py-5 rounded-2xl font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)] group"
             >
               Kostenlose Erstberatung anfragen
-              <Send
-                size={18}
-                className="group-hover:translate-x-2 transition-transform"
-              />
             </a>
           </div>
         </div>

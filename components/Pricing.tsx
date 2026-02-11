@@ -94,7 +94,7 @@ const Pricing: React.FC = () => {
                 onClick={() => setExpandedIndex(isExpanded ? null : idx)}
                 className={`relative p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-700 group overflow-hidden cursor-pointer md:cursor-auto ${isVisible ? 'opacity-100 translate-y-0 rotate-x-0' : 'opacity-0 translate-y-20 rotate-x-12'
                   } ${plan.highlight
-                    ? 'bg-slate-900 text-white shadow-[0_30px_60px_rgba(15,23,42,0.2)] md:scale-105 z-20 hover:scale-110 hover:shadow-[0_40px_80px_rgba(37,99,235,0.3)]'
+                    ? 'bg-slate-900 text-white shadow-[0_30px_60px_rgba(15,23,42,0.2)] md:scale-105 z-20 md:hover:scale-110 hover:shadow-[0_40px_80px_rgba(37,99,235,0.3)]'
                     : 'bg-white border border-slate-200 text-slate-900 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:-translate-y-2'
                   }`}
                 style={{ transitionDelay: `${plan.delay}ms` }}
