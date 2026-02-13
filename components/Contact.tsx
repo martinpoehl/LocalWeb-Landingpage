@@ -1,24 +1,36 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.current) return;
+
     setStatus('submitting');
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+
+    emailjs.sendForm(
+      'YOUR_SERVICE_ID',    // Ersetzen Sie dies mit Ihrer Service ID von EmailJS
+      'YOUR_TEMPLATE_ID',   // Ersetzen Sie dies mit Ihrer Template ID von EmailJS
+      form.current,
+      'YOUR_PUBLIC_KEY'     // Ersetzen Sie dies mit Ihrem Public Key von EmailJS
+    ).then(
+      () => {
+        setStatus('success');
+        form.current?.reset();
+        setTimeout(() => setStatus('idle'), 3000);
+      },
+      (error) => {
+        console.error('FAILED...', error);
+        setStatus('error');
+        // Optional: Dem Benutzer eine Fehlermeldung anzeigen
+        setTimeout(() => setStatus('idle'), 3000);
+      }
+    );
   };
 
   const contactInfo = [
@@ -60,15 +72,14 @@ const Contact: React.FC = () => {
 
           {/* Form Column */}
           <div className="lg:col-span-2 reveal-text order-1 lg:order-2">
-            <form onSubmit={handleSubmit} className="bg-slate-800/50 p-6 sm:p-8 md:p-8 rounded-[2rem] md:rounded-[2rem] border border-slate-700/50 backdrop-blur-md">
+            <form ref={form} onSubmit={handleSubmit} className="bg-slate-800/50 p-6 sm:p-8 md:p-8 rounded-[2rem] md:rounded-[2rem] border border-slate-700/50 backdrop-blur-md">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">Name</label>
                   <input
                     type="text"
+                    name="user_name"
                     required
-                    value={formData.name}
-                    onChange={e => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Ihr Name"
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
                   />
@@ -77,9 +88,8 @@ const Contact: React.FC = () => {
                   <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">E-Mail</label>
                   <input
                     type="email"
+                    name="user_email"
                     required
-                    value={formData.email}
-                    onChange={e => setFormData({ ...formData, email: e.target.value })}
                     placeholder="ihre@email.de"
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
                   />
@@ -89,8 +99,7 @@ const Contact: React.FC = () => {
                 <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">Betreff</label>
                 <input
                   type="text"
-                  value={formData.subject}
-                  onChange={e => setFormData({ ...formData, subject: e.target.value })}
+                  name="subject"
                   placeholder="Wie können wir helfen?"
                   className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
                 />
@@ -99,9 +108,8 @@ const Contact: React.FC = () => {
                 <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">Nachricht</label>
                 <textarea
                   rows={4}
+                  name="message"
                   required
-                  value={formData.message}
-                  onChange={e => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Ihr Anliegen..."
                   className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 resize-none"
                 ></textarea>
@@ -110,14 +118,18 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={status !== 'idle'}
-                className={`w-full group inline-flex items-center justify-center px-8 py-5 font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive ${status === 'success' ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'
-                  }`}
+                className={`w-full group inline-flex items-center justify-center px-8 py-5 font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive ${
+                  status === 'success' ? 'bg-green-600' : 
+                  status === 'error' ? 'bg-red-600' : 
+                  'bg-blue-600 hover:bg-blue-700'
+                }`}
               >
                 {status === 'idle' && (
                   <>Anfrage senden <Send size={18} className="ml-2" /></>
                 )}
                 {status === 'submitting' && 'Wird gesendet...'}
                 {status === 'success' && 'Gesendet!'}
+                {status === 'error' && 'Fehler! Bitte erneut versuchen.'}
               </button>
             </form>
           </div>
