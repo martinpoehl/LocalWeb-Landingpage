@@ -32,32 +32,33 @@ const Employee: React.FC = () => {
       skills: ['Figma', 'Adobe XD', 'Prototyping', 'Brand Design'],
       email: 'sarah@localweb.ch',
       linkedin: 'https://linkedin.com',
-    },
-    {
-      name: 'Luca Brunner',
-      role: 'Frontend Developer',
-      bio: 'Als leidenschaftlicher Frontend-Entwickler liebe ich es, Designs zum Leben zu erwecken. Performance und Accessibility stehen bei mir an erster Stelle.',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-      skills: ['Vue.js', 'React', 'CSS/SASS', 'Animation'],
-      email: 'luca@localweb.ch',
-      github: 'https://github.com',
-    },
+    }
   ];
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-white/5">
-        <div className="container mx-auto px-5 md:px-6 py-4 flex items-center justify-between">
-          <a
-            href="/"
-            className="flex items-center gap-3 text-white hover:text-blue-400 transition-colors group"
-          >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            <span className="font-bold">Zurück zur Startseite</span>
-          </a>
-        </div>
-      </header>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+  <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+    <a
+      href="/"
+      className="text-2xl font-bold font-display tracking-tight text-white flex items-center gap-2"
+    >
+      <span>
+        Local<span className="text-blue-600">Web</span>
+      </span>
+    </a>
+
+    <a
+      href="/"
+      className="flex items-center gap-2 text-sm font-medium text-white hover:text-blue-400 transition-colors group"
+    >
+      <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+      <span>Zurück zur Startseite</span>
+    </a>
+  </div>
+</header>
+
+
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
