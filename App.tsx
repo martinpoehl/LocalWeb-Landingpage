@@ -62,7 +62,7 @@ const App: React.FC = () => {
       const scrolled = (winScroll / height) * 100;
       progress.style.width = scrolled + '%';
 
-      const sections = ['home', 'about', 'services', 'portfolio', 'contact'];
+      const sections = ['home', 'about', 'services', 'pricing', 'steps', 'portfolio', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
