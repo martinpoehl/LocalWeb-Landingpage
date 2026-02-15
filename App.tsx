@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { ChevronUp } from 'lucide-react'; // Import ChevronUp icon
 
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -38,6 +39,7 @@ const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [showScrollToTopButton, setShowScrollToTopButton] = useState(false); // New state for scroll to top button
 
   useEffect(() => {
     const cursor = document.getElementById('custom-cursor');
@@ -52,7 +54,7 @@ const App: React.FC = () => {
       ring.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
     };
 
-    // Scroll Progress & Active Section
+    // Scroll Progress, Active Section & Scroll to Top Button Visibility
     const handleScroll = () => {
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
@@ -61,6 +63,13 @@ const App: React.FC = () => {
         document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
       progress.style.width = scrolled + '%';
+
+      // Update scroll to top button visibility
+      if (window.scrollY > 300) { // Show button after scrolling 300px
+        setShowScrollToTopButton(true);
+      } else {
+        setShowScrollToTopButton(false);
+      }
 
       const sections = ['home', 'about', 'services', 'pricing', 'steps', 'portfolio', 'contact'];
       const scrollPosition = window.scrollY + 100;
@@ -107,6 +116,13 @@ const App: React.FC = () => {
     };
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <Router>
       <div className="min-h-screen">
@@ -119,6 +135,15 @@ const App: React.FC = () => {
           <Route path="/web-tools" element={<WebTools />} />
           <Route path="/seo" element={<SEO />} />
         </Routes>
+        {showScrollToTopButton && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-blue-600 text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 interactive opacity-50 hover:opacity-100"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
+        )}
       </div>
     </Router>
   );
