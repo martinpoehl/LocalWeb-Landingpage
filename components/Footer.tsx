@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Code2, Globe, Send, Sparkles } from 'lucide-react';
+import { Code2, Globe, Send, Sparkles, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -8,15 +8,16 @@ const Footer: React.FC = () => {
   const agencyLinks = [
     { name: 'Über uns', id: 'about' },
     { name: 'Leistungen', id: 'services' },
+    { name: 'Preise', id: 'pricing' },
+    { name: 'Ablauf', id: 'steps' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Kontakt', id: 'contact' }
   ];
 
   const serviceLinks = [
-    { name: 'Premium Webseiten', id: 'services' },
-    { name: 'Smarte Apps', id: 'services' },
-    { name: 'Lokale SEO', id: 'services' },
-    { name: 'Digital Branding', id: 'services' }
+    { name: 'Premium Webseiten', href: '/websites' },
+    { name: 'Smarte Apps', href: '/web-tools' },
+    { name: 'Lokale Sichtbarkeit', href: '/seo' }
   ];
 
   return (
@@ -39,25 +40,52 @@ const Footer: React.FC = () => {
             <p className="text-slate-500 leading-relaxed text-sm md:text-base">
               Wir bauen die Brücke in die digitale Welt. Professionelle Web-Lösungen für lokale Unternehmen mit Vision und Kreativität.
             </p>
+
+            {/* Contact Information */}
+            <div className="flex flex-wrap items-center gap-4 text-slate-600 text-sm">
+              <div className="flex items-center gap-1">
+                <Mail size={16} className="text-blue-600" />
+                <a href="mailto:info@localweb.ch" className="hover:text-blue-600 transition-colors">info@localweb.ch</a>
+              </div>
+              <span className="text-slate-400">•</span>
+              <div className="flex items-center gap-1">
+                <Phone size={16} className="text-blue-600" />
+                <a href="tel:+41793643417" className="hover:text-blue-600 transition-colors">+41 793 643 417</a>
+              </div>
+              <span className="text-slate-400">•</span>
+              <div className="flex items-center gap-1">
+                <MapPin size={16} className="text-blue-600" />
+                <span>Winterthur, ZH</span>
+              </div>
+            </div>
           </div>
 
           <div className="sm:pl-4">
-            <h4 className="text-slate-950 font-black uppercase tracking-widest text-[10px] mb-6">Agentur</h4>
-            <ul className="space-y-4">
-              {agencyLinks.map(link => (
-                <li key={link.name}>
-                  <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
-                </li>
-              ))}
-            </ul>
+            <h4 className="text-slate-950 text-sm font-bold uppercase tracking-wide mb-6">Webseite</h4>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+              <ul className="space-y-4">
+                {agencyLinks.slice(0, 3).map(link => (
+                  <li key={link.name}>
+                    <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-4">
+                {agencyLinks.slice(3).map(link => (
+                  <li key={link.name}>
+                    <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div>
-            <h4 className="text-slate-950 font-black uppercase tracking-widest text-[10px] mb-6">Leistungen</h4>
+            <h4 className="text-slate-950 text-sm font-bold uppercase tracking-wide mb-6">Leistungen</h4>
             <ul className="space-y-4">
               {serviceLinks.map(link => (
                 <li key={link.name}>
-                  <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
+                  <a href={link.href ? link.href : `#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
                 </li>
               ))}
             </ul>

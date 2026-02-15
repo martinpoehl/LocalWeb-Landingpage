@@ -113,7 +113,7 @@ const Contact: React.FC = () => {
                     type="email"
                     name="user_email"
                     required
-                    placeholder="ihre@email.de"
+                    placeholder="ihre@email.ch"
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
                   />
                 </div>
@@ -159,10 +159,9 @@ const Contact: React.FC = () => {
                     <option value="" disabled>
                       Bitte wählen
                     </option>
-                    <option value="new">Neue Website</option>
-                    <option value="relaunch">Relaunch</option>
-                    <option value="landingpage">Landingpage</option>
+                    <option value="page">Website</option>
                     <option value="shop">Online-Shop</option>
+                    <option value="app">Webapplikation</option>
                   </select>
                 </div>
                 <div>
@@ -181,30 +180,6 @@ const Contact: React.FC = () => {
                     <option value="3-6k">3’000 – 6’000 CHF</option>
                     <option value="6k-plus">Über 6’000 CHF</option>
                   </select>
-                </div>
-              </div>
-
-              {/* Termine */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
-                <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    Wunsch-Start (optional)
-                  </label>
-                  <input
-                    type="date"
-                    name="start_date"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    Deadline (optional)
-                  </label>
-                  <input
-                    type="date"
-                    name="deadline"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
-                  />
                 </div>
               </div>
 

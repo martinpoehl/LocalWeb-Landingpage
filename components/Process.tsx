@@ -43,7 +43,7 @@ const Process: React.FC = () => {
               Workflow
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter">
-              4 Schritte zum <span className="text-blue-500">Erfolg.</span>
+              In 4 Schritten zum <span className="text-blue-500">Erfolg.</span>
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base">
               Ein strukturierter Prozess für messbare Ergebnisse. Unser Ansatz folgt vier klar definierten Schritten – transparent, effizient und immer auf Ihr Ziel ausgerichtet:
