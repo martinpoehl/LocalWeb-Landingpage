@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               {serviceLinks.map(link => (
                 <li key={link.name}>
-                  <a href={link.href ? link.href : `#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
+                  <a href={link.href} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
                 </li>
               ))}
             </ul>
