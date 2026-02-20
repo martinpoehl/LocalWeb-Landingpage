@@ -90,7 +90,7 @@ const About: React.FC = () => {
 
               <div className="relative z-10 p-2 md:p-4 border border-slate-100 rounded-[2.5rem] md:rounded-[3rem] bg-white shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1000"
+                  src="/media/images/about.jpg"
                   alt="Lokale Unternehmen stärken"
                   className="rounded-[2rem] md:rounded-[2.5rem] shadow-inner transition-all duration-700 grayscale hover:grayscale-0"
                 />
