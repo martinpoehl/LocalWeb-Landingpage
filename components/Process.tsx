@@ -93,7 +93,7 @@ const Process: React.FC = () => {
               {steps.map((step, idx) => (
                 <div
                   key={idx}
-                  className="reveal-text group relative flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:gap-0"
+                  className="reveal-text group relative flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:gap-0 transition-transform duration-500 hover:scale-105"
                 >
                   {/* Step Icon - Compact on mobile */}
                   <div className="relative flex-shrink-0 lg:mb-10 z-20">
