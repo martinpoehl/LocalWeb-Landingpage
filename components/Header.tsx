@@ -89,9 +89,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           </div>
           <div className="flex flex-col">
             <span className="text-xl md:text-xl font-black font-display tracking-tight text-white leading-none">
-              Local<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Web</span>
+              Local<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 hover:from-cyan-400 hover:to-blue-400 transition-all duration-500 cursor-default">Web</span>
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/80 mt-1">Websolutions</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400/80 mt-1 hover:text-cyan-400 transition-colors duration-300 cursor-default">Websolutions</span>
           </div>
         </a>
 

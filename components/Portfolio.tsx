@@ -79,7 +79,7 @@ const Portfolio: React.FC = () => {
       <div className="container mx-auto px-5 md:px-6">
         {/* Kopfbereich */}
         <div className="mb-12 md:mb-16">
-          <span className="text-blue-600 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-2 md:mb-4 block reveal-text">
+          <span className="text-blue-600 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-2 md:mb-4 block reveal-text hover:text-cyan-500 transition-colors duration-300 cursor-default">
             Portfolio
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight reveal-text">

@@ -78,6 +78,9 @@ const GlobeButton: React.FC = () => {
 };
 
 const About: React.FC = () => {
+  const [isImageGrayscale, setIsImageGrayscale] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+
   return (
     <>
       <section id="about" className="py-20 md:py-24 bg-white overflow-hidden relative">
@@ -92,33 +95,36 @@ const About: React.FC = () => {
                 <img
                   src="/media/images/about.jpg"
                   alt="Lokale Unternehmen stärken"
-                  className="rounded-[2rem] md:rounded-[2.5rem] shadow-inner transition-all duration-700 grayscale hover:grayscale-0"
+                  className={`rounded-[2rem] md:rounded-[2.5rem] shadow-inner transition-all duration-1000 ${isImageGrayscale ? 'grayscale hover:grayscale-0' : 'grayscale-0 hover:grayscale'} ${isAnimating ? 'brightness-125 scale-[1.02] rotate-1' : 'brightness-100 scale-100 rotate-0'}`}
                 />
 
                 <div
                   onClick={(e) => {
-                    const target = e.currentTarget;
-                    target.classList.add('animate-shockwave');
-                    setTimeout(() => target.classList.remove('animate-shockwave'), 1000);
+                    if (isAnimating) return;
+                    setIsAnimating(true);
+                    setIsImageGrayscale(!isImageGrayscale);
+                    setTimeout(() => setIsAnimating(false), 1000);
                   }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-24 md:h-24 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 z-20 group"
+                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-24 md:h-24 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-2xl cursor-pointer hover:scale-110 active:scale-95 transition-all duration-500 z-20 group ${isAnimating ? 'animate-bounce-short scale-125 bg-cyan-500' : ''}`}
                 >
-                  <div className="absolute inset-0 rounded-full bg-blue-600 opacity-0 group-[.animate-shockwave]:animate-ping-large"></div>
-                  <div className="absolute inset-0 rounded-full bg-cyan-400 opacity-0 group-[.animate-shockwave]:animate-ping-delayed"></div>
+                  {/* Enhanced Shockwaves */}
+                  <div className={`absolute inset-0 rounded-full bg-blue-600 opacity-0 ${isAnimating ? 'animate-ping-large' : ''}`}></div>
+                  <div className={`absolute inset-0 rounded-full bg-cyan-400 opacity-0 ${isAnimating ? 'animate-ping-delayed' : ''}`}></div>
+                  <div className={`absolute inset-0 rounded-full bg-white opacity-0 ${isAnimating ? 'animate-ping-fast' : ''}`}></div>
 
-                  <Globe2 size={32} className="animate-spin-slow md:hidden group-hover:animate-spin-fast group-[.animate-shockwave]:animate-spin-super-fast" />
-                  <Globe2 size={40} className="animate-spin-slow hidden md:block group-hover:animate-spin-fast group-[.animate-shockwave]:animate-spin-super-fast" />
+                  <Globe2 size={32} className={`md:hidden transition-all duration-500 ${isAnimating ? 'animate-spin-super-fast text-white' : 'animate-spin-slow group-hover:animate-spin-fast'}`} />
+                  <Globe2 size={40} className={`hidden md:block transition-all duration-500 ${isAnimating ? 'animate-spin-super-fast text-white' : 'animate-spin-slow group-hover:animate-spin-fast'}`} />
                 </div>
               </div>
             </div>
 
             <div className="w-full lg:w-1/2 order-1 lg:order-2">
-              <span className="text-blue-600 font-black uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 md:mb-8 block reveal-text">
+              <span className="text-blue-600 font-black uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 md:mb-8 block reveal-text hover:text-cyan-500 transition-colors duration-300 cursor-default">
                 Partner für den Mittelstand
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight reveal-text">
                 Unsere Expertise für <br />
-                <span className="text-blue-600 italic">Ihren Erfolg.</span>
+                <span className="text-blue-600 italic hover:text-cyan-500 transition-colors duration-500 cursor-default">Ihren Erfolg.</span>
               </h2>
               <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 font-light reveal-text">
                 Wir wissen, was lokale Unternehmen brauchen: Vertrauen, Klarheit und Ergebnisse. LocalWeb unterstützt
@@ -165,24 +171,38 @@ const About: React.FC = () => {
       <style>{`
         @keyframes ping-large {
           0% { transform: scale(1); opacity: 0.8; }
-          100% { transform: scale(3); opacity: 0; }
+          100% { transform: scale(5); opacity: 0; }
         }
         @keyframes ping-delayed {
           0% { transform: scale(1); opacity: 0; }
-          20% { opacity: 0.6; }
+          20% { opacity: 0.8; }
+          100% { transform: scale(4); opacity: 0; }
+        }
+        @keyframes ping-fast {
+          0% { transform: scale(1); opacity: 1; }
           100% { transform: scale(2.5); opacity: 0; }
         }
+        @keyframes bounce-short {
+          0%, 100% { transform: translate(-50%, -50%) scale(1.25); }
+          50% { transform: translate(-50%, -55%) scale(1.3); }
+        }
         .animate-ping-large {
-          animation: ping-large 1s cubic-bezier(0, 0, 0.2, 1);
+          animation: ping-large 1s cubic-bezier(0, 0, 0.2, 1) forwards;
         }
         .animate-ping-delayed {
-          animation: ping-delayed 1s cubic-bezier(0, 0, 0.2, 1) 0.2s;
+          animation: ping-delayed 1.2s cubic-bezier(0, 0, 0.2, 1) 0.1s forwards;
+        }
+        .animate-ping-fast {
+          animation: ping-fast 0.6s cubic-bezier(0, 0, 0.2, 1) forwards;
+        }
+        .animate-bounce-short {
+          animation: bounce-short 0.5s ease-out;
         }
         .animate-spin-fast {
           animation: spin 3s linear infinite;
         }
         .animate-spin-super-fast {
-          animation: spin 0.5s linear infinite;
+          animation: spin 0.4s linear infinite;
         }
         @keyframes spin {
           from { transform: rotate(0deg); }

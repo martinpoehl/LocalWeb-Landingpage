@@ -39,11 +39,11 @@ const Process: React.FC = () => {
         {/* CONTENT-WRAPPER */}
         <div className="relative pt-20 max-w-7xl mx-auto px-4 lg:px-0">
           <div className="text-center mb-16 md:mb-20 reveal-text">
-            <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block">
+            <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
               Workflow
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter">
-              In 4 Schritten zum <span className="text-blue-500">Erfolg.</span>
+              In 4 Schritten zum <span className="text-blue-500 hover:text-cyan-400 transition-colors duration-500 cursor-default">Erfolg.</span>
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base">
               Ein strukturierter Prozess für messbare Ergebnisse. Unser Ansatz folgt vier klar definierten Schritten – transparent, effizient und immer auf Ihr Ziel ausgerichtet:

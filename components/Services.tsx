@@ -72,12 +72,12 @@ const Services: React.FC = () => {
       <div className="container mx-auto px-5 md:px-6">
         {/* Kopfbereich */}
         <div className="mb-16 md:mb-12">
-          <span className="text-blue-500 font-black uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 md:mb-6 block reveal-text text-center">
+          <span className="text-blue-500 font-black uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 md:mb-6 block reveal-text text-center hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Maßgeschneiderte Pakete
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 md:mb-10 leading-tight reveal-text text-center
       ">
-            Digitale <span className="text-blue-500">Lösungen.</span>
+            Digitale <span className="text-blue-500 hover:text-cyan-400 transition-colors duration-500 cursor-default">Lösungen.</span>
           </h2>
 
           <div className="flex flex-col items-center gap-6">

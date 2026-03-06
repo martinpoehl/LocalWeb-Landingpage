@@ -15,10 +15,10 @@ const Contact: React.FC = () => {
 
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID',   // TODO: ersetzen
-        'YOUR_TEMPLATE_ID',  // TODO: ersetzen
+        'service_ibcjet8',   // Deine EmailJS Service ID
+        'template_v3p6cvi',  // Deine EmailJS Template ID
         form.current,
-        'YOUR_PUBLIC_KEY'    // TODO: ersetzen
+        '0u9qbxfzJjz9zAihB'  // Dein EmailJS Public Key
       )
       .then(
         () => {
@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
 
       <div className="container mx-auto px-5 md:px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20 reveal-text">
-          <span className="text-blue-500 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-4 block">
+          <span className="text-blue-500 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Kontakt
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
@@ -66,16 +66,16 @@ const Contact: React.FC = () => {
               {contactInfo.map((info, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center lg:items-start gap-4 p-4 rounded-2xl bg-slate-800/30 border border-slate-700/50"
+                  className="flex items-center lg:items-start gap-4 p-4 rounded-2xl bg-slate-800/30 border border-slate-700/50 transition-all duration-300 hover:border-blue-500/30 hover:bg-slate-800/50 group/info"
                 >
-                  <div className="bg-slate-800 p-3 md:p-4 rounded-xl text-blue-500 shadow-inner">
+                  <div className="bg-slate-800 p-3 md:p-4 rounded-xl text-blue-500 shadow-inner group-hover/info:text-cyan-400 transition-colors">
                     <info.icon size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
                     <h4 className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest">
                       {info.label}
                     </h4>
-                    <p className="text-white text-lg md:text-xl font-bold">
+                    <p className="text-white text-lg md:text-xl font-bold group-hover/info:text-blue-400 transition-colors">
                       {info.value}
                     </p>
                   </div>
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
                     name="user_name"
                     required
                     placeholder="Ihr Name"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
                 <div>
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
                     name="user_email"
                     required
                     placeholder="ihre@email.ch"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
                     type="text"
                     name="company"
                     placeholder="Firmenname"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
                 <div>
@@ -140,7 +140,7 @@ const Contact: React.FC = () => {
                     type="url"
                     name="website_url"
                     placeholder="https://"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
@@ -153,7 +153,7 @@ const Contact: React.FC = () => {
                   </label>
                   <select
                     name="project_type"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -170,7 +170,7 @@ const Contact: React.FC = () => {
                   </label>
                   <select
                     name="budget_range"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -192,7 +192,7 @@ const Contact: React.FC = () => {
                   type="text"
                   name="subject"
                   placeholder="Wie können wir helfen?"
-                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600"
+                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 />
               </div>
 
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
                   name="message"
                   required
                   placeholder="Beschreiben Sie kurz Ihr Projekt (Ziel, Zielgruppe, besondere Wünsche, vorhandene Inhalte) ..."
-                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 resize-none"
+                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 resize-none hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 ></textarea>
               </div>
 

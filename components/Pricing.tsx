@@ -92,12 +92,12 @@ const Pricing: React.FC = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <span className="text-blue-600 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block">
+          <span className="text-blue-600 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block hover:text-cyan-500 transition-colors duration-300 cursor-default">
             Transparenz
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter">
             Einfache Pakete. <br />
-            <span className="text-blue-600">Faire Preise.</span>
+            <span className="text-blue-600 hover:text-cyan-500 transition-colors duration-500 cursor-default">Faire Preise.</span>
           </h2>
           <p className="text-slate-500 text-lg md:text-xl font-light">
             Wir bieten maßgeschneiderte Lösungen für jedes Budget. Da jedes Projekt einzigartig ist,
@@ -119,6 +119,7 @@ const Pricing: React.FC = () => {
                   transition-all duration-700 overflow-hidden
                   cursor-pointer md:cursor-auto
                   flex flex-col h-full
+                  border-2 hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
                   ${
                     isVisible
                       ? 'opacity-100 translate-y-0 rotate-x-0'
@@ -126,8 +127,8 @@ const Pricing: React.FC = () => {
                   }
                   ${
                     plan.highlight
-                      ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/40 hover:shadow-2xl hover:-translate-y-2'
-                      : 'bg-white border border-slate-200 text-slate-900 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:-translate-y-2'
+                      ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/40 hover:-translate-y-2 border-transparent'
+                      : 'bg-white border-slate-200 text-slate-900 shadow-xl shadow-slate-200/50 hover:-translate-y-2'
                   }
                 `}
                 style={{ transitionDelay: `${plan.delay}ms` }}
@@ -253,7 +254,7 @@ const Pricing: React.FC = () => {
           className={`
             mt-12 md:mt-20 p-6 md:p-10 bg-white rounded-[2rem] md:rounded-[2.5rem]
             border border-slate-200 flex flex-col lg:flex-row items-center justify-between gap-10
-            transition-all duration-1000 delay-500
+            transition-all duration-700 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}
         >
