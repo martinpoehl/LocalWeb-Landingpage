@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
     emailjs
       .sendForm(
         'service_ibcjet8',   // Deine EmailJS Service ID
-        'template_v3p6cvi',  // Deine EmailJS Template ID
+        'template_61vol3t',  // Deine EmailJS Template ID
         form.current,
         '0u9qbxfzJjz9zAihB'  // Dein EmailJS Public Key
       )
@@ -91,20 +91,36 @@ const Contact: React.FC = () => {
               onSubmit={handleSubmit}
               className="bg-slate-800/50 p-6 sm:p-8 md:p-8 rounded-[2rem] md:rounded-[2rem] border border-slate-700/50 backdrop-blur-md"
             >
-              {/* Name + E-Mail */}
+              {/* Vorname + Nachname */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    Name
+                    Vorname
                   </label>
                   <input
                     type="text"
-                    name="user_name"
+                    name="first_name"
                     required
-                    placeholder="Ihr Name"
+                    placeholder="Vorname"
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
+                <div>
+                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
+                    Nachname
+                  </label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    required
+                    placeholder="Nachname"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  />
+                </div>
+              </div>
+
+              {/* E-Mail + Firma */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
                     E-Mail
@@ -117,10 +133,6 @@ const Contact: React.FC = () => {
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
-              </div>
-
-              {/* Firma + Website */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
                     Firma (optional)
@@ -132,6 +144,10 @@ const Contact: React.FC = () => {
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
+              </div>
+
+              {/* Website + Projektart */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
                     Website (optional)
@@ -143,10 +159,6 @@ const Contact: React.FC = () => {
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
-              </div>
-
-              {/* Projektart + Budget */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                 <div>
                   <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
                     Projektart
@@ -162,23 +174,6 @@ const Contact: React.FC = () => {
                     <option value="page">Website</option>
                     <option value="shop">Online-Shop</option>
                     <option value="app">Webapplikation</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    Budget (optional)
-                  </label>
-                  <select
-                    name="budget_range"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      Bitte wählen
-                    </option>
-                    <option value="1-3k">1’000 – 3’000 CHF</option>
-                    <option value="3-6k">3’000 – 6’000 CHF</option>
-                    <option value="6k-plus">Über 6’000 CHF</option>
                   </select>
                 </div>
               </div>
