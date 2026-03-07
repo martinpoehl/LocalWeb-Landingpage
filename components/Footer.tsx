@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Code2, Globe, Send, Sparkles, Mail, Phone, MapPin } from 'lucide-react';
+import { Code2, Globe, Sparkles, Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -8,23 +7,54 @@ const Footer: React.FC = () => {
   const agencyLinks = [
     { name: 'Über uns', id: 'about' },
     { name: 'Leistungen', id: 'services' },
+    { name: 'Ablauf', id: 'process' },
     { name: 'Preise', id: 'pricing' },
-    { name: 'Ablauf', id: 'steps' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Kontakt', id: 'contact' }
   ];
 
   const serviceLinks = [
     { name: 'Premium Webseiten', href: '/websites' },
-    { name: 'Smarte Apps', href: '/web-tools' },
-    { name: 'Lokale Sichtbarkeit', href: '/seo' }
+    { name: 'Smarte Web-Tools', href: '/web-tools' },
+    { name: 'Lokale SEO', href: '/seo' }
+  ];
+
+  const socialLinks = [
+    { icon: Linkedin, href: '#' },
+    { icon: Instagram, href: '#' },
+    { icon: Facebook, href: '#' },
   ];
 
   return (
-    <footer className="bg-white border-t border-slate-100 pt-16 md:pt-16 pb-8 md:pb-8">
+    <footer className="bg-gray-100 text-slate-600">
       <div className="container mx-auto px-5 md:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 mb-12 md:mb-16">
-          <div className="space-y-6">
+        
+        {/* Newsletter Section */}
+        <div className="py-12 md:py-16 border-b border-slate-300">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Bleiben Sie auf dem Laufenden</h3>
+              <p className="text-slate-500">Tipps für Ihr lokales Marketing direkt in Ihr Postfach.</p>
+            </div>
+            <form className="flex flex-col sm:flex-row gap-3 w-full">
+              <input 
+                type="email" 
+                placeholder="Ihre E-Mail Adresse"
+                className="w-full bg-white border border-slate-300 text-slate-900 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-400"
+              />
+              <button 
+                type="submit"
+                className="glow-border group inline-flex items-center justify-center whitespace-nowrap px-6 py-3 font-semibold text-white transition-all duration-300 rounded-lg bg-blue-600 hover:bg-blue-700 hover:scale-105 shadow-xl interactive"
+              >
+                Anmelden <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+          {/* Column 1: Branding & Social */}
+          <div className="space-y-6 lg:col-span-1 sm:col-span-2">
             <div className="flex items-center gap-3">
               <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-2 rounded-lg shadow-lg">
                 <Code2 className="text-white w-5 h-5" />
@@ -37,69 +67,70 @@ const Footer: React.FC = () => {
                 Local<span className="text-blue-600">Web</span>
               </span>
             </div>
-            <p className="text-slate-500 leading-relaxed text-sm md:text-base">
-              Wir bauen die Brücke in die digitale Welt. Professionelle Web-Lösungen für lokale Unternehmen mit Vision und Kreativität.
+            <p className="text-slate-500 leading-relaxed text-sm md:text-base pr-4">
+              Ihre digitale Full-Service-Agentur für professionelle Web-Lösungen, die lokale Unternehmen sichtbar machen.
             </p>
-
-            {/* Contact Information */}
-            <div className="flex flex-wrap items-center gap-4 text-slate-600 text-sm">
-              <div className="flex items-center gap-1">
-                <Mail size={16} className="text-blue-600" />
-                <a href="mailto:info@localweb.ch" className="hover:text-blue-600 transition-colors">info@localweb.ch</a>
-              </div>
-              <span className="text-slate-400">•</span>
-              <div className="flex items-center gap-1">
-                <Phone size={16} className="text-blue-600" />
-                <a href="tel:+41793643417" className="hover:text-blue-600 transition-colors">+41 793 643 417</a>
-              </div>
-              <span className="text-slate-400">•</span>
-              <div className="flex items-center gap-1">
-                <MapPin size={16} className="text-blue-600" />
-                <span>Winterthur, ZH</span>
-              </div>
+            <div className="flex gap-4">
+              {socialLinks.map((social, idx) => (
+                <a key={idx} href={social.href} className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-200 hover:bg-blue-600 text-slate-500 hover:text-white transition-all duration-300">
+                  <social.icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
-          <div className="sm:pl-4">
-            <h4 className="text-slate-950 text-sm font-bold uppercase tracking-wide mb-6">Webseite</h4>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
-              <ul className="space-y-4">
-                {agencyLinks.slice(0, 3).map(link => (
-                  <li key={link.name}>
-                    <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
-                  </li>
-                ))}
-              </ul>
-              <ul className="space-y-4">
-                {agencyLinks.slice(3).map(link => (
-                  <li key={link.name}>
-                    <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-slate-950 text-sm font-bold uppercase tracking-wide mb-6">Leistungen</h4>
-            <ul className="space-y-4">
-              {serviceLinks.map(link => (
+          {/* Column 2: Webseite */}
+          <div className="sm:pl-0">
+            <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Navigation</h4>
+            <ul className="space-y-3">
+              {agencyLinks.map(link => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">{link.name}</a>
+                  <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">{link.name}</a>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Column 3: Leistungen */}
+          <div>
+            <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Leistungen</h4>
+            <ul className="space-y-3">
+              {serviceLinks.map(link => (
+                <li key={link.name}>
+                  <a href={link.href} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">{link.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Column 4: Kontakt */}
+          <div>
+            <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Kontakt</h4>
+            <ul className="space-y-4 text-slate-500">
+              <li className="flex items-start gap-3">
+                <MapPin size={18} className="text-blue-600 mt-1 shrink-0" />
+                <span>Winterthur, Schweiz</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail size={18} className="text-blue-600 mt-1 shrink-0" />
+                <a href="mailto:info@localweb.ch" className="hover:text-blue-600 transition-colors">info@localweb.ch</a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone size={18} className="text-blue-600 mt-1 shrink-0" />
+                <a href="tel:+41793643417" className="hover:text-blue-600 transition-colors">+41 793 643 417</a>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
-        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-400 text-xs font-medium text-center md:text-left">
+        <div className="py-8 border-t border-slate-200 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+          <p className="text-slate-500 text-xs font-medium text-center md:text-left">
             © {currentYear} LocalWeb. Alle Rechte vorbehalten.
           </p>
-          <div className="flex gap-6 md:gap-8 text-[10px] font-black uppercase tracking-widest">
-            <a href="/impressum" className="hover:text-blue-500 transition-colors">Impressum</a>
-            <a href="/datenschutz" className="hover:text-blue-500 transition-colors">Datenschutz</a>
+          <div className="flex gap-6 md:gap-8 text-xs font-semibold">
+            <a href="/impressum" className="text-slate-500 hover:text-blue-600 transition-colors">Impressum</a>
+            <a href="/datenschutz" className="text-slate-500 hover:text-blue-600 transition-colors">Datenschutz</a>
           </div>
         </div>
       </div>

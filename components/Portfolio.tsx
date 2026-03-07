@@ -74,7 +74,7 @@ const Portfolio: React.FC = () => {
   return (
     <section
       id="portfolio"
-      className="py-20 md:py-24 bg-white overflow-hidden text-center"
+      className="py-20 md:py-24 bg-gray-100 overflow-hidden text-center"
     >
       <div className="container mx-auto px-5 md:px-6">
         {/* Kopfbereich */}
@@ -125,7 +125,7 @@ const Portfolio: React.FC = () => {
 
                     <a
                       href={project.link}
-                      className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-sm md:text-base hover:bg-blue-600 hover:text-white transition-all shadow-xl interactive"
+                      className="glow-border relative inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-sm md:text-base hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive"
                     >
                       Projekt ansehen
                       <ExternalLink size={18} className="ml-2" />

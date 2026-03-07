@@ -27,8 +27,8 @@ const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
         <Hero />
         <About />
         <Services />
-        <Price />
         <Process />
+        <Price />
         <Portfolio />
         <Contact />
       </main>

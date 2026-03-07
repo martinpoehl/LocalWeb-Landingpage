@@ -75,9 +75,21 @@ const Contact: React.FC = () => {
                     <h4 className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest">
                       {info.label}
                     </h4>
-                    <p className="text-white text-lg md:text-xl font-bold group-hover/info:text-blue-400 transition-colors">
-                      {info.value}
-                    </p>
+                    {info.label === 'E-Mail' && (
+                      <a href={`mailto:${info.value}`} className="text-white text-lg md:text-xl font-bold group-hover/info:text-blue-400 transition-colors">
+                        {info.value}
+                      </a>
+                    )}
+                    {info.label === 'Telefon' && (
+                      <a href={`tel:${info.value.replace(/\s/g, '')}`} className="text-white text-lg md:text-xl font-bold group-hover/info:text-blue-400 transition-colors">
+                        {info.value}
+                      </a>
+                    )}
+                    {info.label === 'Standort' && (
+                      <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(info.value)}`} target="_blank" rel="noopener noreferrer" className="text-white text-lg md:text-xl font-bold group-hover/info:text-blue-400 transition-colors">
+                        {info.value}
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
@@ -222,7 +234,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={status !== 'idle'}
-                className={`w-full group inline-flex items-center justify-center px-8 py-5 font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive ${
+                className={`glow-border relative w-full group inline-flex items-center justify-center px-8 py-5 font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive hover:scale-105 ${
                   status === 'success'
                     ? 'bg-green-600'
                     : status === 'error'

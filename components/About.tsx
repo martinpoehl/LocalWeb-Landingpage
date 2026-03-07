@@ -83,7 +83,7 @@ const About: React.FC = () => {
 
   return (
     <>
-      <section id="about" className="py-20 md:py-24 bg-white overflow-hidden relative">
+      <section id="about" className="py-20 md:py-24 bg-gray-100 overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-10 md:h-20 bg-gradient-to-b from-slate-950 to-transparent"></div>
 
         <div className="container mx-auto px-5 md:px-6">

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, MessageSquare, Palette, Code, Rocket, Send } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { MessageSquare, Palette, Code, Rocket } from 'lucide-react';
 
 const Process: React.FC = () => {
   const steps = [
@@ -25,11 +25,41 @@ const Process: React.FC = () => {
     },
   ];
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = sectionRef.current;
+    if (section) {
+      const steps = section.querySelectorAll('.step-item');
+      steps.forEach((step) => observer.observe(step));
+    }
+
+    return () => {
+      if (section) {
+        const steps = section.querySelectorAll('.step-item');
+        steps.forEach((step) => observer.unobserve(step));
+      }
+    };
+  }, []);
+
+
   return (
     <>
       <section
-        id="steps"
-        className="pb-20 md:py-24 bg-slate-950 relative overflow-hidden"
+        id="process"
+        className="py-20 md:py-24 bg-gray-100 relative overflow-hidden"
       >
         {/* Background Decor */}
         <div className="absolute top-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
@@ -37,15 +67,15 @@ const Process: React.FC = () => {
 
 
         {/* CONTENT-WRAPPER */}
-        <div className="relative pt-20 max-w-7xl mx-auto px-4 lg:px-0">
-          <div className="text-center mb-16 md:mb-20 reveal-text">
-            <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
+        <div ref={sectionRef} className="relative pt-0 max-w-7xl mx-auto px-4 lg:px-0">
+          <div className="text-center mb-16 md:mb-20">
+            <span className="text-blue-600 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block hover:text-cyan-500 transition-colors duration-300 cursor-default">
               Workflow
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter">
-              In 4 Schritten zum <span className="text-blue-500 hover:text-cyan-400 transition-colors duration-500 cursor-default">Erfolg.</span>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter">
+              In 4 Schritten zum <span className="text-blue-600 hover:text-cyan-500 transition-colors duration-500 cursor-default">Erfolg.</span>
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base">
+            <p className="text-slate-600 max-w-xl mx-auto text-sm md:text-base">
               Ein strukturierter Prozess für messbare Ergebnisse. Unser Ansatz folgt vier klar definierten Schritten – transparent, effizient und immer auf Ihr Ziel ausgerichtet:
             </p>
           </div>
@@ -93,12 +123,13 @@ const Process: React.FC = () => {
               {steps.map((step, idx) => (
                 <div
                   key={idx}
-                  className="reveal-text group relative flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:gap-0 transition-transform duration-500 hover:scale-105"
+                  className="step-item group relative flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:gap-0 transition-all duration-700 ease-out transform opacity-0 translate-y-10"
+                  style={{ transitionDelay: `${idx * 200}ms` }}
                 >
                   {/* Step Icon - Compact on mobile */}
                   <div className="relative flex-shrink-0 lg:mb-10 z-20">
                     <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="w-14 h-14 md:w-16 md:h-16 lg:w-24 lg:h-24 bg-slate-900 border border-white/10 rounded-full flex items-center justify-center text-blue-500 group-hover:text-white group-hover:bg-blue-600 group-hover:border-blue-400 transition-all duration-500 shadow-lg lg:shadow-2xl relative">
+                    <div className="w-14 h-14 md:w-16 md:h-16 lg:w-24 lg:h-24 bg-white border border-slate-100 rounded-full flex items-center justify-center text-blue-600 group-hover:text-white group-hover:bg-blue-600 group-hover:border-blue-400 transition-all duration-500 shadow-lg lg:shadow-2xl relative">
                       <step.icon
                         size={24}
                         strokeWidth={1.5}
@@ -110,11 +141,11 @@ const Process: React.FC = () => {
                   </div>
 
                   {/* Step Card Content - Compact on mobile, full on desktop */}
-                  <div className="flex-1 lg:text-left lg:h-full bg-slate-900/30 lg:bg-slate-900/20 backdrop-blur-md border border-white/5 p-4 lg:p-8 rounded-2xl lg:rounded-[2.5rem] transition-all duration-500 group-hover:bg-slate-900/40 group-hover:border-white/10 w-full">
-                    <h3 className="text-base lg:text-xl font-bold lg:font-black text-white mb-1 lg:mb-4 tracking-tight group-hover:text-blue-400 transition-colors">
+                  <div className="flex-1 lg:text-left lg:h-full bg-white border border-slate-200 p-4 lg:p-8 rounded-2xl lg:rounded-[2.5rem] transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:border-blue-500/30 w-full">
+                    <h3 className="text-base lg:text-xl font-bold lg:font-black text-slate-900 mb-1 lg:mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-slate-400 text-xs lg:text-base leading-relaxed font-light group-hover:text-slate-400 transition-colors">
+                    <p className="text-slate-600 text-xs lg:text-base leading-relaxed font-light group-hover:text-slate-700 transition-colors">
                       {step.desc}
                     </p>
                   </div>
@@ -128,10 +159,10 @@ const Process: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-16 text-center reveal-text">
+          <div className="mt-16 text-center">
             <a
               href="#contact"
-              className="inline-flex items-center gap-4 bg-blue-600 text-white px-12 py-5 rounded-2xl font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)] group"
+              className="glow-border relative inline-block w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive text-center"
             >
               Kostenlose Erstberatung anfragen
             </a>
@@ -147,6 +178,10 @@ const Process: React.FC = () => {
         .animate-dash {
           animation: dash 30s linear infinite;
         }
+        .is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
       `}</style>
       </section>
     </>
@@ -154,7 +189,6 @@ const Process: React.FC = () => {
 };
 
 export default Process;
-
 
 
 

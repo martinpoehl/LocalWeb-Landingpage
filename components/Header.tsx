@@ -53,8 +53,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         { name: 'Lokale Sichtbarkeit', href: '/seo' },
         ],
     },
+    { name: 'Ablauf', id: 'process' },
     { name: 'Preise', id: 'pricing' },
-    { name: 'Ablauf', id: 'steps' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Kontakt', id: 'contact' },
   ];
@@ -138,7 +138,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           ))}
           <a
             href="#contact"
-            className="glow-border relative bg-blue-600 text-white px-8 py-3.5 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive"
+            className="glow-border relative bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive"
             onClick={handleNavLinkClick} // Use this for closing main menu
           >
             Anfrage senden
@@ -212,7 +212,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           ))}
           <a
             href="#contact"
-            className={`mt-4 px-10 py-5 bg-blue-600 text-white rounded-2xl font-black text-lg transition-all transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            className={`mt-4 glow-border relative bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all shadow-xl interactive transition-all transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
               }`}
             style={{ transitionDelay: `${navItems.length * 100}ms` }}
             onClick={handleNavLinkClick}
