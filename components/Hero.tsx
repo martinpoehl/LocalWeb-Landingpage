@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-400">wirklich verkaufen.</span>
         </h1>
 
-        <p className="reveal-text text-slate-400 text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto mb-12 md:mb-10 leading-relaxed font-light px-4">
+        <p className="reveal-text text-slate-300 text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto mb-12 md:mb-10 leading-relaxed font-normal px-4">
           Wir bauen erstklassige Weblösungen, die Ihr lokales Unternehmen in der Region sichtbar machen. Professionell, schnell und exakt auf Ihre Zielgruppe vor Ort zugeschnitten.
         </p>
 

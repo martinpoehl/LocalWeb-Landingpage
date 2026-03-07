@@ -122,11 +122,11 @@ const About: React.FC = () => {
               <span className="text-blue-600 font-black uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 md:mb-8 block reveal-text hover:text-cyan-500 transition-colors duration-300 cursor-default">
                 Partner für den Mittelstand
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight reveal-text">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-tight tracking-tight reveal-text">
                 Unsere Expertise für <br />
                 <span className="text-blue-600 italic hover:text-cyan-500 transition-colors duration-500 cursor-default">Ihren Erfolg.</span>
               </h2>
-              <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 font-light reveal-text">
+              <p className="text-slate-700 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 font-normal reveal-text">
                 Wir wissen, was lokale Unternehmen brauchen: Vertrauen, Klarheit und Ergebnisse. LocalWeb unterstützt
                 Handwerker, Gastronomen und Fachhändler dabei, digital so professionell aufzutreten, wie sie ihre Arbeit
                 vor Ort verrichten. Keine leeren Versprechen, sondern echte Weblösungen für die Nachbarschaft.

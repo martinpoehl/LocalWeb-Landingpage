@@ -102,7 +102,7 @@ const Pricing: React.FC = () => {
             Einfache Pakete. <br />
             <span className="text-blue-500 hover:text-cyan-400 transition-colors duration-500 cursor-default">Faire Preise.</span>
           </h2>
-          <p className="text-slate-400 text-lg md:text-xl font-light">
+          <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
             Wir bieten maßgeschneiderte Lösungen für jedes Budget. Da jedes Projekt einzigartig ist,
             kalkulieren wir unsere Preise individuell auf Basis dieser Pakete.
           </p>
@@ -200,7 +200,7 @@ const Pricing: React.FC = () => {
                       </p>
                     </div>
                     
-                    <p className={`text-sm mb-8 font-normal text-slate-400`}>
+                    <p className={`text-sm mb-8 font-normal text-slate-400 leading-relaxed`}>
                       {plan.description}
                     </p>
 

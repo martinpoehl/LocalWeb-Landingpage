@@ -107,7 +107,7 @@ const Services: React.FC = () => {
                 <service.icon className="w-7 h-7 md:w-8 md:h-8" />
               </div>
 
-              <h3 className="text-2xl md:text-2xl font-black text-white mb-4 md:mb-4 group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl md:text-2xl font-black text-white mb-4 md:mb-4 group-hover:text-blue-400 transition-colors tracking-tight">
                 {service.title}
               </h3>
               <p className="text-slate-400 text-base md:text-lg leading-relaxed font-light mb-6 md:mb-8">
