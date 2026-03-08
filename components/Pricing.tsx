@@ -96,12 +96,12 @@ const Pricing: React.FC = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
+          <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block md:hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Transparenz
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
             Einfache Pakete. <br />
-            <span className="text-blue-500 hover:text-cyan-400 transition-colors duration-500 cursor-default">Faire Preise.</span>
+            <span className="text-blue-500 md:hover:text-cyan-400 transition-colors duration-500 cursor-default">Faire Preise.</span>
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
             Wir bieten maßgeschneiderte Lösungen für jedes Budget. Da jedes Projekt einzigartig ist,
@@ -123,13 +123,13 @@ const Pricing: React.FC = () => {
                   transition-all duration-700 overflow-hidden
                   ${window.innerWidth < 768 ? 'cursor-pointer' : 'cursor-auto'}
                   flex flex-col h-full
-                  border-2 hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
+                  border-2 md:hover:border-blue-500/50 md:hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
                   ${
                     isVisible
                       ? 'opacity-100 translate-y-0 rotate-x-0'
                       : 'opacity-0 translate-y-20 rotate-x-12'
                   }
-                  bg-slate-900 border-slate-800 text-white shadow-xl shadow-slate-950/20 hover:-translate-y-2
+                  bg-slate-900 border-slate-800 text-white shadow-xl shadow-slate-950/20 md:hover:-translate-y-2
                 `}
                 style={{ transitionDelay: `${plan.delay}ms` }}
               >
@@ -141,15 +141,15 @@ const Pricing: React.FC = () => {
                   <div className="flex items-center justify-between md:block mb-6">
                     <div className="flex items-center md:block gap-4">
                       <div
-                        className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-0 md:mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 bg-slate-800 text-blue-400`}
+                        className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-0 md:mb-8 transition-transform duration-500 md:group-hover:scale-110 md:group-hover:rotate-6 bg-slate-800 text-blue-400`}
                       >
                         <plan.icon
                           size={28}
-                          className="transition-transform duration-500 group-hover:stroke-[2.5px]"
+                          className="transition-transform duration-500 md:group-hover:stroke-[2.5px]"
                         />
                       </div>
                       <div className="flex flex-col">
-                                              <h3 className="text-xl md:text-2xl font-black tracking-tight md:mb-2 group-hover:text-blue-400 transition-colors">
+                                              <h3 className="text-xl md:text-2xl font-black tracking-tight md:mb-2 md:group-hover:text-blue-400 transition-colors">
                                                 {plan.name}
                                               </h3>                        <p className="text-sm font-light text-slate-400 md:hidden">
                           {plan.tagline}
@@ -233,7 +233,7 @@ const Pricing: React.FC = () => {
                       href="#contact"
                       className={`
                     glow-border relative mt-8 w-full items-center justify-center gap-3 py-5 rounded-2xl font-black
-                    bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive
+                    bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive
                     ${isExpanded ? 'flex' : 'hidden'}
                     md:hidden
                   `}
@@ -246,7 +246,7 @@ const Pricing: React.FC = () => {
 
             <a
               href="#contact"
-              className="glow-border relative mt-8 w-full items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive hidden md:flex"
+              className="glow-border relative mt-8 w-full items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive hidden md:flex"
             >
               <span className="relative">Anfragen</span>
               <ArrowRight size={20} className="relative" />
@@ -293,9 +293,10 @@ const Pricing: React.FC = () => {
           </div>
           <a
             href="#contact"
-            className={`glow-border relative whitespace-nowrap px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive ${isSpecialProjectExpanded ? 'flex' : 'hidden'} md:flex`}
+            className={`glow-border relative whitespace-nowrap px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive ${isSpecialProjectExpanded ? 'flex' : 'hidden'} md:flex`}
           >
-            Spezialprojekt anfragen
+            <span className="relative">Spezialprojekt anfragen</span>
+            <ArrowRight size={20} className="relative" />
           </a>
         </div>
       </div>
