@@ -293,10 +293,10 @@ const Pricing: React.FC = () => {
           </div>
           <a
             href="#contact"
-            className={`glow-border relative whitespace-nowrap px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive ${isSpecialProjectExpanded ? 'flex' : 'hidden'} md:flex`}
+            className={`group glow-border relative inline-flex items-center justify-center gap-3 whitespace-nowrap px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-[0_15px_40px_rgba(37,99,235,0.3)] overflow-hidden interactive ${isSpecialProjectExpanded ? 'flex' : 'hidden'} md:flex`}
           >
-            <span className="relative">Spezialprojekt anfragen</span>
-            <ArrowRight size={20} className="relative" />
+            <span className="relative z-10">Spezialprojekt anfragen</span>
+            <ArrowRight size={20} className="relative z-10 md:group-hover:translate-x-2 transition-transform" />
           </a>
         </div>
       </div>
