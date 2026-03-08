@@ -4,6 +4,7 @@ import { Check, ArrowRight, Star, ShieldCheck, Zap, ChevronDown } from 'lucide-r
 const Pricing: React.FC = () => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
+  const [isSpecialProjectExpanded, setIsSpecialProjectExpanded] = React.useState(false);
   const sectionRef = React.useRef<HTMLElement>(null);
 
   React.useEffect(() => {
@@ -263,22 +264,36 @@ const Pricing: React.FC = () => {
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}
         >
-          <div className="max-w-2xl text-center lg:text-left">
-            <h4 className="text-xl md:text-2xl font-black text-white mb-4 tracking-tight">
-              Sie haben ein spezielles Projekt?
-            </h4>
-            <p className="text-slate-400 text-lg font-light leading-relaxed">
-              Für komplexe Web-Applikationen oder umfangreiche E-Commerce Lösungen erstellen wir
-              Ihnen gerne ein detailliertes Lastenheft und ein passgenaues Angebot.
-            </p>
-            <p className="text-slate-500 text-xs mt-4">
-              * Alle Preise verstehen sich als Richtwerte exkl. MwSt. Zzgl. laufende Kosten für
-              Hosting & Domain.
-            </p>
+          <div className="max-w-2xl text-center lg:text-left w-full">
+            <div
+              className="flex justify-between items-center cursor-pointer md:cursor-auto"
+              onClick={() => window.innerWidth < 768 && setIsSpecialProjectExpanded(!isSpecialProjectExpanded)}
+            >
+              <h4 className="text-xl md:text-2xl font-black text-white mb-4 md:mb-4 tracking-tight">
+                Haben Sie ein spezielles Projekt?
+              </h4>
+              <div
+                className={`md:hidden transition-transform duration-300 ${
+                  isSpecialProjectExpanded ? 'rotate-180' : ''
+                }`}
+              >
+                <ChevronDown size={24} className={'text-slate-500'} />
+              </div>
+            </div>
+            <div className={`${isSpecialProjectExpanded ? 'block' : 'hidden'} md:block`}>
+              <p className="text-slate-400 text-lg font-light leading-relaxed mb-4">
+                Für komplexe Web-Applikationen oder umfangreiche E-Commerce Lösungen erstellen wir
+                Ihnen gerne ein detailliertes Lastenheft und ein passgenaues Angebot.
+              </p>
+              <p className="text-slate-500 text-xs mt-4">
+                * Alle Preise verstehen sich als Richtwerte exkl. MwSt. Zzgl. laufende Kosten für
+                Hosting & Domain.
+              </p>
+            </div>
           </div>
           <a
             href="#contact"
-            className="glow-border relative whitespace-nowrap px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive"
+            className={`glow-border relative whitespace-nowrap px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive ${isSpecialProjectExpanded ? 'flex' : 'hidden'} md:flex`}
           >
             Spezialprojekt anfragen
           </a>
