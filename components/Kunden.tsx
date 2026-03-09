@@ -80,9 +80,14 @@ const Kunden: React.FC = () => {
                   <h4 className="text-slate-900 font-black text-base md:text-lg leading-tight">
                     {stimme.name}
                   </h4>
-                  <p className="text-blue-600 text-xs md:text-sm font-bold uppercase tracking-wider mt-1">
-                    {stimme.role}, {stimme.company}
-                  </p>
+                  <div className="mt-1">
+                    <p className="text-blue-600 text-[11px] md:text-xs font-black uppercase tracking-wider leading-tight">
+                      {stimme.role}
+                    </p>
+                    <p className="text-slate-500 text-[10px] md:text-[11px] font-bold uppercase tracking-widest mt-1">
+                      {stimme.company}
+                    </p>
+                  </div>
                   
                 </div>
               </div>
