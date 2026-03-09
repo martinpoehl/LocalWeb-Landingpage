@@ -3,25 +3,28 @@ import { Star, Quote } from 'lucide-react';
 
 const kundenDaten = [
   {
-    name: 'Michael Oeri',
-    role: 'Geschäftsführer, Oeri Haustechnik',
-    content: 'LocalWeb hat unsere Erwartungen übertroffen. Unsere neue Webseite sieht nicht nur fantastisch aus, sondern wir erhalten auch spürbar mehr Anfragen aus der Region. Die Zusammenarbeit war professionell und unkompliziert.',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150',
-  },
-  {
     name: 'Karin Schweizer',
-    role: 'Inhaberin, Schweizer Fusspflege AG',
+    role: 'Inhaberin',
+    company: 'Schweizer Fusspflege AG',
     content: 'Endlich eine Agentur, die versteht, worauf es bei einem lokalen Dienstleister ankommt. Mein Online-Terminkalender ist seit dem Launch der neuen Seite fast immer ausgebucht. Absolute Empfehlung!',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150',
+    image: '/media/images/karin_schweizer.jpg',
   },
   {
     name: 'Stefan Pöhl',
-    role: 'Geschäftsführer, Pöhl Haustechnik GmbH',
+    role: 'Geschäftsführer',
+    company: 'Pöhl Haustechnik GmbH',
     content: 'Seit unsere neue Webseite online ist, haben wir eine deutliche Steigerung der digitalen Sichtbarkeit. Das Team von LocalWeb arbeitet extrem strukturiert und lösungsorientiert. Ein echter Gewinn für unser Unternehmen.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150',
+  },
+  {
+    name: 'Michael Oeri',
+    role: 'Geschäftsführer',
+    company: 'Regioport AG',
+    content: 'LocalWeb hat unsere Erwartungen übertroffen. Unsere neue Webseite sieht nicht nur fantastisch aus, sondern wir erhalten auch spürbar mehr Anfragen aus der Region. Die Zusammenarbeit war professionell und unkompliziert.',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150',
   },
 ];
 
@@ -78,8 +81,9 @@ const Kunden: React.FC = () => {
                     {stimme.name}
                   </h4>
                   <p className="text-blue-600 text-xs md:text-sm font-bold uppercase tracking-wider mt-1">
-                    {stimme.role}
+                    {stimme.role}, {stimme.company}
                   </p>
+                  
                 </div>
               </div>
             </div>
