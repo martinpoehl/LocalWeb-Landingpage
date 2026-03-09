@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     { name: 'Leistungen', id: 'services' },
     { name: 'Ablauf', id: 'process' },
     { name: 'Preise', id: 'pricing' },
-    { name: 'Portfolio', id: 'portfolio' },
+    { name: 'Kunden', id: 'kunden' },
     { name: 'Kontakt', id: 'contact' }
   ];
 

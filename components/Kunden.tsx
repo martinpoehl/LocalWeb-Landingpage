@@ -3,18 +3,25 @@ import { Star, Quote } from 'lucide-react';
 
 const kundenDaten = [
   {
-    name: 'Thomas Müller',
-    role: 'Geschäftsführer, Müller Haustechnik',
+    name: 'Michael Oeri',
+    role: 'Geschäftsführer, Oeri Haustechnik',
     content: 'LocalWeb hat unsere Erwartungen übertroffen. Unsere neue Webseite sieht nicht nur fantastisch aus, sondern wir erhalten auch spürbar mehr Anfragen aus der Region. Die Zusammenarbeit war professionell und unkompliziert.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150',
   },
   {
-    name: 'Sarah Schweizer',
+    name: 'Karin Schweizer',
     role: 'Inhaberin, Schweizer Fusspflege AG',
     content: 'Endlich eine Agentur, die versteht, worauf es bei einem lokalen Dienstleister ankommt. Mein Online-Terminkalender ist seit dem Launch der neuen Seite fast immer ausgebucht. Absolute Empfehlung!',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150',
+  },
+  {
+    name: 'Stefan Pöhl',
+    role: 'Geschäftsführer, Pöhl Haustechnik GmbH',
+    content: 'Seit unsere neue Webseite online ist, haben wir eine deutliche Steigerung der digitalen Sichtbarkeit. Das Team von LocalWeb arbeitet extrem strukturiert und lösungsorientiert. Ein echter Gewinn für unser Unternehmen.',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150',
   },
 ];
 
@@ -40,7 +47,7 @@ const Kunden: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto">
           {kundenDaten.map((stimme, idx) => (
             <div
               key={idx}
