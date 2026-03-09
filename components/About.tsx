@@ -152,10 +152,10 @@ const About: React.FC = () => {
               {/* Navigations-Links statt Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 reveal-text">
                 <a
-                  href="#portfolio"
+                  href="#kunden"
                   className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive text-center"
                 >
-                  Referenzen
+                  Kunden
                 </a>
                 <Link
                   href="/employee"

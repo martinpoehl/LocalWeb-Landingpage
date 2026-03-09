@@ -8,7 +8,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Price from "./components/Pricing";
 import Process from './components/Process';
-import Portfolio from './components/Portfolio';
+import Kunden from './components/Kunden';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Employee from './pages/Employee';
@@ -29,7 +29,7 @@ const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
         <Services />
         <Process />
         <Price />
-        <Portfolio />
+        <Kunden />
         <Contact />
       </main>
       <Footer />
@@ -71,22 +71,20 @@ const App: React.FC = () => {
         setShowScrollToTopButton(false);
       }
 
-      const sections = ['home', 'about', 'services', 'pricing', 'steps', 'portfolio', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['home', 'about', 'services', 'process', 'pricing', 'kunden', 'contact'];
+      let currentSection = 'home';
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
+          const rect = element.getBoundingClientRect();
+          // Wenn die Oberkante der Sektion nahe der Oberkante des Viewports ist
+          if (rect.top <= 300) {
+            currentSection = section;
           }
         }
       }
+      setActiveSection(currentSection);
     };
 
     // Interaction Observers for Reveal
