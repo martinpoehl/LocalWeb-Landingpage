@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     { name: 'Über uns', id: 'about' },
     { name: 'Team', href: '/employee' },
     { name: 'Leistungen', id: 'services' },
-    { name: 'Ablauf', id: 'process' },
+    { name: 'Vorgehen', id: 'process' },
     { name: 'Preise', id: 'pricing' },
     { name: 'Kontakt', id: 'contact' }
   ];

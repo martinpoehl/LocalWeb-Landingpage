@@ -29,6 +29,7 @@ const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
         <Services />
         <Process />
         <Price />
+        <Kunden />
         <Contact />
       </main>
       <Footer />
@@ -70,15 +71,15 @@ const App: React.FC = () => {
         setShowScrollToTopButton(false);
       }
 
-      const sections = ['home', 'about', 'services', 'process', 'pricing', 'contact'];
+      const sections = ['home', 'about', 'services', 'process', 'pricing', 'kunden', 'contact'];
       let currentSection = 'home';
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Wenn die Oberkante der Sektion nahe der Oberkante des Viewports ist
-          if (rect.top <= 300) {
+          // We pick the section that is currently covering the top part of the viewport
+          if (rect.top <= 150 && rect.bottom >= 150) {
             currentSection = section;
           }
         }
