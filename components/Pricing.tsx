@@ -140,12 +140,11 @@ const Pricing: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  onClick={() => window.innerWidth < 768 && setExpandedIndex(isExpanded ? null : idx)}
                   className={`
                     group
                     relative p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem]
                     transition-all duration-700 overflow-hidden
-                    ${window.innerWidth < 768 ? 'cursor-pointer w-[88vw] flex-shrink-0 snap-center' : 'cursor-auto w-full'}
+                    ${window.innerWidth < 768 ? 'w-[88vw] flex-shrink-0 snap-center' : 'w-full'}
                     flex flex-col h-full
                     border-2 md:hover:border-blue-500/50 md:hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
                     ${
@@ -174,9 +173,6 @@ const Pricing: React.FC = () => {
                           </p>
                         </div>
                       </div>
-                      <div className={`md:hidden transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
-                        <ChevronDown size={24} className={'text-slate-500'} />
-                      </div>
                     </div>
                     
                     <p className={`text-sm mb-6 md:mb-8 font-medium hidden md:block text-slate-400`}>
@@ -192,7 +188,7 @@ const Pricing: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className={`${isExpanded ? 'block' : 'hidden'} md:block flex-1 flex flex-col`}>
+                    <div className="block flex-1 flex flex-col">
                       <div className="mb-6 md:hidden">
                         <span className="text-3xl font-black tracking-tighter">
                           {plan.price}
@@ -227,7 +223,7 @@ const Pricing: React.FC = () => {
                       
                       <a
                         href="#contact"
-                        className={`glow-border relative mt-8 w-full items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive ${isExpanded ? 'flex' : 'hidden'}`}
+                        className="glow-border relative mt-8 w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive"
                       >
                         <span className="relative">Anfragen</span>
                         <ArrowRight size={20} className="relative" />
