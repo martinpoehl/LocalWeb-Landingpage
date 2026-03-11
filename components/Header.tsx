@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code2, Globe, Sparkles, ChevronDown } from 'lucide-react';
+import { Menu, X, Code2, Globe, Sparkles, ChevronDown, Mail } from 'lucide-react';
 
 interface HeaderProps {
   activeSection: string;
@@ -136,9 +136,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           ))}
           <a
             href="#contact"
-            className="glow-border relative bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive"
+            className="glow-border relative bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive flex items-center gap-2"
             onClick={handleNavLinkClick} // Use this for closing main menu
           >
+            <Mail size={14} />
             Anfrage senden
           </a>
         </nav>
@@ -210,11 +211,12 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           ))}
           <a
             href="#contact"
-            className={`mt-4 glow-border relative bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all shadow-xl interactive transition-all transform ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            className={`mt-4 glow-border relative bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all shadow-xl interactive transition-all transform flex items-center gap-2 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
               }`}
             style={{ transitionDelay: `${navItems.length * 100}ms` }}
             onClick={handleNavLinkClick}
           >
+            <Mail size={20} />
             Jetzt anfragen
           </a>
         </nav>
