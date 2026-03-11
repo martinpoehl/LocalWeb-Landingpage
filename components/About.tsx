@@ -123,7 +123,7 @@ const About: React.FC = () => {
                 Partner für den Mittelstand
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-tight tracking-tight reveal-text">
-                Unsere Expertise für <br />
+                Unsere Expertise für{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 italic">Ihren Erfolg.</span>
               </h2>
               <p className="text-slate-700 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 font-normal reveal-text">

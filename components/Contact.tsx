@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
             Kontakt
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-            Lassen Sie uns Ihr <br />
+            Lassen Sie uns Ihr{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Projekt besprechen.</span>
           </h2>
           <p className="text-slate-400 text-base md:text-lg">
@@ -145,9 +145,9 @@ const Contact: React.FC = () => {
                     className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
-                <div className="hidden sm:block">
+                <div>
                   <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
-                    Unternehmen
+                    Unternehmen (optional)
                   </label>
                   <input
                     type="text"

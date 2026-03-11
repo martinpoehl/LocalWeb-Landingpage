@@ -5,7 +5,28 @@ const Pricing: React.FC = () => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
   const [isSpecialProjectExpanded, setIsSpecialProjectExpanded] = React.useState(false);
+  const [activeIndex, setActiveIndex] = React.useState(0);
   const sectionRef = React.useRef<HTMLElement>(null);
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const itemWidth = scrollRef.current.firstElementChild?.clientWidth || clientWidth;
+      const newIndex = Math.round(scrollLeft / itemWidth);
+      if (newIndex !== activeIndex) {
+        setActiveIndex(newIndex);
+      }
+    }
+  };
+
+  React.useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer && window.innerWidth < 1024) {
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+      return () => scrollContainer.removeEventListener('scroll', handleScroll);
+    }
+  }, [activeIndex]);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -87,7 +108,6 @@ const Pricing: React.FC = () => {
       ref={sectionRef}
       className="py-12 md:py-24 bg-slate-950 relative overflow-hidden"
     >
-      {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-900/50 skew-x-12 transform origin-top-right -z-10" />
 
       <div className="container mx-auto px-5 md:px-6 relative z-10">
@@ -100,7 +120,7 @@ const Pricing: React.FC = () => {
             Transparenz
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
-            Einfache Pakete. <br />
+            Einfache Pakete.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Faire Preise.</span>
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
@@ -109,151 +129,135 @@ const Pricing: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto perspectives-1000">
-          {plans.map((plan, idx) => {
-            const isExpanded = expandedIndex === idx;
+        <div className="relative max-w-7xl mx-auto">
+          <div
+            ref={scrollRef}
+            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
+          >
+            {plans.map((plan, idx) => {
+              const isExpanded = expandedIndex === idx;
 
-            return (
-              <div
-                key={idx}
-                onClick={() => window.innerWidth < 768 && setExpandedIndex(isExpanded ? null : idx)}
-                className={`
-                  group
-                  relative p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem]
-                  transition-all duration-700 overflow-hidden
-                  ${window.innerWidth < 768 ? 'cursor-pointer' : 'cursor-auto'}
-                  flex flex-col h-full
-                  border-2 md:hover:border-blue-500/50 md:hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
-                  ${
-                    isVisible
-                      ? 'opacity-100 translate-y-0 rotate-x-0'
-                      : 'opacity-0 translate-y-20 rotate-x-12'
-                  }
-                  bg-slate-900 border-slate-800 text-white shadow-xl shadow-slate-950/20 md:hover:-translate-y-2
-                `}
-                style={{ transitionDelay: `${plan.delay}ms` }}
-              >
-
-
-                {/* Card-Content: flex-1 drückt den Button nach unten */}
-                <div className="flex-1 flex flex-col">
-                  {/* Header */}
-                  <div className="flex items-center justify-between md:block mb-6">
-                    <div className="flex items-center md:block gap-4">
-                      <div
-                        className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-0 md:mb-8 transition-transform duration-500 md:group-hover:scale-110 md:group-hover:rotate-6 bg-slate-800 text-blue-400`}
-                      >
-                        <plan.icon
-                          size={28}
-                          className="transition-transform duration-500 md:group-hover:stroke-[2.5px]"
-                        />
+              return (
+                <div
+                  key={idx}
+                  onClick={() => window.innerWidth < 768 && setExpandedIndex(isExpanded ? null : idx)}
+                  className={`
+                    group
+                    relative p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem]
+                    transition-all duration-700 overflow-hidden
+                    ${window.innerWidth < 768 ? 'cursor-pointer w-[88vw] flex-shrink-0 snap-center' : 'cursor-auto w-full'}
+                    flex flex-col h-full
+                    border-2 md:hover:border-blue-500/50 md:hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
+                    ${
+                      isVisible
+                        ? 'opacity-100 translate-y-0 rotate-x-0'
+                        : 'opacity-0 translate-y-20 rotate-x-12'
+                    }
+                    bg-slate-900 border-slate-800 text-white shadow-xl shadow-slate-950/20 md:hover:-translate-y-2
+                  `}
+                  style={{ transitionDelay: `${plan.delay}ms` }}
+                >
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-center justify-between md:block mb-6">
+                      <div className="flex items-center md:block gap-4">
+                        <div
+                          className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-0 md:mb-8 transition-transform duration-500 md:group-hover:scale-110 md:group-hover:rotate-6 bg-slate-800 text-blue-400`}
+                        >
+                          <plan.icon size={28} className="transition-transform duration-500 md:group-hover:stroke-[2.5px]" />
+                        </div>
+                        <div className="flex flex-col">
+                          <h3 className="text-xl md:text-2xl font-black tracking-tight md:mb-2 md:group-hover:text-blue-400 transition-colors">
+                            {plan.name}
+                          </h3>
+                          <p className="text-sm font-light text-slate-400 md:hidden">
+                            {plan.tagline}
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex flex-col">
-                                              <h3 className="text-xl md:text-2xl font-black tracking-tight md:mb-2 md:group-hover:text-blue-400 transition-colors">
-                                                {plan.name}
-                                              </h3>                        <p className="text-sm font-light text-slate-400 md:hidden">
-                          {plan.tagline}
-                        </p>
+                      <div className={`md:hidden transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                        <ChevronDown size={24} className={'text-slate-500'} />
                       </div>
                     </div>
-
-                    {/* Chevron for Mobile */}
-                    <div
-                      className={`md:hidden transition-transform duration-300 ${
-                        isExpanded ? 'rotate-180' : ''
-                      }`}
-                    >
-                      <ChevronDown
-                        size={24}
-                        className={'text-slate-500'}
-                      />
-                    </div>
-                  </div>
-                  
-                  <p
-                    className={`text-sm mb-6 md:mb-8 font-medium hidden md:block text-slate-400`}
-                  >
-                    {plan.tagline}
-                  </p>
-
-                  <div className="mb-6 md:mb-8 hidden md:block">
-                    <span className="text-3xl md:text-4xl font-black tracking-tighter">
-                      {plan.price}
-                    </span>
-                                          <p
-                                            className={`text-xs mt-2 uppercase font-bold tracking-widest text-blue-400`}
-                                          >                      {plan.priceNote}
-                    </p>
-                  </div>
-
-
-                  {/* Body */}
-                  <div className={`${isExpanded ? 'block' : 'hidden'} md:block flex-1 flex flex-col`}>
                     
-                    <div className="mb-6 md:hidden">
-                      <span className="text-3xl font-black tracking-tighter">
+                    <p className={`text-sm mb-6 md:mb-8 font-medium hidden md:block text-slate-400`}>
+                      {plan.tagline}
+                    </p>
+
+                    <div className="mb-6 md:mb-8 hidden md:block">
+                      <span className="text-3xl md:text-4xl font-black tracking-tighter">
                         {plan.price}
                       </span>
-                      <p
-                        className={`text-xs mt-1 uppercase font-bold tracking-widest text-blue-400`}
-                      >
+                      <p className={`text-xs mt-2 uppercase font-bold tracking-widest text-blue-400`}>
                         {plan.priceNote}
                       </p>
                     </div>
-                    
-                    <p className={`text-sm mb-8 font-normal text-slate-400 leading-relaxed`}>
-                      {plan.description}
-                    </p>
 
-                    <div className="space-y-4 md:space-y-5 flex-1">
-                      {plan.features.map((feature, fIdx) => (
-                        <div
-                          key={fIdx}
-                          className={`flex items-center gap-3 transition-all duration-500 transform ${
-                            isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
-                          }`}
-                          style={{ transitionDelay: `${plan.delay + fIdx * 100}ms` }}
-                        >
+                    <div className={`${isExpanded ? 'block' : 'hidden'} md:block flex-1 flex flex-col`}>
+                      <div className="mb-6 md:hidden">
+                        <span className="text-3xl font-black tracking-tighter">
+                          {plan.price}
+                        </span>
+                        <p className={`text-xs mt-1 uppercase font-bold tracking-widest text-blue-400`}>
+                          {plan.priceNote}
+                        </p>
+                      </div>
+                      
+                      <p className={`text-sm mb-8 font-normal text-slate-400 leading-relaxed`}>
+                        {plan.description}
+                      </p>
+
+                      <div className="space-y-4 md:space-y-5 flex-1">
+                        {plan.features.map((feature, fIdx) => (
                           <div
-                            className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-blue-500/10 text-blue-400`}
+                            key={fIdx}
+                            className={`flex items-center gap-3 transition-all duration-500 transform ${
+                              isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
+                            }`}
+                            style={{ transitionDelay: `${plan.delay + fIdx * 100}ms` }}
                           >
-                            <Check size={12} strokeWidth={3} />
+                            <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-blue-500/10 text-blue-400`}>
+                              <Check size={12} strokeWidth={3} />
+                            </div>
+                            <span className={`text-sm font-medium text-slate-300`}>
+                              {feature}
+                            </span>
                           </div>
-                          <span
-                            className={`text-sm font-medium text-slate-300`}
-                          >
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
+                      
+                      <a
+                        href="#contact"
+                        className={`glow-border relative mt-8 w-full items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive ${isExpanded ? 'flex' : 'hidden'}`}
+                      >
+                        <span className="relative">Anfragen</span>
+                        <ArrowRight size={20} className="relative" />
+                      </a>
                     </div>
-                    
-                    {/* Button: eigenes Element, nach flex-1 -> immer ganz unten, skaliert bei Hover */}
-                    <a
-                      href="#contact"
-                      className={`
-                    glow-border relative mt-8 w-full items-center justify-center gap-3 py-5 rounded-2xl font-black
-                    bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive
-                    ${isExpanded ? 'flex' : 'hidden'}
-                    md:hidden
-                  `}
-                >
-                  <span className="relative">Anfragen</span>
-                  <ArrowRight size={20} className="relative" />
-                </a>
-              </div>
-            </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-            <a
-              href="#contact"
-              className="glow-border relative mt-8 w-full items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive hidden md:flex"
-            >
-              <span className="relative">Anfragen</span>
-              <ArrowRight size={20} className="relative" />
-            </a>
-              </div>
-            );
-          })}
+          <div className="flex justify-center gap-3 mt-4 lg:hidden">
+            {plans.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollTo({
+                      left: i * scrollRef.current.clientWidth,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-800'
+                }`}
+                aria-label={`Gehe zu Paket ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         <div
@@ -272,11 +276,7 @@ const Pricing: React.FC = () => {
               <h4 className="text-xl md:text-2xl font-black text-white mb-4 md:mb-4 tracking-tight">
                 Haben Sie ein spezielles Projekt?
               </h4>
-              <div
-                className={`md:hidden transition-transform duration-300 ${
-                  isSpecialProjectExpanded ? 'rotate-180' : ''
-                }`}
-              >
+              <div className={`md:hidden transition-transform duration-300 ${isSpecialProjectExpanded ? 'rotate-180' : ''}`}>
                 <ChevronDown size={24} className={'text-slate-500'} />
               </div>
             </div>
@@ -302,6 +302,15 @@ const Pricing: React.FC = () => {
           </a>
         </div>
       </div>
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };
