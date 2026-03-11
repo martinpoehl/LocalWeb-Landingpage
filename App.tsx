@@ -29,7 +29,6 @@ const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
         <Services />
         <Process />
         <Price />
-        <Kunden />
         <Contact />
       </main>
       <Footer />
@@ -71,7 +70,7 @@ const App: React.FC = () => {
         setShowScrollToTopButton(false);
       }
 
-      const sections = ['home', 'about', 'services', 'process', 'pricing', 'kunden', 'contact'];
+      const sections = ['home', 'about', 'services', 'process', 'pricing', 'contact'];
       let currentSection = 'home';
 
       for (const section of sections) {

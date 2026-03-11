@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Globe2 } from 'lucide-react';
+import { Globe2, Users, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 const CountUp: React.FC<{ end: number; suffix?: string }> = ({ end, suffix = "" }) => {
@@ -132,13 +132,21 @@ const About: React.FC = () => {
                 vor Ort verrichten. Keine leeren Versprechen, sondern echte Weblösungen für die Nachbarschaft.
               </p>
 
-              <div className="grid grid-cols-4 gap-6 md:gap-10 mb-10 md:mb-16 reveal-text">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mb-10 md:mb-16 reveal-text">
+                <div className="group">
+                  <div className="text-3xl md:text-4xl font-black text-slate-950 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">
+                    <CountUp end={10} suffix="+" />
+                  </div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    Jahre Erfahrung
+                  </div>
+                </div>
                 <div className="group">
                   <div className="text-3xl md:text-4xl font-black text-slate-950 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">
                     <CountUp end={15} suffix="+" />
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    Lokale Betriebe
+                    Lokale Kunden
                   </div>
                 </div>
                 <div className="group">
@@ -147,22 +155,25 @@ const About: React.FC = () => {
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Leidenschaft</div>
                 </div>
+                
               </div>
 
               {/* Navigations-Links statt Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 reveal-text">
-                <a
-                  href="#kunden"
-                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive text-center"
-                >
-                  Kunden
-                </a>
                 <Link
                   href="/employee"
-                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-100 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-blue-600 hover:text-white hover:scale-105 transition-all duration-300 interactive text-center"
+                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive text-center flex items-center justify-center gap-2"
                 >
-                  Mitarbeiter
+                  <Users size={20} />
+                  Team
                 </Link>
+                <a
+                  href="#services"
+                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-200 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 transition-all duration-300 interactive text-center flex items-center justify-center gap-2"
+                >
+                  <Sparkles size={20} />
+                  Unsere Leistungen
+                </a>
               </div>
             </div>
           </div>

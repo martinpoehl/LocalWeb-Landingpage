@@ -40,8 +40,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       name: 'Über uns',
       id: 'about', // Added id
       children: [
-        { name: 'Mitarbeiter', href: '/employee' },
-        { name: 'Kunden', id: 'kunden' }, // Assuming Portfolio section serves as References
+        { name: 'Team', href: '/employee' },
       ],
     },
     {
@@ -55,7 +54,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     },
     { name: 'Ablauf', id: 'process' },
     { name: 'Preise', id: 'pricing' },
-    { name: 'Kunden', id: 'kunden' },
     { name: 'Kontakt', id: 'contact' },
   ];
 

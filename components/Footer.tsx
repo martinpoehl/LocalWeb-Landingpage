@@ -6,10 +6,10 @@ const Footer: React.FC = () => {
 
   const agencyLinks = [
     { name: 'Über uns', id: 'about' },
+    { name: 'Team', href: '/employee' },
     { name: 'Leistungen', id: 'services' },
     { name: 'Ablauf', id: 'process' },
     { name: 'Preise', id: 'pricing' },
-    { name: 'Kunden', id: 'kunden' },
     { name: 'Kontakt', id: 'contact' }
   ];
 
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {agencyLinks.map(link => (
                 <li key={link.name}>
-                  <a href={`#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">{link.name}</a>
+                  <a href={link.href || `#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">{link.name}</a>
                 </li>
               ))}
             </ul>
