@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Mail, Linkedin, Github } from 'lucide-react';
+import { ArrowLeft, Mail, Linkedin, Github, ArrowRight, MessageSquare, Code2, Globe, Sparkles } from 'lucide-react';
 
 interface TeamMember {
   name: string;
@@ -37,26 +37,35 @@ const Employee: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-  <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-    <a
-      href="/"
-      className="text-2xl font-bold font-display tracking-tight text-white flex items-center gap-2"
-    >
-      <span>
-        Local<span className="text-blue-600">Web</span>
-      </span>
-    </a>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 py-4">
+        <div className="container mx-auto px-5 md:px-6 flex items-center justify-between">
+          <a href="/" className="flex items-center gap-4 group interactive">
+            <div className="relative">
+              <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-2 rounded-xl transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 shadow-[0_0_25px_rgba(37,99,235,0.4)]">
+                <Code2 className="text-white w-5 h-5" />
+                <div className="absolute -top-1.5 -right-1.5 bg-slate-900 rounded-full p-0.5 border border-blue-500/50">
+                  <Globe className="text-blue-400 w-3 h-3 animate-spin-slow" />
+                </div>
+                <Sparkles className="absolute -bottom-1 -left-1 text-cyan-300 w-3 h-3 animate-pulse" />
+              </div>
+              <div className="absolute -inset-2 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-black font-display tracking-tight text-white leading-none">
+                Local<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Web</span>
+              </span>
+            </div>
+          </a>
 
-    <a
-      href="/"
-      className="flex items-center gap-2 text-sm font-medium text-white hover:text-blue-400 transition-colors group"
-    >
-      <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-      <span>Zurück zur Startseite</span>
-    </a>
-  </div>
-</header>
+          <a
+            href="/"
+            className="flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span>Zurück zur Startseite</span>
+          </a>
+        </div>
+      </header>
 
 
 
@@ -171,9 +180,10 @@ const Employee: React.FC = () => {
           </p>
           <a
             href="/#contact"
-            className="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-2xl font-black hover:bg-blue-500 transition-all hover:scale-105 shadow-[0_15px_40px_rgba(37,99,235,0.3)]"
+            className="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-2xl font-black hover:bg-blue-500 transition-all hover:scale-105 shadow-[0_15px_40px_rgba(37,99,235,0.3)] group"
           >
-            Kontakt aufnehmen
+            <span>Jetzt Projekt starten</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       </section>

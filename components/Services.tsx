@@ -77,13 +77,12 @@ const Services: React.FC = () => {
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 md:mb-10 leading-tight reveal-text text-center
       ">
-            Digitale <span className="text-blue-500 hover:text-cyan-400 transition-colors duration-500 cursor-default">Lösungen.</span>
+            Digitales <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Handwerk.</span>
           </h2>
 
           <div className="flex flex-col items-center gap-4 md:gap-6">
-            <p className="text-slate-400 text-base md:text-xl font-light max-w-md reveal-text mb-6 md:mb-10 text-center">
-              Wir bauen keine komplizierten Systeme, sondern Webseiten, die Ihnen
-              mehr Kunden und weniger Aufwand bringen.
+            <p className="text-slate-400 text-base md:text-xl font-light max-w-lg reveal-text mb-6 md:mb-10 text-center">
+              Vergessen Sie Baukasten-Systeme. Wir erschaffen digitale Unikate, die Ihre echte Qualität widerspiegeln und Ihre lokale Präsenz nachhaltig stärken.
             </p>
           </div>
         </div>

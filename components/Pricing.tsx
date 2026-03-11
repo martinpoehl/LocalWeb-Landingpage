@@ -101,7 +101,7 @@ const Pricing: React.FC = () => {
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
             Einfache Pakete. <br />
-            <span className="text-blue-500 md:hover:text-cyan-400 transition-colors duration-500 cursor-default">Faire Preise.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Faire Preise.</span>
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
             Wir bieten maßgeschneiderte Lösungen für jedes Budget. Da jedes Projekt einzigartig ist,

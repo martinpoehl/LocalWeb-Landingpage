@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
 
   const contactInfo = [
     { icon: Mail, label: 'E-Mail', value: 'info@localweb.ch' },
-    { icon: Phone, label: 'Telefon', value: '+41 793 643 417' },
+    { icon: Phone, label: 'Telefon', value: '+41 79 364 34 17' },
     { icon: MapPin, label: 'Standort', value: 'Winterthur, ZH' },
   ];
 
@@ -51,11 +51,11 @@ const Contact: React.FC = () => {
             Kontakt
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-            Lassen Sie uns reden.
+            Lassen Sie uns Ihr <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Projekt besprechen.</span>
           </h2>
           <p className="text-slate-400 text-base md:text-lg">
-            Bereit für eine Website, die wirklich verkauft? Wir sind Ihr Team
-            für professionelle Web-Lösungen in der Region.
+            Haben Sie eine Frage oder eine konkrete Idee? Schreiben Sie uns einfach. Wir melden uns innerhalb von 24 Stunden bei Ihnen für ein unverbindliches Gespräch.
           </p>
         </div>
 
@@ -101,140 +101,100 @@ const Contact: React.FC = () => {
             <form
               ref={form}
               onSubmit={handleSubmit}
-              className="bg-slate-800/50 p-6 sm:p-8 md:p-8 rounded-[2rem] md:rounded-[2rem] border border-slate-700/50 backdrop-blur-md"
+              className="bg-slate-800/50 p-5 sm:p-8 rounded-2xl md:rounded-[2rem] border border-slate-700/50 backdrop-blur-md"
             >
               {/* Vorname + Nachname */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+              <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
                 <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
+                  <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
                     Vorname
                   </label>
                   <input
                     type="text"
                     name="first_name"
                     required
-                    placeholder="Vorname"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    placeholder="Max"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
+                  <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
                     Nachname
                   </label>
                   <input
                     type="text"
                     name="last_name"
                     required
-                    placeholder="Nachname"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    placeholder="Mustermann"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
 
               {/* E-Mail + Firma */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
                 <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    E-Mail
+                  <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
+                    E-Mail Adresse
                   </label>
                   <input
                     type="email"
                     name="user_email"
                     required
-                    placeholder="ihre@email.ch"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    placeholder="beispiel@firma.ch"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
-                <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    Firma (optional)
+                <div className="hidden sm:block">
+                  <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
+                    Unternehmen
                   </label>
                   <input
                     type="text"
                     name="company"
-                    placeholder="Firmenname"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    placeholder="Name Ihrer Firma"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
 
-              {/* Website + Projektart */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
-                <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    Website (optional)
-                  </label>
-                  <input
-                    type="url"
-                    name="website_url"
-                    placeholder="https://"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                    Projektart
-                  </label>
-                  <select
-                    name="project_type"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      Bitte wählen
-                    </option>
-                    <option value="page">Website</option>
-                    <option value="shop">Online-Shop</option>
-                    <option value="app">Webapplikation</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Betreff */}
-              <div className="mb-4 md:mb-6">
-                <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                  Betreff
+              {/* Projektart (Mobile visible, simplified) */}
+              <div className="mb-3 sm:mb-6">
+                <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
+                  Was planen Sie?
                 </label>
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Wie können wir helfen?"
-                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
-                />
+                <select
+                  name="project_type"
+                  className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  defaultValue=""
+                >
+                  <option value="" disabled>Bitte wählen Sie eine Kategorie</option>
+                  <option value="page">Neue Website</option>
+                  <option value="shop">E-Commerce / Shop</option>
+                  <option value="app">Individuelle Webapplikation</option>
+                  <option value="seo">SEO & Sichtbarkeit</option>
+                </select>
               </div>
 
               {/* Nachricht */}
-              <div className="mb-4 md:mb-6">
-                <label className="block text-slate-400 text-xs font-black uppercase tracking-widest mb-2 ml-1">
-                  Nachricht
+              <div className="mb-4 sm:mb-6">
+                <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
+                  Ihre Nachricht
                 </label>
                 <textarea
-                  rows={4}
+                  rows={3}
                   name="message"
                   required
-                  placeholder="Beschreiben Sie kurz Ihr Projekt (Ziel, Zielgruppe, besondere Wünsche, vorhandene Inhalte) ..."
-                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 resize-none hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben..."
+                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base resize-none hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 ></textarea>
               </div>
-
-              {/* DSG-Hinweis */}
-              <p className="text-xs text-slate-500 mb-3 text-center">
-                Mit dem Absenden Ihrer Anfrage erklären Sie sich mit der Verarbeitung Ihrer Daten
-                gemäss unserer{' '}
-                <a
-                  href="/datenschutz"
-                  className="text-blue-400 underline hover:text-blue-300"
-                >
-                  Datenschutzerklärung
-                </a>{' '}
-                einverstanden.
-              </p>
 
               {/* Button */}
               <button
                 type="submit"
                 disabled={status !== 'idle'}
-                className={`glow-border relative w-full group inline-flex items-center justify-center px-8 py-5 font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive hover:scale-105 ${
+                className={`glow-border relative w-full group inline-flex items-center justify-center px-6 sm:px-8 py-4 sm:py-5 font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive hover:scale-105 ${
                   status === 'success'
                     ? 'bg-green-600'
                     : status === 'error'

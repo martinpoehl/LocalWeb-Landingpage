@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code2, Globe, Sparkles, ChevronDown, Mail } from 'lucide-react';
+import { Menu, X, Code2, Globe, Sparkles, ChevronDown, Mail, MessageSquare, Phone } from 'lucide-react';
 
 interface HeaderProps {
   activeSection: string;
@@ -41,7 +41,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       id: 'about', // Added id
       children: [
         { name: 'Team', href: '/employee' },
-        { name: 'Kunden', id: 'kunden' },
       ],
     },
     {
@@ -141,8 +140,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             className="glow-border relative bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive flex items-center gap-2"
             onClick={handleNavLinkClick} // Use this for closing main menu
           >
-            <Mail size={14} />
-            Anfrage senden
+            <Phone size={14} />
+            Gratis Erstgespräch
           </a>
         </nav>
 
@@ -218,8 +217,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             style={{ transitionDelay: `${navItems.length * 100}ms` }}
             onClick={handleNavLinkClick}
           >
-            <Mail size={20} />
-            Jetzt anfragen
+            <Phone size={20} />
+            Gratis Erstgespräch
           </a>
         </nav>
       </div>

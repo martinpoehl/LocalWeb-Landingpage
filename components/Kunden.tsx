@@ -43,7 +43,7 @@ const Kunden: React.FC = () => {
             Referenzen
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 md:mb-6 tracking-tighter">
-            Was unsere <span className="text-blue-600 hover:text-cyan-500 transition-colors duration-500 cursor-default">Kunden</span> sagen.
+            Was unsere <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Kunden</span> sagen.
           </h2>
           <p className="text-slate-600 text-base md:text-xl font-light leading-relaxed">
             Vertrauen ist die Basis jeder erfolgreichen Zusammenarbeit. Wir sind stolz darauf, lokale Unternehmen auf ihrem digitalen Weg zu begleiten.

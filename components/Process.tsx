@@ -73,10 +73,10 @@ const Process: React.FC = () => {
               Workflow
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter">
-              In vier Schritten zum <span className="text-blue-600 hover:text-cyan-500 transition-colors duration-500 cursor-default">Erfolg.</span>
+              So begleiten wir Sie zum <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Erfolg.</span>
             </h2>
-            <p className="text-slate-600 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-              Ein strukturierter Prozess für messbare Ergebnisse. Unser Ansatz folgt vier klar definierten Schritten – transparent, effizient und immer auf Ihr Ziel ausgerichtet:
+            <p className="text-slate-600 max-w-2xl mx-auto text-base md:text-xl leading-relaxed font-light">
+              Unser bewährter Prozess für Ihr digitales Wachstum. Wir begleiten Sie von der ersten Idee bis zum erfolgreichen Launch – transparent, partnerschaftlich und zielorientiert:
             </p>
           </div>
 
@@ -141,11 +141,11 @@ const Process: React.FC = () => {
                   </div>
 
                   {/* Step Card Content - Compact on mobile, full on desktop */}
-                  <div className="flex-1 lg:text-left lg:h-full bg-white border border-slate-200 p-4 lg:p-8 rounded-2xl lg:rounded-[2.5rem] transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:border-blue-500/30 w-full">
-                    <h3 className="text-base lg:text-xl font-bold lg:font-black text-slate-900 mb-1 lg:mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
+                  <div className="flex-1 lg:text-left lg:h-full bg-white border border-slate-200 p-5 lg:p-8 rounded-2xl lg:rounded-[2.5rem] transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:border-blue-500/30 w-full">
+                    <h3 className="text-lg lg:text-xl font-bold lg:font-black text-slate-900 mb-1.5 lg:mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-slate-600 text-xs lg:text-base leading-relaxed font-light group-hover:text-slate-700 transition-colors">
+                    <p className="text-slate-600 text-sm lg:text-base leading-relaxed font-light group-hover:text-slate-700 transition-colors">
                       {step.desc}
                     </p>
                   </div>

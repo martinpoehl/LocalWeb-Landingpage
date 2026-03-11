@@ -124,7 +124,7 @@ const About: React.FC = () => {
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-tight tracking-tight reveal-text">
                 Unsere Expertise für <br />
-                <span className="text-blue-600 italic hover:text-cyan-500 transition-colors duration-500 cursor-default">Ihren Erfolg.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 italic">Ihren Erfolg.</span>
               </h2>
               <p className="text-slate-700 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 font-normal reveal-text">
                 Wir wissen, was lokale Unternehmen brauchen: Vertrauen, Klarheit und Ergebnisse. LocalWeb unterstützt
@@ -165,7 +165,7 @@ const About: React.FC = () => {
                   className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive text-center flex items-center justify-center gap-2"
                 >
                   <Users size={20} />
-                  Team
+                  Unser Team
                 </Link>
                 <a
                   href="#services"
