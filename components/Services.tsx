@@ -67,21 +67,21 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="py-20 md:py-24 bg-slate-950 relative overflow-hidden"
+      className="py-12 md:py-24 bg-slate-950 relative overflow-hidden"
     >
       <div className="container mx-auto px-5 md:px-6">
         {/* Kopfbereich */}
-        <div className="mb-16 md:mb-12">
-          <span className="text-blue-500 font-black uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 md:mb-6 block reveal-text text-center hover:text-cyan-400 transition-colors duration-300 cursor-default">
+        <div className="mb-8 md:mb-12">
+          <span className="text-blue-500 font-black uppercase tracking-[0.3em] text-[10px] md:text-xs mb-3 md:mb-6 block reveal-text text-center hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Maßgeschneiderte Pakete
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 md:mb-10 leading-tight reveal-text text-center
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4 md:mb-10 leading-tight reveal-text text-center
       ">
             Digitale <span className="text-blue-500 hover:text-cyan-400 transition-colors duration-500 cursor-default">Lösungen.</span>
           </h2>
 
-          <div className="flex flex-col items-center gap-6">
-            <p className="text-slate-400 text-lg md:text-xl font-light max-w-md reveal-text mb-10 text-center">
+          <div className="flex flex-col items-center gap-4 md:gap-6">
+            <p className="text-slate-400 text-base md:text-xl font-light max-w-md reveal-text mb-6 md:mb-10 text-center">
               Wir bauen keine komplizierten Systeme, sondern Webseiten, die Ihnen
               mehr Kunden und weniger Aufwand bringen.
             </p>
@@ -89,7 +89,7 @@ const Services: React.FC = () => {
         </div>
 
         {/* Karten im selben Container, horizontal zentriert */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 justify-items">
           {services.map((service, idx) => (
             <a
               key={idx}
@@ -97,27 +97,27 @@ const Services: React.FC = () => {
               onMouseMove={handleCardInteraction as any}
               onMouseLeave={handleCardLeave as any}
               style={{ transitionDelay: `${idx * 150}ms` }}
-              className={`reveal-text relative group bg-white/5 border border-white/10 p-8 md:p-8 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-700 overflow-hidden ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
+              className={`reveal-text relative group bg-white/5 border border-white/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] transition-all duration-700 overflow-hidden ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
             >
               <div className="dynamic-light absolute w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[80px] pointer-events-none opacity-0 transition-opacity duration-300" />
 
               <div
-                className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${service.color} rounded-xl md:rounded-2xl flex items-center justify-center text-white mb-6 md:mb-8 shadow-2xl`}
+                className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${service.color} rounded-xl md:rounded-2xl flex items-center justify-center text-white mb-4 md:mb-8 shadow-2xl`}
               >
-                <service.icon className="w-7 h-7 md:w-8 md:h-8" />
+                <service.icon className="w-6 h-6 md:w-8 md:h-8" />
               </div>
 
-              <h3 className="text-2xl md:text-2xl font-black text-white mb-4 md:mb-4 group-hover:text-blue-400 transition-colors tracking-tight">
+              <h3 className="text-xl md:text-2xl font-black text-white mb-2 md:mb-4 group-hover:text-blue-400 transition-colors tracking-tight">
                 {service.title}
               </h3>
-              <p className="text-slate-400 text-base md:text-lg leading-relaxed font-light mb-6 md:mb-8">
+              <p className="text-slate-400 text-sm md:text-lg leading-relaxed font-light mb-4 md:mb-8">
                 {service.desc}
               </p>
 
-              <div className="flex items-center gap-3 text-white font-bold group-hover:gap-5 transition-all text-sm md:text-base">
+              <div className="flex items-center gap-3 text-white font-bold group-hover:gap-5 transition-all text-xs md:text-base">
                 Mehr erfahren
-                <ArrowRight size={20} className="text-blue-500" />
+                <ArrowRight size={18} className="text-blue-500 md:w-5 md:h-5" />
               </div>
             </a>
           ))}
