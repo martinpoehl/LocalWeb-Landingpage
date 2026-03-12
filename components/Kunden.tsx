@@ -30,13 +30,16 @@ const kundenDaten = [
 
 const Kunden: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scrollTo = (index: number) => {
     if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
-      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      const itemWidth = scrollRef.current.firstElementChild?.clientWidth || 0;
+      scrollRef.current.scrollTo({
+        left: index * itemWidth,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -60,8 +63,35 @@ const Kunden: React.FC = () => {
     }
   }, [activeIndex]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = sectionRef.current;
+    if (section) {
+      const cardElements = section.querySelectorAll('.kunden-card');
+      cardElements.forEach((card) => observer.observe(card));
+    }
+
+    return () => {
+      if (section) {
+        const cardElements = section.querySelectorAll('.kunden-card');
+        cardElements.forEach((card) => observer.unobserve(card));
+      }
+    };
+  }, []);
+
   return (
-    <section id="kunden" className="py-12 md:py-24 bg-gray-50 overflow-hidden relative">
+    <section id="kunden" ref={sectionRef} className="py-12 md:py-24 bg-gray-50 overflow-hidden relative">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px]" />
@@ -83,33 +113,34 @@ const Kunden: React.FC = () => {
 
         {/* Slider Wrapper */}
         <div className="relative group max-w-7xl mx-auto">
-          {/* Desktop Navigation Buttons */}
+          {/* Mobile Navigation Buttons */}
           <button
-            onClick={() => scroll('left')}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-30 bg-white p-3 rounded-full shadow-xl border border-slate-100 text-slate-400 hover:text-blue-600 hover:scale-110 transition-all opacity-0 group-hover:opacity-100 hidden lg:flex items-center justify-center"
+            onClick={() => scrollTo(activeIndex - 1)}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white/90 w-12 h-12 rounded-full shadow-lg border border-slate-100 text-blue-600 transition-all flex lg:hidden items-center justify-center ${activeIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             aria-label="Nach links scrollen"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={32} />
           </button>
           <button
-            onClick={() => scroll('right')}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-30 bg-white p-3 rounded-full shadow-xl border border-slate-100 text-slate-400 hover:text-blue-600 hover:scale-110 transition-all opacity-0 group-hover:opacity-100 hidden lg:flex items-center justify-center"
+            onClick={() => scrollTo(activeIndex + 1)}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-white/90 w-12 h-12 rounded-full shadow-lg border border-slate-100 text-blue-600 transition-all flex lg:hidden items-center justify-center ${activeIndex === kundenDaten.length - 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             aria-label="Nach rechts scrollen"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={32} />
           </button>
 
           {/* Slider Container */}
           <div
             ref={scrollRef}
-            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
+            className="flex lg:grid lg:grid-cols-3 gap-4 md:gap-10 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
           >
             {kundenDaten.map((stimme, idx) => (
               <div
                 key={idx}
-                className="reveal-text group/card relative bg-white p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500 flex flex-col h-auto w-[88vw] sm:w-[450px] lg:w-full flex-shrink-0 snap-center"
+                className="kunden-card group/card relative bg-white p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 shadow-2xl shadow-blue-500/10 lg:shadow-xl lg:shadow-slate-200/50 lg:hover:shadow-2xl lg:hover:shadow-blue-500/10 -translate-y-2 lg:translate-y-10 lg:hover:-translate-y-2 transition-all duration-500 flex flex-col h-auto w-[82vw] sm:w-[450px] lg:w-full flex-shrink-0 snap-center opacity-100 lg:opacity-0"
+                style={{ transitionDelay: `${idx * 150}ms` }}
               >
-                <div className="absolute top-8 right-8 text-blue-100 group-hover/card:text-blue-600 group-hover/card:scale-110 transition-all duration-500">
+                <div className="absolute top-8 right-8 text-blue-600 scale-110 lg:text-blue-100 lg:scale-100 lg:group-hover/card:text-blue-600 lg:group-hover/card:scale-110 transition-all duration-500">
                   <Quote size={40} />
                 </div>
 
@@ -125,11 +156,11 @@ const Kunden: React.FC = () => {
 
                 <div className="flex items-center gap-4 pt-8 border-t border-slate-50 mt-auto">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-blue-600/20 blur-lg rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-blue-600/20 blur-lg rounded-full opacity-100 lg:opacity-0 lg:group-hover/card:opacity-100 transition-opacity" />
                     <img
                       src={stimme.image}
                       alt={stimme.name}
-                      className="relative z-10 w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover grayscale group-hover/card:grayscale-0 transition-all duration-500 shadow-lg"
+                      className="relative z-10 w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover grayscale-0 lg:grayscale lg:group-hover/card:grayscale-0 transition-all duration-500 shadow-lg"
                     />
                   </div>
                   <div>
@@ -155,14 +186,7 @@ const Kunden: React.FC = () => {
             {kundenDaten.map((_, i) => (
               <button
                 key={i}
-                onClick={() => {
-                  if (scrollRef.current) {
-                    scrollRef.current.scrollTo({
-                      left: i * scrollRef.current.clientWidth,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
+                onClick={() => scrollTo(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'
                 }`}
@@ -179,6 +203,15 @@ const Kunden: React.FC = () => {
           .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
+          }
+          .is-visible { 
+            opacity: 1 !important; 
+            transform: translateY(0) !important; 
+          }
+          @media (min-width: 1024px) {
+            .kunden-card {
+              transition: all 0.7s ease-out;
+            }
           }
         `}</style>
       </div>

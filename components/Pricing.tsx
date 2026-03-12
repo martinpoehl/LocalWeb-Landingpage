@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, ArrowRight, Star, ShieldCheck, Zap, ChevronDown } from 'lucide-react';
+import { Check, ArrowRight, Star, ShieldCheck, Zap, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Pricing: React.FC = () => {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -17,6 +17,16 @@ const Pricing: React.FC = () => {
       if (newIndex !== activeIndex) {
         setActiveIndex(newIndex);
       }
+    }
+  };
+
+  const scrollTo = (index: number) => {
+    if (scrollRef.current) {
+      const itemWidth = scrollRef.current.firstElementChild?.clientWidth || 0;
+      scrollRef.current.scrollTo({
+        left: index * itemWidth,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -132,7 +142,7 @@ const Pricing: React.FC = () => {
         <div className="relative max-w-7xl mx-auto">
           <div
             ref={scrollRef}
-            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
+            className="flex items-stretch lg:grid lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
           >
             {plans.map((plan, idx) => {
               const isExpanded = expandedIndex === idx;
@@ -144,8 +154,8 @@ const Pricing: React.FC = () => {
                     group
                     relative p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem]
                     transition-all duration-700 overflow-hidden
-                    ${window.innerWidth < 768 ? 'w-[88vw] flex-shrink-0 snap-center' : 'w-full'}
-                    flex flex-col h-full
+                    ${window.innerWidth < 768 ? 'w-[82vw] flex-shrink-0 snap-center' : 'w-full'}
+                    flex flex-col h-auto
                     border-2 md:hover:border-blue-500/50 md:hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
                     ${
                       isVisible
@@ -235,25 +245,39 @@ const Pricing: React.FC = () => {
             })}
           </div>
 
-          <div className="flex justify-center gap-3 mt-4 lg:hidden">
-            {plans.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  if (scrollRef.current) {
-                    scrollRef.current.scrollTo({
-                      left: i * scrollRef.current.clientWidth,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-800'
-                }`}
-                aria-label={`Gehe zu Paket ${i + 1}`}
-              />
-            ))}
+          {/* Mobile Arrows */}
+          <div className="flex lg:hidden absolute top-1/2 -translate-y-1/2 left-0 right-0 justify-between px-2 z-30 pointer-events-none">
+            <button
+              onClick={() => scrollTo(activeIndex - 1)}
+              disabled={activeIndex === 0}
+              className={`w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg transition-all pointer-events-auto ${activeIndex === 0 ? 'opacity-0' : 'opacity-100'}`}
+              aria-label="Vorheriges Paket"
+            >
+              <ChevronLeft size={32} />
+            </button>
+            <button
+              onClick={() => scrollTo(activeIndex + 1)}
+              disabled={activeIndex === plans.length - 1}
+              className={`w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg transition-all pointer-events-auto ${activeIndex === plans.length - 1 ? 'opacity-0' : 'opacity-100'}`}
+              aria-label="Nächstes Paket"
+            >
+              <ChevronRight size={32} />
+            </button>
           </div>
+        </div>
+
+        {/* Mobile Indicator */}
+        <div className="flex justify-center gap-3 mt-4 lg:hidden">
+          {plans.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-800'
+              }`}
+              aria-label={`Gehe zu Paket ${i + 1}`}
+            />
+          ))}
         </div>
 
         <div

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MessageSquare, Palette, Code, Rocket, ArrowRight } from 'lucide-react';
+import { MessageSquare, Palette, Code, Rocket, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Process: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,6 +40,16 @@ const Process: React.FC = () => {
     }
   };
 
+  const scrollTo = (index: number) => {
+    if (scrollRef.current) {
+      const itemWidth = scrollRef.current.firstElementChild?.clientWidth || 0;
+      scrollRef.current.scrollTo({
+        left: index * itemWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (scrollContainer && window.innerWidth < 1024) {
@@ -49,6 +59,8 @@ const Process: React.FC = () => {
   }, [activeIndex]);
 
   useEffect(() => {
+    if (window.innerWidth < 1024) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -94,8 +106,8 @@ const Process: React.FC = () => {
         </div>
 
         <div className="relative">
-          {/* Connection Line Desktop */}
-          <div className="hidden lg:block absolute top-[44px] left-0 w-full h-[2px] z-0 overflow-visible">
+          {/* Connection Line */}
+          <div className="absolute top-[40px] md:top-[44px] left-0 w-full h-[2px] z-0 overflow-visible">
             <svg className="w-full h-2" viewBox="0 0 1200 2" fill="none" preserveAspectRatio="none">
               <path d="M0 1H1200" stroke="rgba(59,130,246,0.1)" strokeWidth="2" strokeDasharray="12 12" />
               <path d="M0 1H1200" stroke="url(#line_gradient)" strokeWidth="2" strokeDasharray="12 12" className="animate-dash" />
@@ -111,12 +123,12 @@ const Process: React.FC = () => {
 
           <div
             ref={scrollRef}
-            className="flex lg:grid lg:grid-cols-4 gap-6 lg:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x relative z-10"
+            className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x relative z-10"
           >
             {steps.map((step, idx) => (
               <div
                 key={idx}
-                className="step-item group relative flex flex-col items-center lg:items-start transition-all duration-700 ease-out transform opacity-0 translate-y-10 w-[85vw] sm:w-[350px] lg:w-full flex-shrink-0 snap-center"
+                className="step-item group relative flex flex-col items-center lg:items-start transition-none lg:transition-all lg:duration-700 lg:ease-out opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-10 w-[82vw] sm:w-[350px] lg:w-full flex-shrink-0 snap-center"
                 style={{ transitionDelay: `${idx * 200}ms` }}
               >
                 <div className="relative mb-8 lg:mb-10 z-20">
@@ -138,6 +150,26 @@ const Process: React.FC = () => {
               </div>
             ))}
           </div>
+
+          {/* Mobile Arrows */}
+          <div className="flex lg:hidden absolute top-1/2 -translate-y-1/2 left-0 right-0 justify-between px-2 z-30 pointer-events-none">
+            <button
+              onClick={() => scrollTo(activeIndex - 1)}
+              disabled={activeIndex === 0}
+              className={`w-12 h-12 rounded-full bg-white/90 border border-slate-200 flex items-center justify-center text-blue-600 shadow-lg transition-all pointer-events-auto ${activeIndex === 0 ? 'opacity-0' : 'opacity-100'}`}
+              aria-label="Vorheriger Schritt"
+            >
+              <ChevronLeft size={32} />
+            </button>
+            <button
+              onClick={() => scrollTo(activeIndex + 1)}
+              disabled={activeIndex === steps.length - 1}
+              className={`w-12 h-12 rounded-full bg-white/90 border border-slate-200 flex items-center justify-center text-blue-600 shadow-lg transition-all pointer-events-auto ${activeIndex === steps.length - 1 ? 'opacity-0' : 'opacity-100'}`}
+              aria-label="Nächster Schritt"
+            >
+              <ChevronRight size={32} />
+            </button>
+          </div>
         </div>
 
         {/* Mobile Indicator */}
@@ -145,6 +177,7 @@ const Process: React.FC = () => {
           {steps.map((_, i) => (
             <button
               key={i}
+              onClick={() => scrollTo(i)}
               className={`h-2 rounded-full transition-all duration-300 ${activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'}`}
               aria-label={`Schritt ${i + 1}`}
             />
@@ -164,7 +197,10 @@ const Process: React.FC = () => {
       <style>{`
         @keyframes dash { to { stroke-dashoffset: -100; } }
         .animate-dash { animation: dash 30s linear infinite; }
-        .is-visible { opacity: 1; transform: translateY(0); }
+        .is-visible { 
+          opacity: 1 !important; 
+          transform: translateY(0) !important; 
+        }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
