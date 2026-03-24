@@ -132,35 +132,36 @@ const Kunden: React.FC = () => {
           {/* Slider Container */}
           <div
             ref={scrollRef}
-            className="flex lg:grid lg:grid-cols-3 gap-4 md:gap-10 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
+            className="flex lg:grid lg:grid-cols-3 gap-4 md:gap-10 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0"
+            style={{ touchAction: 'pan-x pan-y' }}
           >
             {kundenDaten.map((stimme, idx) => (
               <div
                 key={idx}
-                className="kunden-card group/card relative bg-white p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 shadow-2xl shadow-blue-500/10 lg:shadow-xl lg:shadow-slate-200/50 lg:hover:shadow-2xl lg:hover:shadow-blue-500/10 -translate-y-2 lg:translate-y-10 lg:hover:-translate-y-2 transition-all duration-500 flex flex-col h-auto w-[82vw] sm:w-[450px] lg:w-full flex-shrink-0 snap-center opacity-100 lg:opacity-0"
+                className="kunden-card group/card relative bg-white p-5 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] border border-slate-100 shadow-2xl shadow-blue-500/10 lg:shadow-xl lg:shadow-slate-200/50 lg:hover:shadow-2xl lg:hover:shadow-blue-500/10 -translate-y-2 lg:translate-y-10 lg:hover:-translate-y-2 transition-all duration-500 flex flex-col h-auto w-[82vw] sm:w-[450px] lg:w-full flex-shrink-0 snap-center opacity-100 lg:opacity-0"
                 style={{ transitionDelay: `${idx * 150}ms` }}
               >
-                <div className="absolute top-8 right-8 text-blue-600 scale-110 lg:text-blue-100 lg:scale-100 lg:group-hover/card:text-blue-600 lg:group-hover/card:scale-110 transition-all duration-500">
-                  <Quote size={40} />
+                <div className="absolute top-5 right-5 md:top-8 md:right-8 text-blue-600 scale-110 lg:text-blue-100 lg:scale-100 lg:group-hover/card:text-blue-600 lg:group-hover/card:scale-110 transition-all duration-500">
+                  <Quote size={28} className="md:w-10 md:h-10" />
                 </div>
 
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-1 mb-3 md:mb-6">
                   {[...Array(stimme.rating)].map((_, i) => (
-                    <Star key={i} size={18} className="fill-blue-500 text-blue-500" />
+                    <Star key={i} size={14} className="md:w-[18px] md:h-[18px] fill-blue-500 text-blue-500" />
                   ))}
                 </div>
 
-                <blockquote className="text-slate-700 text-lg md:text-xl leading-relaxed mb-8 flex-1 font-medium italic relative z-10">
+                <blockquote className="text-slate-700 text-base md:text-xl leading-relaxed mb-4 md:mb-8 flex-1 font-medium italic relative z-10">
                   "{stimme.content}"
                 </blockquote>
 
-                <div className="flex items-center gap-4 pt-8 border-t border-slate-50 mt-auto">
+                <div className="flex items-center gap-3 md:gap-4 pt-4 md:pt-8 border-t border-slate-50 mt-auto">
                   <div className="relative">
                     <div className="absolute inset-0 bg-blue-600/20 blur-lg rounded-full opacity-100 lg:opacity-0 lg:group-hover/card:opacity-100 transition-opacity" />
                     <img
                       src={stimme.image}
                       alt={stimme.name}
-                      className="relative z-10 w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover grayscale-0 lg:grayscale lg:group-hover/card:grayscale-0 transition-all duration-500 shadow-lg"
+                      className="relative z-10 w-11 h-11 md:w-16 md:h-16 rounded-xl md:rounded-2xl object-cover grayscale-0 lg:grayscale lg:group-hover/card:grayscale-0 transition-all duration-500 shadow-lg"
                     />
                   </div>
                   <div>
@@ -182,16 +183,18 @@ const Kunden: React.FC = () => {
           </div>
 
           {/* Enhanced Scroll Indicators */}
-          <div className="flex justify-center gap-3 mt-4 lg:hidden">
+          <div className="flex justify-center gap-2 mt-4 lg:hidden">
             {kundenDaten.map((_, i) => (
               <button
                 key={i}
                 onClick={() => scrollTo(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'
-                }`}
+                className="p-2 flex items-center justify-center"
                 aria-label={`Gehe zu Testimonial ${i + 1}`}
-              />
+              >
+                <span className={`block h-2 rounded-full transition-all duration-300 ${
+                  activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'
+                }`} />
+              </button>
             ))}
           </div>
         </div>
