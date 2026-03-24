@@ -106,8 +106,8 @@ const Process: React.FC = () => {
         </div>
 
         <div className="relative">
-          {/* Connection Line */}
-          <div className="absolute top-[40px] md:top-[44px] left-0 w-full h-[2px] z-0 overflow-visible">
+          {/* Connection Line - desktop only */}
+          <div className="hidden lg:block absolute top-[44px] left-0 w-full h-[2px] z-0 overflow-visible">
             <svg className="w-full h-2" viewBox="0 0 1200 2" fill="none" preserveAspectRatio="none">
               <path d="M0 1H1200" stroke="rgba(59,130,246,0.1)" strokeWidth="2" strokeDasharray="12 12" />
               <path d="M0 1H1200" stroke="url(#line_gradient)" strokeWidth="2" strokeDasharray="12 12" className="animate-dash" />
@@ -123,7 +123,7 @@ const Process: React.FC = () => {
 
           <div
             ref={scrollRef}
-            className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x relative z-10"
+            className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 overflow-x-auto lg:overflow-x-visible pt-6 lg:pt-0 pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x relative z-10"
           >
             {steps.map((step, idx) => (
               <div
@@ -132,18 +132,18 @@ const Process: React.FC = () => {
                 style={{ transitionDelay: `${idx * 200}ms` }}
               >
                 <div className="relative mb-8 lg:mb-10 z-20">
-                  <div className={`absolute inset-0 bg-blue-500/20 blur-xl rounded-full transition-opacity duration-500 ${activeIndex === idx ? 'opacity-100' : 'opacity-0 lg:group-hover:opacity-100'}`} />
-                  <div className={`w-20 h-20 md:w-24 md:h-24 bg-white border border-slate-100 rounded-full flex items-center justify-center transition-all duration-500 shadow-lg lg:shadow-2xl relative ${activeIndex === idx ? 'bg-blue-600 text-white border-blue-400' : 'text-blue-600 lg:group-hover:text-white lg:group-hover:bg-blue-600 lg:group-hover:border-blue-400'}`}>
+                  <div className={`absolute inset-0 bg-blue-500/20 blur-xl rounded-full transition-opacity duration-500 opacity-0 lg:group-hover:opacity-100 ${activeIndex === idx ? 'max-lg:opacity-100' : ''}`} />
+                  <div className={`relative z-10 w-20 h-20 md:w-24 md:h-24 bg-white border border-slate-100 rounded-full flex items-center justify-center transition-all duration-500 shadow-lg lg:shadow-2xl text-blue-600 lg:group-hover:text-white lg:group-hover:bg-blue-600 lg:group-hover:border-blue-400 ${activeIndex === idx ? 'max-lg:bg-blue-600 max-lg:text-white max-lg:border-blue-400' : ''}`}>
                     <step.icon size={32} strokeWidth={1.5} className="relative z-10" />
-                    <div className={`absolute inset-0 rounded-full border border-blue-500/30 transition-all duration-700 ${activeIndex === idx ? 'scale-125 opacity-100' : 'scale-100 opacity-0 lg:group-hover:scale-125 lg:group-hover:opacity-100'}`} />
+                    <div className={`absolute inset-0 rounded-full border border-blue-500/30 transition-all duration-700 scale-100 opacity-0 lg:group-hover:scale-125 lg:group-hover:opacity-100 ${activeIndex === idx ? 'max-lg:scale-125 max-lg:opacity-100' : ''}`} />
                   </div>
                 </div>
 
-                <div className={`flex-1 text-center lg:text-left bg-white border border-slate-200 p-8 rounded-[2rem] lg:rounded-[2.5rem] transition-all duration-500 shadow-lg lg:group-hover:shadow-2xl lg:group-hover:-translate-y-2 lg:group-hover:border-blue-500/30 w-full ${activeIndex === idx ? 'border-blue-500/30 shadow-blue-500/10 -translate-y-1' : ''}`}>
-                  <h3 className={`text-xl font-bold lg:font-black text-slate-900 mb-4 tracking-tight transition-colors ${activeIndex === idx ? 'text-blue-600' : 'lg:group-hover:text-blue-600'}`}>
+                <div className={`flex-1 text-center lg:text-left bg-white border border-slate-200 p-8 rounded-[2rem] lg:rounded-[2.5rem] transition-all duration-500 shadow-lg lg:group-hover:shadow-2xl lg:group-hover:-translate-y-2 lg:group-hover:border-blue-500/30 w-full ${activeIndex === idx ? 'max-lg:border-blue-500/30 max-lg:shadow-blue-500/10 max-lg:-translate-y-1' : ''}`}>
+                  <h3 className={`text-xl font-bold lg:font-black text-slate-900 mb-4 tracking-tight transition-colors lg:group-hover:text-blue-600 ${activeIndex === idx ? 'max-lg:text-blue-600' : ''}`}>
                     {step.title}
                   </h3>
-                  <p className={`text-slate-600 text-base leading-relaxed font-light transition-colors ${activeIndex === idx ? 'text-slate-900' : 'lg:group-hover:text-slate-700'}`}>
+                  <p className={`text-slate-600 text-base leading-relaxed font-light transition-colors lg:group-hover:text-slate-700 ${activeIndex === idx ? 'max-lg:text-slate-900' : ''}`}>
                     {step.desc}
                   </p>
                 </div>
@@ -173,14 +173,16 @@ const Process: React.FC = () => {
         </div>
 
         {/* Mobile Indicator */}
-        <div className="flex justify-center gap-3 mt-4 lg:hidden">
+        <div className="flex justify-center gap-2 mt-4 lg:hidden">
           {steps.map((_, i) => (
             <button
               key={i}
               onClick={() => scrollTo(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'}`}
+              className="p-2 flex items-center justify-center"
               aria-label={`Schritt ${i + 1}`}
-            />
+            >
+              <span className={`block h-2 rounded-full transition-all duration-300 ${activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'}`} />
+            </button>
           ))}
         </div>
 

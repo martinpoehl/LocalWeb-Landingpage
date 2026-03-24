@@ -21,7 +21,6 @@ const Hero: React.FC = () => {
       id="home"
       onMouseMove={handleParallax}
       className="relative min-h-screen flex items-center justify-center pt-28 md:pt-16 overflow-hidden bg-slate-950"
-      style={{ cursor: 'none' }} // Explizite Verstärkung für den Hero-Bereich
     >
       <div className="mesh-bg"></div>
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Globe2, Users, Sparkles } from 'lucide-react';
-import Link from 'next/link';
 
 const CountUp: React.FC<{ end: number; suffix?: string }> = ({ end, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -160,16 +159,16 @@ const About: React.FC = () => {
 
               {/* Navigations-Links statt Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 reveal-text">
-                <Link
+                <a
                   href="/employee"
-                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl interactive text-center flex items-center justify-center gap-2"
+                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive text-center flex items-center justify-center gap-2"
                 >
                   <Users size={20} />
                   Unser Team
-                </Link>
+                </a>
                 <a
                   href="#services"
-                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-200 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 transition-all duration-300 interactive text-center flex items-center justify-center gap-2"
+                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-200 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 active:scale-95 transition-all duration-300 interactive text-center flex items-center justify-center gap-2"
                 >
                   <Sparkles size={20} />
                   Unsere Leistungen

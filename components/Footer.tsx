@@ -37,10 +37,10 @@ const Footer: React.FC = () => {
               <p className="text-slate-500">Tipps für Ihr lokales Marketing direkt in Ihr Postfach.</p>
             </div>
             <form className="flex flex-col sm:flex-row gap-3 w-full">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 placeholder="Ihre E-Mail Adresse"
-                className="w-full bg-white border border-slate-300 text-slate-900 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-400"
+                className="w-full bg-white border border-slate-300 text-slate-900 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-400"
               />
               <button 
                 type="submit"
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, idx) => (
-                <a key={idx} href={social.href} className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-200 hover:bg-blue-600 text-slate-500 hover:text-white transition-all duration-300">
+                <a key={idx} href={social.href} className="w-11 h-11 flex items-center justify-center rounded-full bg-slate-200 hover:bg-blue-600 active:bg-blue-700 active:scale-90 text-slate-500 hover:text-white transition-all duration-300">
                   <social.icon size={18} />
                 </a>
               ))}
@@ -85,10 +85,10 @@ const Footer: React.FC = () => {
           {/* Column 2: Webseite */}
           <div className="sm:pl-0">
             <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Navigation</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {agencyLinks.map(link => (
                 <li key={link.name}>
-                  <a href={link.href || `#${link.id}`} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">{link.name}</a>
+                  <a href={link.href || `#${link.id}`} className="text-slate-500 hover:text-blue-600 active:text-blue-700 transition-colors text-base font-medium py-2 block">{link.name}</a>
                 </li>
               ))}
             </ul>
@@ -97,10 +97,10 @@ const Footer: React.FC = () => {
           {/* Column 3: Leistungen */}
           <div>
             <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Leistungen</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {serviceLinks.map(link => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-slate-500 hover:text-blue-600 transition-colors text-base font-medium">{link.name}</a>
+                  <a href={link.href} className="text-slate-500 hover:text-blue-600 active:text-blue-700 transition-colors text-base font-medium py-2 block">{link.name}</a>
                 </li>
               ))}
             </ul>

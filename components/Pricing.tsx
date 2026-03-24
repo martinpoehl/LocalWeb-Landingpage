@@ -233,7 +233,7 @@ const Pricing: React.FC = () => {
                       
                       <a
                         href="#contact"
-                        className="glow-border relative mt-8 w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 transition-all duration-300 shadow-xl interactive"
+                        className="glow-border relative mt-8 w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 active:scale-95 active:bg-blue-700 transition-all duration-300 shadow-xl interactive"
                       >
                         <span className="relative">Anfragen</span>
                         <ArrowRight size={20} className="relative" />
@@ -267,16 +267,18 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Mobile Indicator */}
-        <div className="flex justify-center gap-3 mt-4 lg:hidden">
+        <div className="flex justify-center gap-2 mt-4 lg:hidden">
           {plans.map((_, i) => (
             <button
               key={i}
               onClick={() => scrollTo(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-800'
-              }`}
+              className="p-2 flex items-center justify-center"
               aria-label={`Gehe zu Paket ${i + 1}`}
-            />
+            >
+              <span className={`block h-2 rounded-full transition-all duration-300 ${
+                activeIndex === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-800'
+              }`} />
+            </button>
           ))}
         </div>
 

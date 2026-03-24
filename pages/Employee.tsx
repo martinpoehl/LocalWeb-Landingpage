@@ -25,7 +25,7 @@ const Employee: React.FC = () => {
       github: 'https://github.com',
     },
     {
-      name: 'Sarah Müller',
+      name: 'Fabienne Burri',
       role: 'UI/UX Designerin',
       bio: 'Ich verwandle komplexe Anforderungen in intuitive Benutzeroberflächen. Mit einem Auge für Details und einem Gespür für Trends gestalte ich moderne Webauftritte.',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',

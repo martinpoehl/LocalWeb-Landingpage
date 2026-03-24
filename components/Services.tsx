@@ -96,7 +96,7 @@ const Services: React.FC = () => {
               onMouseMove={handleCardInteraction as any}
               onMouseLeave={handleCardLeave as any}
               style={{ transitionDelay: `${idx * 150}ms` }}
-              className={`reveal-text relative group bg-white/5 border border-white/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] transition-all duration-700 overflow-hidden ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
+              className={`reveal-text relative group bg-white/5 border border-white/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] transition-all duration-700 overflow-hidden active:scale-[0.98] active:bg-white/10 ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
             >
               <div className="dynamic-light absolute w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[80px] pointer-events-none opacity-0 transition-opacity duration-300" />

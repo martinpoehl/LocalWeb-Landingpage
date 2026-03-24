@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
               {contactInfo.map((info, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center lg:items-start gap-4 p-4 rounded-2xl bg-slate-800/30 border border-slate-700/50 transition-all duration-300 hover:border-blue-500/30 hover:bg-slate-800/50 group/info"
+                  className="flex items-center lg:items-start gap-4 p-4 rounded-2xl bg-slate-800/30 border border-slate-700/50 transition-all duration-300 hover:border-blue-500/30 hover:bg-slate-800/50 active:bg-slate-800/70 group/info"
                 >
                   <div className="bg-slate-800 p-3 md:p-4 rounded-xl text-blue-500 shadow-inner group-hover/info:text-cyan-400 transition-colors">
                     <info.icon size={20} className="md:w-6 md:h-6" />
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
               className="bg-slate-800/50 p-5 sm:p-8 rounded-2xl md:rounded-[2rem] border border-slate-700/50 backdrop-blur-md"
             >
               {/* Vorname + Nachname */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
                 <div>
                   <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
                     Vorname
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
                     name="first_name"
                     required
                     placeholder="Max"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
                 <div>
@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
                     name="last_name"
                     required
                     placeholder="Mustermann"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
                     name="user_email"
                     required
                     placeholder="beispiel@firma.ch"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
                 <div>
@@ -153,7 +153,7 @@ const Contact: React.FC = () => {
                     type="text"
                     name="company"
                     placeholder="Name Ihrer Firma"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
@@ -165,7 +165,7 @@ const Contact: React.FC = () => {
                 </label>
                 <select
                   name="project_type"
-                  className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm sm:text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   defaultValue=""
                 >
                   <option value="" disabled>Bitte wählen Sie eine Kategorie</option>
@@ -186,7 +186,7 @@ const Contact: React.FC = () => {
                   name="message"
                   required
                   placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben..."
-                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-3 sm:px-4 py-3 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-sm sm:text-base resize-none hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base resize-none hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 ></textarea>
               </div>
 

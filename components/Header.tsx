@@ -147,7 +147,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
         {/* Mobile Toggle */}
         <button
-          className="xl:hidden z-[110] text-white p-2 md:p-3 bg-white/5 rounded-xl border border-white/10 interactive focus:outline-none"
+          className="xl:hidden z-[110] text-white p-3 bg-white/5 rounded-xl border border-white/10 interactive focus:outline-none active:scale-90 active:bg-white/10 transition-all min-w-[48px] min-h-[48px] flex items-center justify-center"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -175,7 +175,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                       <span className={`absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 ${activeSection === item.id || item.children.some(child => child.id === activeSection || child.href === window.location.pathname) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                     </a>
                     <button
-                      className="p-1 focus:outline-none"
+                      className="p-3 focus:outline-none active:scale-90 transition-transform min-w-[48px] min-h-[48px] flex items-center justify-center"
                       onClick={() => toggleSubmenu(item.name)}
                     >
                       <ChevronDown size={32} className={`transition-transform duration-300 ${openMobileSubmenu === item.name ? 'rotate-180' : ''} ${activeSection === item.id || item.children.some(child => child.id === activeSection || child.href === window.location.pathname) ? 'text-blue-500' : 'text-white'}`} />
@@ -186,7 +186,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                       <a
                         key={child.name}
                         href={child.href || `#${child.id}`}
-                        className={`block pl-8 py-2 text-lg md:text-xl font-medium text-slate-300 hover:text-blue-400 hover:bg-white/5 rounded-lg transition-all duration-300 transform ${openMobileSubmenu === item.name ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
+                        className={`block pl-8 py-4 text-lg md:text-xl font-medium text-slate-300 hover:text-blue-400 active:text-blue-400 active:bg-white/10 hover:bg-white/5 rounded-lg transition-all duration-300 transform ${openMobileSubmenu === item.name ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
                           }`}
                         style={{ transitionDelay: `${childIdx * 50}ms` }}
                         onClick={handleNavLinkClick}
