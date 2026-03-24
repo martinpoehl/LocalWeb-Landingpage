@@ -142,8 +142,7 @@ const Pricing: React.FC = () => {
         <div className="relative max-w-7xl mx-auto">
           <div
             ref={scrollRef}
-            className="flex items-stretch lg:grid lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0"
-            style={{ touchAction: 'pan-x pan-y' }}
+            className="flex items-stretch lg:grid lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
           >
             {plans.map((plan, idx) => {
               const isExpanded = expandedIndex === idx;
@@ -153,7 +152,7 @@ const Pricing: React.FC = () => {
                   key={idx}
                   className={`
                     group
-                    relative p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem]
+                    relative p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem]
                     transition-all duration-700 overflow-hidden
                     ${window.innerWidth < 768 ? 'w-[82vw] flex-shrink-0 snap-center' : 'w-full'}
                     flex flex-col h-auto
@@ -168,12 +167,12 @@ const Pricing: React.FC = () => {
                   style={{ transitionDelay: `${plan.delay}ms` }}
                 >
                   <div className="flex-1 flex flex-col">
-                    <div className="flex items-center justify-between md:block mb-6">
+                    <div className="flex items-center justify-between md:block mb-4 md:mb-6">
                       <div className="flex items-center md:block gap-4">
                         <div
-                          className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-0 md:mb-8 transition-transform duration-500 md:group-hover:scale-110 md:group-hover:rotate-6 bg-slate-800 text-blue-400`}
+                          className={`w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-0 md:mb-8 transition-transform duration-500 md:group-hover:scale-110 md:group-hover:rotate-6 bg-slate-800 text-blue-400`}
                         >
-                          <plan.icon size={28} className="transition-transform duration-500 md:group-hover:stroke-[2.5px]" />
+                          <plan.icon size={20} className="md:w-7 md:h-7 transition-transform duration-500 md:group-hover:stroke-[2.5px]" />
                         </div>
                         <div className="flex flex-col">
                           <h3 className="text-xl md:text-2xl font-black tracking-tight md:mb-2 md:group-hover:text-blue-400 transition-colors">
@@ -200,20 +199,20 @@ const Pricing: React.FC = () => {
                     </div>
 
                     <div className="block flex-1 flex flex-col">
-                      <div className="mb-6 md:hidden">
-                        <span className="text-3xl font-black tracking-tighter">
+                      <div className="mb-4 md:hidden">
+                        <span className="text-2xl font-black tracking-tighter">
                           {plan.price}
                         </span>
                         <p className={`text-xs mt-1 uppercase font-bold tracking-widest text-blue-400`}>
                           {plan.priceNote}
                         </p>
                       </div>
-                      
-                      <p className={`text-sm mb-8 font-normal text-slate-400 leading-relaxed`}>
+
+                      <p className={`text-sm mb-4 md:mb-8 font-normal text-slate-400 leading-relaxed`}>
                         {plan.description}
                       </p>
 
-                      <div className="space-y-4 md:space-y-5 flex-1">
+                      <div className="space-y-2.5 md:space-y-5 flex-1">
                         {plan.features.map((feature, fIdx) => (
                           <div
                             key={fIdx}
@@ -234,7 +233,7 @@ const Pricing: React.FC = () => {
                       
                       <a
                         href="#contact"
-                        className="glow-border relative mt-8 w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 active:scale-95 active:bg-blue-700 transition-all duration-300 shadow-xl interactive"
+                        className="glow-border relative mt-5 md:mt-8 w-full flex items-center justify-center gap-3 py-4 md:py-5 rounded-xl md:rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 active:scale-95 active:bg-blue-700 transition-all duration-300 shadow-xl interactive"
                       >
                         <span className="relative">Anfragen</span>
                         <ArrowRight size={20} className="relative" />
