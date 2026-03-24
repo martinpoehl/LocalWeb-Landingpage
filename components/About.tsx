@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Globe2, Users, Sparkles } from 'lucide-react';
+import { Globe2, Users, Sparkles, Wrench, Scissors, Car, UtensilsCrossed, Stethoscope, Leaf, ShoppingBag, Camera, Hammer, ChefHat, Activity, Flower2 } from 'lucide-react';
 
 const CountUp: React.FC<{ end: number; suffix?: string }> = ({ end, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -158,23 +158,63 @@ const About: React.FC = () => {
               </div>
 
               {/* Navigations-Links statt Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 reveal-text">
+              <div className="flex flex-row gap-3 md:gap-4 reveal-text">
                 <a
                   href="/employee"
-                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive text-center flex items-center justify-center gap-2"
+                  className="glow-border relative flex-1 sm:flex-none px-5 md:px-10 py-4 md:py-5 bg-blue-600 text-white rounded-xl md:rounded-2xl font-black hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl interactive text-center flex items-center justify-center gap-2"
                 >
                   <Users size={20} />
                   Unser Team
                 </a>
                 <a
                   href="#services"
-                  className="glow-border relative w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-200 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 active:scale-95 transition-all duration-300 interactive text-center flex items-center justify-center gap-2"
+                  className="glow-border relative flex-1 sm:flex-none px-5 md:px-10 py-4 md:py-5 border-2 border-slate-200 text-slate-950 rounded-xl md:rounded-2xl font-black hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 active:scale-95 transition-all duration-300 interactive text-center flex items-center justify-center gap-2"
                 >
                   <Sparkles size={20} />
                   Unsere Leistungen
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Industry Marquee */}
+        <div className="relative mt-16 md:mt-24 overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-gray-100 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-gray-100 to-transparent z-10 pointer-events-none" />
+          <div className="flex marquee-track gap-6 md:gap-10">
+            {[
+              { icon: Wrench, label: 'Handwerker' },
+              { icon: Scissors, label: 'Friseur' },
+              { icon: Car, label: 'Autogarage' },
+              { icon: UtensilsCrossed, label: 'Restaurant' },
+              { icon: Stethoscope, label: 'Arztpraxis' },
+              { icon: ChefHat, label: 'Bäckerei' },
+              { icon: Leaf, label: 'Gärtnerei' },
+              { icon: ShoppingBag, label: 'Boutique' },
+              { icon: Camera, label: 'Fotograf' },
+              { icon: Hammer, label: 'Schreiner' },
+              { icon: Activity, label: 'Physiotherapie' },
+              { icon: Flower2, label: 'Kosmetik' },
+            ].concat([
+              { icon: Wrench, label: 'Handwerker' },
+              { icon: Scissors, label: 'Friseur' },
+              { icon: Car, label: 'Autogarage' },
+              { icon: UtensilsCrossed, label: 'Restaurant' },
+              { icon: Stethoscope, label: 'Arztpraxis' },
+              { icon: ChefHat, label: 'Bäckerei' },
+              { icon: Leaf, label: 'Gärtnerei' },
+              { icon: ShoppingBag, label: 'Boutique' },
+              { icon: Camera, label: 'Fotograf' },
+              { icon: Hammer, label: 'Schreiner' },
+              { icon: Activity, label: 'Physiotherapie' },
+              { icon: Flower2, label: 'Kosmetik' },
+            ]).map((item, idx) => (
+              <div key={idx} className="flex items-center gap-3 flex-shrink-0 bg-white border border-slate-200 rounded-full px-5 py-3 shadow-sm">
+                <item.icon size={18} className="text-blue-500 flex-shrink-0" />
+                <span className="text-slate-700 font-bold text-sm whitespace-nowrap">{item.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -217,6 +257,17 @@ const About: React.FC = () => {
         @keyframes spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
+        }
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .marquee-track {
+          animation: marquee 30s linear infinite;
+          width: max-content;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </>

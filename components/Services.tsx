@@ -96,27 +96,27 @@ const Services: React.FC = () => {
               onMouseMove={handleCardInteraction as any}
               onMouseLeave={handleCardLeave as any}
               style={{ transitionDelay: `${idx * 150}ms` }}
-              className={`reveal-text relative group bg-white/5 border border-white/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] transition-all duration-700 overflow-hidden active:scale-[0.98] active:bg-white/10 ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
+              className={`reveal-text relative group bg-white/5 border border-white/10 p-4 md:p-8 rounded-[1.25rem] md:rounded-[2.5rem] transition-all duration-700 overflow-hidden active:scale-[0.98] active:bg-white/10 ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
             >
               <div className="dynamic-light absolute w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[80px] pointer-events-none opacity-0 transition-opacity duration-300" />
 
               <div
-                className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${service.color} rounded-xl md:rounded-2xl flex items-center justify-center text-white mb-4 md:mb-8 shadow-2xl`}
+                className={`w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br ${service.color} rounded-xl md:rounded-2xl flex items-center justify-center text-white mb-3 md:mb-8 shadow-2xl flex-shrink-0`}
               >
-                <service.icon className="w-6 h-6 md:w-8 md:h-8" />
+                <service.icon className="w-5 h-5 md:w-8 md:h-8" />
               </div>
 
-              <h3 className="text-xl md:text-2xl font-black text-white mb-2 md:mb-4 group-hover:text-blue-400 transition-colors tracking-tight">
+              <h3 className="text-lg md:text-2xl font-black text-white mb-1.5 md:mb-4 group-hover:text-blue-400 transition-colors tracking-tight">
                 {service.title}
               </h3>
-              <p className="text-slate-400 text-sm md:text-lg leading-relaxed font-light mb-4 md:mb-8">
+              <p className="text-slate-400 text-sm md:text-lg leading-relaxed font-light mb-3 md:mb-8">
                 {service.desc}
               </p>
 
-              <div className="flex items-center gap-3 text-white font-bold group-hover:gap-5 transition-all text-xs md:text-base">
+              <div className="flex items-center gap-2 md:gap-3 text-white font-bold group-hover:gap-4 md:group-hover:gap-5 transition-all text-xs md:text-base">
                 Mehr erfahren
-                <ArrowRight size={18} className="text-blue-500 md:w-5 md:h-5" />
+                <ArrowRight size={16} className="text-blue-500 md:w-5 md:h-5" />
               </div>
             </a>
           ))}
