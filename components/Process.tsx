@@ -123,7 +123,8 @@ const Process: React.FC = () => {
 
           <div
             ref={scrollRef}
-            className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 overflow-x-auto lg:overflow-x-visible pt-6 lg:pt-0 pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x relative z-10"
+            className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 overflow-x-auto lg:overflow-x-visible pt-6 lg:pt-0 pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 relative z-10"
+            style={{ touchAction: 'pan-x pan-y' }}
           >
             {steps.map((step, idx) => (
               <div
