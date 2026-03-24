@@ -142,7 +142,8 @@ const Pricing: React.FC = () => {
         <div className="relative max-w-7xl mx-auto">
           <div
             ref={scrollRef}
-            className="flex items-stretch lg:grid lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0 touch-pan-x"
+            className="flex items-stretch lg:grid lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 lg:px-0 lg:mx-0"
+            style={{ touchAction: 'pan-x pan-y' }}
           >
             {plans.map((plan, idx) => {
               const isExpanded = expandedIndex === idx;
