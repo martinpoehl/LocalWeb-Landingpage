@@ -1,19 +1,34 @@
 import React from 'react';
+import { ArrowLeft, Code2, Globe, Sparkles } from 'lucide-react';
 
 const Imprint: React.FC = () => {
     return (
         <div className="bg-slate-950 min-h-screen text-slate-300 selection:bg-blue-500/30">
-            {/* Header / Nav Placeholder (Back to Home) */}
-            <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-                <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-                    <a href="/" className="text-2xl font-bold font-display tracking-tight text-white">
-                        Local<span className="text-blue-600">Web</span>
+            <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 py-4">
+                <div className="container mx-auto px-5 md:px-6 flex items-center justify-between">
+                    <a href="/" className="flex items-center gap-4 group interactive">
+                        <div className="relative">
+                            <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-2 rounded-xl transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 shadow-[0_0_25px_rgba(37,99,235,0.4)]">
+                                <Code2 className="text-white w-5 h-5" />
+                                <div className="absolute -top-1.5 -right-1.5 bg-slate-900 rounded-full p-0.5 border border-blue-500/50">
+                                    <Globe className="text-blue-400 w-3 h-3 animate-spin-slow" />
+                                </div>
+                                <Sparkles className="absolute -bottom-1 -left-1 text-cyan-300 w-3 h-3 animate-pulse" />
+                            </div>
+                            <div className="absolute -inset-2 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-xl font-black font-display tracking-tight text-white leading-none">
+                                Local<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Web</span>
+                            </span>
+                        </div>
                     </a>
-                    <a href="/" className="text-sm font-medium hover:text-white transition-colors">
-                        Zurück zur Startseite
+                    <a href="/" className="flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors group">
+                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                        <span>Zurück zur Startseite</span>
                     </a>
                 </div>
-            </nav>
+            </header>
 
             <main className="container mx-auto px-6 pt-32 pb-20 max-w-4xl">
                 <h1 className="text-4xl md:text-5xl font-black text-white mb-12 tracking-tight">Impressum</h1>
