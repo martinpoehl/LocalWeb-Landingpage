@@ -126,14 +126,14 @@ const Pricing: React.FC = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <span className="text-blue-500 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block md:hover:text-cyan-400 transition-colors duration-300 cursor-default">
+          <span className="text-blue-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block md:hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Transparenz
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
             Einfache Pakete.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Faire Preise.</span>
           </h2>
-          <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
+          <p className="text-slate-400 text-base sm:text-lg lg:text-xl font-light leading-relaxed">
             Wir bieten massgeschneiderte Lösungen für jedes Budget. Da jedes Projekt einzigartig ist,
             kalkulieren wir unsere Preise individuell auf Basis dieser Pakete.
           </p>

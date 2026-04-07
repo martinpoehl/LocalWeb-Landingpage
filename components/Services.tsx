@@ -75,15 +75,15 @@ const Services: React.FC = () => {
     >
       <div className="container mx-auto px-5 md:px-6">
         <div className="mb-10 md:mb-14">
-          <span className="text-blue-500 font-bold uppercase tracking-widest text-[11px] md:text-xs mb-4 block reveal-text text-center hover:text-cyan-400 transition-colors duration-300 cursor-default">
+          <span className="text-blue-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block reveal-text text-center hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Ihr digitales Fundament
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight reveal-text text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight leading-tight reveal-text text-center">
             Lösungen, die echten <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Mehrwert bringen.</span>
           </h2>
 
           <div className="flex flex-col items-center gap-4 md:gap-6">
-            <p className="text-slate-400 text-base md:text-xl font-light max-w-2xl leading-relaxed reveal-text text-center">
+            <p className="text-slate-400 text-base sm:text-lg lg:text-xl font-light max-w-2xl leading-relaxed reveal-text text-center">
               Investieren Sie in eine Online-Präsenz, die sich wirklich auszahlt. Keine austauschbaren 08/15-Baukästen, sondern auf Sie zugeschnittene Werkzeuge, die Ihre tägliche Arbeit erleichtern und potenzielle Kunden vom ersten Klick an überzeugen.
             </p>
           </div>

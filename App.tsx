@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import BeforeAfter from './components/BeforeAfter';
 import Price from "./components/Pricing";
 import Process from './components/Process';
 import Kunden from './components/Kunden';
@@ -27,6 +28,7 @@ const HomePage: React.FC<{ activeSection: string }> = ({ activeSection }) => {
         <Hero />
         <About />
         <Services />
+        <BeforeAfter />
         <Process />
         <Price />
         <Kunden />

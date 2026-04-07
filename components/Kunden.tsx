@@ -99,16 +99,18 @@ const Kunden: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-5 md:px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-20 reveal-text">
-          <span className="text-blue-600 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-3 md:mb-4 block hover:text-cyan-500 transition-colors duration-300 cursor-default">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 reveal-text">
+          <span className="text-blue-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Referenzen
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 md:mb-6 tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
             Was unsere <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Kunden</span> sagen.
           </h2>
-          <p className="text-slate-600 text-base md:text-xl font-light leading-relaxed">
-            Vertrauen ist die Basis jeder erfolgreichen Zusammenarbeit. Wir sind stolz darauf, lokale Unternehmen auf ihrem digitalen Weg zu begleiten.
-          </p>
+          <div className="flex flex-col items-center">
+            <p className="text-slate-600 max-w-2xl text-base sm:text-lg lg:text-xl font-light leading-relaxed text-center">
+              Vertrauen ist die Basis jeder erfolgreichen Zusammenarbeit. Wir sind stolz darauf, lokale Unternehmen auf ihrem digitalen Weg zu begleiten.
+            </p>
+          </div>
         </div>
 
         {/* Slider Wrapper */}

@@ -8,22 +8,22 @@ const Process: React.FC = () => {
 
   const steps = [
     {
-      title: '1 - Erstberatung',
+      title: 'Erstberatung',
       desc: 'Analyse Ihrer Ziele und der lokalen Zielgruppe in einem kostenlosen Erstgespräch.',
       icon: MessageSquare,
     },
     {
-      title: '2 - Konzept',
+      title: 'Konzept',
       desc: 'Erstellung eines modernen Designs, das perfekt zu Ihrer Marke und Region passt.',
       icon: Palette,
     },
     {
-      title: '3 - Entwicklung',
+      title: 'Entwicklung',
       desc: 'Programmierung mit Fokus auf Performance, Sicherheit und mobile Optimierung.',
       icon: Code,
     },
     {
-      title: '4 - Launch',
+      title: 'Launch',
       desc: 'Nach gründlichen Tests geht Ihre Seite live, inklusive SEO-Basics für Google.',
       icon: Rocket,
     },
@@ -93,16 +93,18 @@ const Process: React.FC = () => {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div ref={sectionRef} className="relative pt-0 max-w-7xl mx-auto px-4 lg:px-0">
-        <div className="text-center mb-16 md:mb-20">
-          <span className="text-blue-600 font-bold uppercase tracking-[0.25em] text-[10px] md:text-sm mb-4 block hover:text-cyan-500 transition-colors duration-300 cursor-default">
+        <div className="text-center mb-10 md:mb-14 reveal-text">
+          <span className="text-blue-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Workflow
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
             So begleiten wir Sie zum <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Erfolg.</span>
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-base md:text-xl leading-relaxed font-light">
-            Unser bewährter Prozess für Ihr digitales Wachstum. Wir begleiten Sie von der ersten Idee bis zum erfolgreichen Launch – transparent, partnerschaftlich und zielorientiert:
-          </p>
+          <div className="flex flex-col items-center">
+            <p className="text-slate-600 max-w-2xl text-base sm:text-lg lg:text-xl font-light leading-relaxed text-center">
+              Unser bewährter Prozess für Ihr digitales Wachstum. Wir begleiten Sie von der ersten Idee bis zum erfolgreichen Launch – transparent, partnerschaftlich und zielorientiert:
+            </p>
+          </div>
         </div>
 
         <div className="relative">
@@ -137,6 +139,10 @@ const Process: React.FC = () => {
                   <div className={`relative z-10 w-20 h-20 md:w-24 md:h-24 bg-white border border-slate-100 rounded-full flex items-center justify-center transition-all duration-500 shadow-lg lg:shadow-2xl text-blue-600 lg:group-hover:text-white lg:group-hover:bg-blue-600 lg:group-hover:border-blue-400 ${activeIndex === idx ? 'max-lg:bg-blue-600 max-lg:text-white max-lg:border-blue-400' : ''}`}>
                     <step.icon size={32} strokeWidth={1.5} className="relative z-10" />
                     <div className={`absolute inset-0 rounded-full border border-blue-500/30 transition-all duration-700 scale-100 opacity-0 lg:group-hover:scale-125 lg:group-hover:opacity-100 ${activeIndex === idx ? 'max-lg:scale-125 max-lg:opacity-100' : ''}`} />
+                    
+                    <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-8 h-8 md:w-10 md:h-10 bg-cyan-500 text-white font-black text-sm md:text-base flex items-center justify-center rounded-full border-4 border-white shadow-xl lg:group-hover:scale-110 transition-transform duration-500 z-20">
+                      {idx + 1}
+                    </div>
                   </div>
                 </div>
 

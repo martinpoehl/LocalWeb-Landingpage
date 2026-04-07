@@ -47,14 +47,14 @@ const Contact: React.FC = () => {
 
       <div className="container mx-auto px-5 md:px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20 reveal-text">
-          <span className="text-blue-500 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
+          <span className="text-blue-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block hover:text-cyan-400 transition-colors duration-300 cursor-default">
             Kontakt
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
             Lassen Sie uns Ihr{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Projekt besprechen.</span>
           </h2>
-          <p className="text-slate-400 text-base md:text-lg">
+          <p className="text-slate-400 text-base sm:text-lg lg:text-xl font-light leading-relaxed">
             Haben Sie eine Frage oder eine konkrete Idee? Schreiben Sie uns einfach. Wir melden uns innerhalb von 24 Stunden bei Ihnen für ein unverbindliches Gespräch.
           </p>
         </div>
