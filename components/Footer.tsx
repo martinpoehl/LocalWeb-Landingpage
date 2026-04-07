@@ -30,8 +30,8 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-5 md:px-6">
         
         {/* Newsletter Section */}
-        <div className="py-12 md:py-16 border-b border-slate-300">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="py-6 md:py-8 border-b border-slate-300">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Bleiben Sie auf dem Laufenden</h3>
               <p className="text-slate-500">Tipps für Ihr lokales Marketing direkt in Ihr Postfach.</p>
@@ -52,9 +52,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+        <div className="py-6 md:py-8 grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 md:gap-8">
           {/* Column 1: Branding & Social */}
-          <div className="space-y-6 lg:col-span-1 sm:col-span-2">
+          <div className="space-y-4 col-span-2 lg:col-span-1">
             <div className="flex items-center gap-4">
               <div className="relative bg-gradient-to-br from-blue-600 to-cyan-500 p-2 rounded-lg shadow-lg">
                 <Code2 className="text-white w-5 h-5" />
@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600/80 mt-1">Websolutions</span>
               </div>
             </div>
-            <p className="text-slate-500 leading-relaxed text-sm md:text-base pr-4">
+            <p className="text-slate-500 leading-relaxed text-sm pr-4">
               Ihre digitale Full-Service-Agentur für professionelle Web-Lösungen, die lokale Unternehmen sichtbar machen.
             </p>
             <div className="flex gap-4">
@@ -83,33 +83,33 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Column 2: Webseite */}
-          <div className="sm:pl-0">
-            <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Navigation</h4>
+          <div className="col-span-1 sm:pl-0">
+            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider mb-3">Navigation</h4>
             <ul className="space-y-1">
               {agencyLinks.map(link => (
                 <li key={link.name}>
-                  <a href={link.href || `#${link.id}`} className="text-slate-500 hover:text-blue-600 active:text-blue-700 transition-colors text-base font-medium py-2 block">{link.name}</a>
+                  <a href={link.href || `#${link.id}`} className="text-slate-500 hover:text-blue-600 active:text-blue-700 transition-colors text-sm font-medium py-1 block">{link.name}</a>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Column 3: Leistungen */}
-          <div>
-            <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Leistungen</h4>
+          <div className="col-span-1">
+            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider mb-3">Leistungen</h4>
             <ul className="space-y-1">
               {serviceLinks.map(link => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-slate-500 hover:text-blue-600 active:text-blue-700 transition-colors text-base font-medium py-2 block">{link.name}</a>
+                  <a href={link.href} className="text-slate-500 hover:text-blue-600 active:text-blue-700 transition-colors text-sm font-medium py-1 block">{link.name}</a>
                 </li>
               ))}
             </ul>
           </div>
           
           {/* Column 4: Kontakt */}
-          <div>
-            <h4 className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-6">Kontakt</h4>
-            <ul className="space-y-4 text-slate-500">
+          <div className="col-span-2 lg:col-span-1">
+            <h4 className="text-slate-900 text-xs font-bold uppercase tracking-wider mb-3">Kontakt</h4>
+            <ul className="space-y-2 text-slate-500 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-blue-600 mt-1 shrink-0" />
                 <span>Winterthur, Schweiz</span>
@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
 
         </div>
 
-        <div className="py-8 border-t border-slate-200 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+        <div className="py-4 border-t border-slate-200 flex flex-col-reverse md:flex-row justify-between items-center gap-3">
           <p className="text-slate-500 text-xs font-medium text-center md:text-left">
             © {currentYear} LocalWeb. Alle Rechte vorbehalten.
           </p>

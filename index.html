@@ -42,6 +42,18 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* Scaling root font size down on desktop to make the UI more compact */
+    @media (min-width: 1024px) {
+      html {
+        font-size: 14px;
+      }
+    }
+    @media (min-width: 1536px) {
+      html {
+        font-size: 15px;
+      }
+    }
+
     section {
       scroll-margin-top: -15px;
     }
@@ -92,7 +104,7 @@
       z-index: 10000;
       box-shadow: 0 0 10px rgba(37, 99, 235, 0.8);
       transition:
-        transform 0.1s ease-out,
+        transform 0.05s cubic-bezier(0.2, 0, 0.2, 1),
         background 0.3s ease;
       display: none;
     }
@@ -133,6 +145,14 @@
       filter: blur(80px);
       opacity: 0.5;
       z-index: 0;
+      animation: mesh-flow 15s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    }
+
+    @keyframes mesh-flow {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.5; filter: blur(80px); }
+      33% { transform: scale(1.05) translate(2%, 2%); opacity: 0.6; filter: blur(90px); }
+      66% { transform: scale(0.95) translate(-2%, 2%); opacity: 0.7; filter: blur(100px); }
+      100% { transform: scale(1) translate(0, 0); opacity: 0.5; filter: blur(80px); }
     }
 
     .reveal-text {
@@ -197,6 +217,26 @@
 
     :focus:not(:focus-visible) {
       outline: none;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: float 6s ease-in-out infinite;
+      animation-delay: 3s;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .animate-shimmer {
+      background-size: 200% auto;
+      animation: shimmer 4s linear infinite;
     }
   </style>
 </head>

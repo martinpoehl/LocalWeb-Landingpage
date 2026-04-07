@@ -134,7 +134,7 @@ const Pricing: React.FC = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Faire Preise.</span>
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
-            Wir bieten maßgeschneiderte Lösungen für jedes Budget. Da jedes Projekt einzigartig ist,
+            Wir bieten massgeschneiderte Lösungen für jedes Budget. Da jedes Projekt einzigartig ist,
             kalkulieren wir unsere Preise individuell auf Basis dieser Pakete.
           </p>
         </div>
@@ -157,17 +157,26 @@ const Pricing: React.FC = () => {
                     transition-all duration-700 overflow-hidden
                     ${window.innerWidth < 768 ? 'w-[82vw] flex-shrink-0 snap-center' : 'w-full'}
                     flex flex-col h-auto
-                    border-2 md:hover:border-blue-500/50 md:hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]
+                    border-2 text-white
+                    ${
+                      idx === 1 
+                        ? 'border-blue-500/50 bg-slate-800 shadow-[0_0_50px_rgba(59,130,246,0.2)] z-10 transform lg:scale-105 lg:-translate-y-2 backdrop-blur-2xl' 
+                        : 'border-slate-800 bg-slate-900/80 shadow-xl shadow-slate-950/20 lg:hover:-translate-y-2 lg:hover:border-blue-500/30 backdrop-blur-lg'
+                    }
                     ${
                       isVisible
                         ? 'opacity-100 translate-y-0 rotate-x-0'
                         : 'opacity-0 translate-y-20 rotate-x-12'
                     }
-                    bg-slate-900 border-slate-800 text-white shadow-xl shadow-slate-950/20 md:hover:-translate-y-2
                   `}
                   style={{ transitionDelay: `${plan.delay}ms` }}
                 >
                   <div className="flex-1 flex flex-col">
+                    {idx === 1 && (
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[10px] font-bold uppercase tracking-widest py-1.5 px-6 rounded-b-xl shadow-lg z-20">
+                        Empfohlen
+                      </div>
+                    )}
                     <div className="flex items-center justify-between md:block mb-4 md:mb-6">
                       <div className="flex items-center md:block gap-4">
                         <div
@@ -234,7 +243,7 @@ const Pricing: React.FC = () => {
                       
                       <a
                         href="#contact"
-                        className="glow-border relative mt-5 md:mt-8 w-full flex items-center justify-center gap-3 py-4 md:py-5 rounded-xl md:rounded-2xl font-black bg-blue-600 text-white md:hover:bg-blue-700 md:hover:scale-105 active:scale-95 active:bg-blue-700 transition-all duration-300 shadow-xl interactive"
+                        className={`glow-border relative mt-5 md:mt-8 w-full flex items-center justify-center gap-3 py-4 md:py-5 rounded-xl md:rounded-2xl font-black text-white transition-all duration-300 shadow-xl interactive ${idx === 1 ? 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]' : 'bg-slate-800 hover:bg-slate-700'}`}
                       >
                         <span className="relative">Anfragen</span>
                         <ArrowRight size={20} className="relative" />

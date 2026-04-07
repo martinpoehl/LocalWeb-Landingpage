@@ -86,7 +86,7 @@ const Privacy: React.FC = () => {
                         <p className="leading-relaxed mb-4">
                             Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br />
                             LocalWeb Websolutions<br />
-                            Musterstraße 123<br />
+                            Musterstrasse 123<br />
                             8424 Embrach<br />
                             Schweiz<br />
                             <br />

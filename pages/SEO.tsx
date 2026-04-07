@@ -93,7 +93,7 @@ const SEO: React.FC = () => {
                                 'Technische SEO (Speed & Struktur)',
                                 'Content-Optimierung',
                                 'Aufbau von Backlinks',
-                                'Regelmäßiges Reporting',
+                                'Regelmässiges Reporting',
                                 'Konkurrenz-Analyse',
                                 'Lokalzitate & Branchenbücher'
                             ].map((item, i) => (

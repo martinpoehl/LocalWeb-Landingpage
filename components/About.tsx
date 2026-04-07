@@ -118,22 +118,20 @@ const About: React.FC = () => {
             </div>
 
             <div className="w-full lg:w-1/2 order-1 lg:order-2">
-              <span className="text-blue-600 font-black uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 md:mb-8 block reveal-text hover:text-cyan-500 transition-colors duration-300 cursor-default">
-                Partner für den Mittelstand
+              <span className="text-blue-600 font-bold uppercase tracking-widest text-[11px] md:text-xs mb-4 block reveal-text hover:text-cyan-500 transition-colors duration-300 cursor-default">
+                Von Menschen für Menschen
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-tight tracking-tight reveal-text">
-                Unsere Expertise für{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 italic">Ihren Erfolg.</span>
+              <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 mb-6 leading-tight tracking-tight reveal-text">
+                Starkes Handwerk verdient einen{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 italic">starken Auftritt.</span>
               </h2>
-              <p className="text-slate-700 text-lg md:text-xl leading-relaxed mb-8 md:mb-10 font-normal reveal-text">
-                Wir wissen, was lokale Unternehmen brauchen: Vertrauen, Klarheit und Ergebnisse. LocalWeb unterstützt
-                Handwerker, Gastronomen und Fachhändler dabei, digital so professionell aufzutreten, wie sie ihre Arbeit
-                vor Ort verrichten. Keine leeren Versprechen, sondern echte Weblösungen für die Nachbarschaft.
+              <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 font-normal reveal-text">
+                Wir wissen, worauf es ankommt: Sie haben im Alltag keine Zeit für kompliziertes Technik-Kauderwelsch. Sie brauchen eine Lösung, die verlässlich funktioniert und Ihr Geschäft voranbringt. Deshalb hören wir Ihnen ganz genau zu, verstehen Ihren Betrieb und bauen eine Webseite, die so ehrlich, wertig und professionell ist wie Ihre Arbeit selbst. Wir sind Ihr direkter Ansprechpartner – heute und in Zukunft.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mb-10 md:mb-16 reveal-text">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16 reveal-text">
                 <div className="group">
-                  <div className="text-3xl md:text-4xl font-black text-slate-950 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">
+                  <div className="text-3xl md:text-4xl font-extrabold text-slate-950 mb-1 group-hover:text-blue-600 transition-colors tracking-tight">
                     <CountUp end={10} suffix="+" />
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
@@ -141,7 +139,7 @@ const About: React.FC = () => {
                   </div>
                 </div>
                 <div className="group">
-                  <div className="text-3xl md:text-4xl font-black text-slate-950 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">
+                  <div className="text-3xl md:text-4xl font-extrabold text-slate-950 mb-1 group-hover:text-blue-600 transition-colors tracking-tight">
                     <CountUp end={15} suffix="+" />
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
@@ -149,7 +147,7 @@ const About: React.FC = () => {
                   </div>
                 </div>
                 <div className="group">
-                  <div className="text-3xl md:text-4xl font-black text-slate-950 mb-1 md:mb-2 group-hover:text-cyan-500 transition-colors">
+                  <div className="text-3xl md:text-4xl font-extrabold text-slate-950 mb-1 group-hover:text-cyan-500 transition-colors tracking-tight">
                     <CountUp end={100} suffix="%" />
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Leidenschaft</div>

@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
               className="bg-slate-800/50 p-5 sm:p-8 rounded-2xl md:rounded-[2rem] border border-slate-700/50 backdrop-blur-md"
             >
               {/* Vorname + Nachname */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
+              <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
                 <div>
                   <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
                     Vorname
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
                     name="first_name"
                     required
                     placeholder="Max"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:bg-slate-800/90 focus:outline-none transition-all duration-300 placeholder:text-slate-600 text-sm sm:text-base hover:bg-slate-800/40 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
                 <div>
@@ -126,13 +126,13 @@ const Contact: React.FC = () => {
                     name="last_name"
                     required
                     placeholder="Mustermann"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:bg-slate-800/90 focus:outline-none transition-all duration-300 placeholder:text-slate-600 text-sm sm:text-base hover:bg-slate-800/40 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
 
               {/* E-Mail + Firma */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
+              <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-6">
                 <div>
                   <label className="block text-slate-400 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 ml-1">
                     E-Mail Adresse
@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
                     name="user_email"
                     required
                     placeholder="beispiel@firma.ch"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:bg-slate-800/90 focus:outline-none transition-all duration-300 placeholder:text-slate-600 text-sm sm:text-base hover:bg-slate-800/40 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
                 <div>
@@ -153,7 +153,7 @@ const Contact: React.FC = () => {
                     type="text"
                     name="company"
                     placeholder="Name Ihrer Firma"
-                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                    className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:bg-slate-800/90 focus:outline-none transition-all duration-300 placeholder:text-slate-600 text-sm sm:text-base hover:bg-slate-800/40 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   />
                 </div>
               </div>
@@ -165,7 +165,7 @@ const Contact: React.FC = () => {
                 </label>
                 <select
                   name="project_type"
-                  className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-base hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  className="w-full bg-slate-900/50 border border-slate-700 text-slate-400 rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:bg-slate-800/90 focus:outline-none transition-all duration-300 text-sm sm:text-base hover:bg-slate-800/40 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                   defaultValue=""
                 >
                   <option value="" disabled>Bitte wählen Sie eine Kategorie</option>
@@ -186,7 +186,7 @@ const Contact: React.FC = () => {
                   name="message"
                   required
                   placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben..."
-                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-600 text-base resize-none hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+                  className="w-full bg-slate-900/50 border border-slate-700 text-white rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:ring-2 focus:ring-blue-500 focus:bg-slate-800/90 focus:outline-none transition-all duration-300 placeholder:text-slate-600 text-sm sm:text-base resize-none hover:bg-slate-800/40 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]"
                 ></textarea>
               </div>
 
@@ -194,7 +194,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={status !== 'idle'}
-                className={`glow-border relative w-full group inline-flex items-center justify-center px-6 sm:px-8 py-4 sm:py-5 font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive hover:scale-105 ${
+                className={`glow-border relative w-full group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-5 text-sm sm:text-base font-black text-white transition-all duration-300 rounded-xl shadow-lg interactive hover:scale-105 ${
                   status === 'success'
                     ? 'bg-green-600'
                     : status === 'error'
